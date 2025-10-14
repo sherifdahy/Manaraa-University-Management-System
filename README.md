@@ -7,11 +7,11 @@ It is designed to support multiple institutions, provide robust role-based acces
 ---
 
 ## 👥 Team
-- **Sherif Mohamed Dahy** — Developer  
-- **Abdelaziz Ahmed Abdelaziz** — Developer  
-- **Ebrahim Amin** — Developer  
-- **Ali Essa** — Developer  
-- **Omar Zaky** — Developer
+- **Sherif Mohamed Dahy** — Developer  (Full Stack)
+- **Omar Zaky** — Developer (Full Stack)
+- **Ebrahim Amin** — Developer  (Cloud)
+- **Ali Essa** — Developer  (Front End)
+- **Abdelaziz Ahmed Abdelaziz** — Developer  (Front End)
 
 ---
 
