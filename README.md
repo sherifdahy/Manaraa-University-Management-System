@@ -1,78 +1,67 @@
 # 🎓 Manaraa University Management System
 
 ## 📘 Overview
-**Manaraa** is a comprehensive **University Management Platform** that unifies both **Student Information System (SIS)** and **Learning Management System (LMS)** functionalities.  
-It provides a centralized solution for managing academic operations, user roles, course workflows, and digital learning environments across multiple universities.
-
-The system focuses on scalability, flexibility, and automation — enabling institutions to handle complex academic structures while maintaining a seamless user experience for students, faculty, and administration.
+**Manaraa** is a comprehensive **University Management Platform** that unifies Student Information System (SIS) and Learning Management System (LMS) capabilities into a single, scalable solution.  
+It is designed to support multiple institutions, provide robust role-based access control, and automate academic workflows with a focus on maintainability and extensibility.
 
 ---
 
-## 👥 Team Members
-| Name | Role |
-|------|------|
-| **Sherif Mohamed Dahy** | Developer |
-| **Abdelaziz Ahmed Abdelaziz** | Developer |
-| **Ebrahim Amin** | Developer |
-| **Ali Essa** | Developer |
-| **Omar Zaky** | Developer |
+## 👥 Team
+- **Sherif Mohamed Dahy** — Developer  
+- **Abdelaziz Ahmed Abdelaziz** — Developer  
+- **Ebrahim Amin** — Developer  
+- **Ali Essa** — Developer  
+- **Omar Zaky** — Developer
 
 ---
 
-## 🧱 Architecture
-**Manaraa** follows a modular and layered architecture designed for maintainability and scalability.  
-The system separates concerns across distinct layers, enabling clean code organization and easier unit testing.
+## 🧱 Architecture Summary
+Manaraa follows a modular, layered architecture to separate concerns and enable independent development, testing, and deployment of components.
 
-Typical layers include:
-- **API Layer** – Handles client communication and RESTful endpoints.  
-- **Business Logic Layer (BLL)** – Contains the application’s core logic and services.  
-- **Data Access Layer (DAL)** – Responsible for database communication using ORM (Entity Framework Core).  
-- **Core/Domain Layer** – Defines business models and shared abstractions.  
-- **Shared Layer** – Common utilities, constants, and helpers used across the system.
+Core layers typically include:
+- **API Layer** — RESTful endpoints, authentication, and request validation.  
+- **Application / BLL (Business Logic Layer)** — Use cases, orchestration, domain services.  
+- **Data / DAL (Data Access Layer)** — Persistence, repositories, migrations.  
+- **Domain / Core** — Entities, value objects, domain rules, interfaces.  
+- **Shared / Infrastructure** — Logging, caching, common utilities, cross-cutting concerns.
 
----
-
-## ⚙️ Key Features
-- 🎯 **Multi-University Architecture** — Each university has its own isolated schema.  
-- 🔐 **Role-Based Access Control** — Powered by Microsoft Identity for users and roles.  
-- 🧾 **Automated Request Workflows** — Similar to Google Forms with dynamic approval steps.  
-- 📚 **Comprehensive Academic Management** — Covers courses, scheduling, and performance tracking.  
-- 🧠 **Integrated Learning Tools** — Supports quizzes, materials, lectures, and attendance tracking.  
-- 📊 **Survey & Feedback System** — Students must complete surveys before accessing new features.  
-- 🏛️ **Scalable Design** — Built to support future extensions for multiple institutions.  
+This organization supports testability, clean boundaries, and incremental scaling.
 
 ---
 
-## 🧠 Tech Stack
-| Category | Technology |
-|-----------|-------------|
-| **Backend** | ASP.NET Core Web API |
-| **Frontend** | Angular |
-| **Database** | Microsoft SQL Server |
-| **ORM** | Entity Framework Core |
-| **Authentication** | Microsoft Identity |
-| **Architecture** | Clean / Layered Architecture |
-| **Version Control** | Git & GitHub |
+## ⚙️ Key Capabilities
+- Multi-tenant / multi-university support (isolated schemas per university)  
+- Microsoft Identity-based authentication and role management  
+- Automated request workflows (form-driven, configurable approval flows)  
+- Course and scheduling management, attendance and assessments  
+- Learning content: lectures, materials, quizzes, tasks  
+- Surveys and feedback mechanisms (enforcement rules for access)  
+- Extensible plugin points for future integrations (email, notifications, analytics)
 
 ---
 
-## 🧪 Installation & Setup
-Follow these steps to set up and run the project locally:
+## 🧠 Technology Stack (Suggested)
+> Replace or expand these as your implementation choices firm up.
 
-```bash
-# Clone the repository
-git clone https://github.com/<your-username>/Manaraa.git
+- **Backend:** ASP.NET Core Web API  
+- **Frontend:** Angular (or React/Vue depending on team preference)  
+- **Database:** Microsoft SQL Server  
+- **ORM:** Entity Framework Core  
+- **Auth:** Microsoft Identity  
+- **CI/CD:** GitHub Actions (recommended)  
+- **Containerization:** Docker (recommended for parity across environments)
 
-# Navigate to the project directory
-cd Manaraa
+---
 
-# Restore .NET dependencies
-dotnet restore
+## 🗺️ Entity Relationship Diagram (ERD)
 
-# Build and run the backend
-dotnet run
+The following diagram illustrates the main database entities and their relationships within the **Manaraa** system architecture.
 
-# (If Angular frontend is included)
-cd ClientApp
-npm install
-ng serve
+> The ERD helps visualize how universities, faculties, departments, programs, and users are connected across both SIS and LMS modules.
+
+### 📊 Diagram Preview
+![Manaraa ERD](./Working%20file/Design/Diagram/diagram.png)
+
+> 📁 *Path:* `Working file/Design/Diagram/diagram.png`
+
+If you prefer to open it separately, you can find the full-resolution version inside:
