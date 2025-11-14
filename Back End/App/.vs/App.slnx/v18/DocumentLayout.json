@@ -1,0 +1,152 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Graduation-Project-2025-2026\\Back End\\App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{97C111B6-3080-47CA-BE71-6C33685E2439}|..\\App.Application\\App.Application.csproj|f:\\graduation-project-2025-2026\\back end\\app.application\\handlers\\commands\\productcommandshandler\\createproductcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|f:\\graduation-project-2025-2026\\back end\\app\\app.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|solutionrelative:app.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|f:\\graduation-project-2025-2026\\back end\\app\\app.api\\dependancyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|solutionrelative:app.api\\dependancyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|f:\\graduation-project-2025-2026\\back end\\app\\app.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|solutionrelative:app.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|f:\\graduation-project-2025-2026\\back end\\app\\app.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EE34287-028B-42F0-B738-66B311865C32}|App.API\\App.API.csproj|solutionrelative:app.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C111B6-3080-47CA-BE71-6C33685E2439}|..\\App.Application\\App.Application.csproj|f:\\graduation-project-2025-2026\\back end\\app.application\\abstractions\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9766D00-0661-4299-BF28-906352968E71}|..\\App.Services\\App.Services.csproj|f:\\graduation-project-2025-2026\\back end\\app.services\\servicesregistrations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C111B6-3080-47CA-BE71-6C33685E2439}|..\\App.Application\\App.Application.csproj|f:\\graduation-project-2025-2026\\back end\\app.application\\commands\\productcommands\\createproductcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\appsettings.json",
+              "RelativeDocumentMoniker": "App.API\\appsettings.json",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\appsettings.json",
+              "RelativeToolTip": "App.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-14T13:03:27.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\Program.cs",
+              "RelativeDocumentMoniker": "App.API\\Program.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\Program.cs",
+              "RelativeToolTip": "App.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T13:00:42.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Result.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Application\\Abstractions\\Result.cs",
+              "RelativeDocumentMoniker": "..\\App.Application\\Abstractions\\Result.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Application\\Abstractions\\Result.cs",
+              "RelativeToolTip": "..\\App.Application\\Abstractions\\Result.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA9wCkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:56:46.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateProductCommandHandler.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Application\\Handlers\\Commands\\ProductCommandsHandler\\CreateProductCommandHandler.cs",
+              "RelativeDocumentMoniker": "..\\App.Application\\Handlers\\Commands\\ProductCommandsHandler\\CreateProductCommandHandler.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Application\\Handlers\\Commands\\ProductCommandsHandler\\CreateProductCommandHandler.cs",
+              "RelativeToolTip": "..\\App.Application\\Handlers\\Commands\\ProductCommandsHandler\\CreateProductCommandHandler.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAB8AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:44:37.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "App.API\\Controllers\\ProductsController.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "App.API\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:47:52.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DependancyInjection.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\DependancyInjection.cs",
+              "RelativeDocumentMoniker": "App.API\\DependancyInjection.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App\\App.API\\DependancyInjection.cs",
+              "RelativeToolTip": "App.API\\DependancyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:46:28.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ServicesRegistrations.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Services\\ServicesRegistrations.cs",
+              "RelativeDocumentMoniker": "..\\App.Services\\ServicesRegistrations.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Services\\ServicesRegistrations.cs",
+              "RelativeToolTip": "..\\App.Services\\ServicesRegistrations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:45:37.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateProductCommand.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Application\\Commands\\ProductCommands\\CreateProductCommand.cs",
+              "RelativeDocumentMoniker": "..\\App.Application\\Commands\\ProductCommands\\CreateProductCommand.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Application\\Commands\\ProductCommands\\CreateProductCommand.cs",
+              "RelativeToolTip": "..\\App.Application\\Commands\\ProductCommands\\CreateProductCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:43:04.857Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
