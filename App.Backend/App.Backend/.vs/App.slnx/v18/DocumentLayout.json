@@ -1,0 +1,516 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Graduation-Project-2025-2026\\Back End\\App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\academic\\academicyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\academic\\examseating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\academic\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\academic\\semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\assessment\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\assessment\\survey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\assessment\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\identity\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\dean.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\lms_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\lms_stuff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\sis_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\sis_stuff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\personnel\\vicedean.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\teaching\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\teaching\\lecture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\teaching\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\teaching\\meet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\university\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\university\\faq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\university\\faculty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\university\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\university\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\university\\university.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\relations\\configurations\\lecturestudentattendanceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\relations\\configurations\\semesterexamseatingstudentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48FB6E0-F0AF-0B9E-B89E-4A90945B48BB}|..\\App.Core\\App.Core.csproj|f:\\graduation-project-2025-2026\\back end\\app.core\\entities\\relations\\configurations\\quizstudentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 238,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationRole.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Identity\\ApplicationRole.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Identity\\ApplicationRole.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Identity\\ApplicationRole.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Identity\\ApplicationRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:50:36.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Task.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Assessment\\Task.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Assessment\\Task.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Assessment\\Task.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Assessment\\Task.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:43:06.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Survey.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Assessment\\Survey.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Assessment\\Survey.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Assessment\\Survey.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Assessment\\Survey.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:50:25.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Assessment\\Quiz.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Assessment\\Quiz.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Assessment\\Quiz.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Assessment\\Quiz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:48:56.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Semester.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\Semester.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Academic\\Semester.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\Semester.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Academic\\Semester.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:48:52.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Section.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\Section.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Academic\\Section.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\Section.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Academic\\Section.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:48:51.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ExamSeating.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\ExamSeating.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Academic\\ExamSeating.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\ExamSeating.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Academic\\ExamSeating.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:48:54.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AcademicYear.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\AcademicYear.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Academic\\AcademicYear.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Academic\\AcademicYear.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Academic\\AcademicYear.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:35:08.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Identity\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Identity\\ApplicationUser.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Identity\\ApplicationUser.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Identity\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:14.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dean.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Dean.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\Dean.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Dean.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\Dean.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:47:06.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Doctor.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\Doctor.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Doctor.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\Doctor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:24.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Instructor.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Instructor.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\Instructor.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Instructor.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\Instructor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:25.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LMS_Manager.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\LMS_Manager.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\LMS_Manager.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\LMS_Manager.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\LMS_Manager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:25.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LMS_Stuff.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\LMS_Stuff.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\LMS_Stuff.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\LMS_Stuff.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\LMS_Stuff.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:26.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SIS_Manager.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\SIS_Manager.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\SIS_Manager.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\SIS_Manager.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\SIS_Manager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:27.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SIS_Stuff.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\SIS_Stuff.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\SIS_Stuff.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\SIS_Stuff.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\SIS_Stuff.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:27.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Student.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Student.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\Student.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\Student.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:28.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ViceDean.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\ViceDean.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Personnel\\ViceDean.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Personnel\\ViceDean.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Personnel\\ViceDean.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:34.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Attendance.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Attendance.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Teaching\\Attendance.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Attendance.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Teaching\\Attendance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:42:40.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Lecture.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Lecture.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Teaching\\Lecture.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Lecture.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Teaching\\Lecture.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:42:14.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Material.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Material.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Teaching\\Material.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Material.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Teaching\\Material.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:50.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Meet.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Meet.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Teaching\\Meet.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Teaching\\Meet.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Teaching\\Meet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:51:51.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Department.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Department.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\University\\Department.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Department.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\University\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:29:36.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FAQ.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\FAQ.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\University\\FAQ.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\FAQ.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\University\\FAQ.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:48:21.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Faculty.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Faculty.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\University\\Faculty.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Faculty.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\University\\Faculty.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:39:16.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Program.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\University\\Program.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Program.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\University\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:39:40.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Subject.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\University\\Subject.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\Subject.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\University\\Subject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:41:07.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "University.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\University.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\University\\University.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\University\\University.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\University\\University.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:39:56.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SemesterExamSeatingStudentConfiguration.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Relations\\Configurations\\SemesterExamSeatingStudentConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Relations\\Configurations\\SemesterExamSeatingStudentConfiguration.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Relations\\Configurations\\SemesterExamSeatingStudentConfiguration.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Relations\\Configurations\\SemesterExamSeatingStudentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:28:28.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "QuizStudentConfiguration.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Relations\\Configurations\\QuizStudentConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Relations\\Configurations\\QuizStudentConfiguration.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Relations\\Configurations\\QuizStudentConfiguration.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Relations\\Configurations\\QuizStudentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:28:27.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "LectureStudentAttendanceConfiguration.cs",
+              "DocumentMoniker": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Relations\\Configurations\\LectureStudentAttendanceConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\App.Core\\Entities\\Relations\\Configurations\\LectureStudentAttendanceConfiguration.cs",
+              "ToolTip": "F:\\Graduation-Project-2025-2026\\Back End\\App.Core\\Entities\\Relations\\Configurations\\LectureStudentAttendanceConfiguration.cs",
+              "RelativeToolTip": "..\\App.Core\\Entities\\Relations\\Configurations\\LectureStudentAttendanceConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T19:28:26.819Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
