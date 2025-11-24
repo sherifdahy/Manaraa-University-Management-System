@@ -10,6 +10,5 @@ public static class ServicesRegistrations
 {
     public static void AddServicesRegistration(this IServiceCollection services)
     {
-        services.AddScoped<IProductServices, ProductServices>();
     }
 }

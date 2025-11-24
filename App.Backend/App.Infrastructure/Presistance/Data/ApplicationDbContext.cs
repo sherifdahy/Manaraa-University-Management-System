@@ -18,6 +18,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     #region Db Sets
     #endregion
 
+
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
 
@@ -25,6 +26,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     }
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         base.OnModelCreating(builder);
     }
 }

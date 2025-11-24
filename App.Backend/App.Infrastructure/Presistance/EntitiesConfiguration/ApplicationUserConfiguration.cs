@@ -11,6 +11,10 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
     private readonly PasswordHasher<ApplicationUser> _passwordHasher = new();
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
+        builder.Property(x => x.FirstName).HasMaxLength(100);
+
+        builder.Property(x => x.LastName).HasMaxLength(100);
+
         builder.HasData
         (
             new ApplicationUser()
@@ -23,7 +27,7 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
                 ConcurrencyStamp = DefaultUsers.AdminConcurrencyStamp,
                 SecurityStamp = DefaultUsers.AdminSecurityStamp,
                 EmailConfirmed = true,
-                PasswordHash = _passwordHasher.HashPassword(null!, DefaultUsers.AdminPassword),
+                //PasswordHash = _passwordHasher.HashPassword(null!, DefaultUsers.AdminPassword),
             }   
         );
     }

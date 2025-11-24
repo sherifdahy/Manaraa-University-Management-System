@@ -15,3 +15,8 @@ Release/
 *.suo
 *.userosscache
 *.sln.docstates
+
+
+## ASP.NET Core specific
+appsettings.Development.json
+secrets.json
