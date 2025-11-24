@@ -11,11 +11,8 @@ public class UnitOfWork : IUnitOfWork
     public UnitOfWork(ApplicationDbContext context)
     {
         _context = context;
-
-        Products = new Repository<Product>(_context);
     }
 
-    public IRepository<Product> Products { get; }
     public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
          return await _context.Database.BeginTransactionAsync(cancellationToken);

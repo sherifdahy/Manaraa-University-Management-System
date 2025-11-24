@@ -7,5 +7,5 @@ namespace App.Core.Interfaces;
 
 public interface IProductServices
 {
-    Task<Product> CreateAsync(Product product,CancellationToken cancellationToken);
+    //Task<Product> CreateAsync(Product product,CancellationToken cancellationToken);
 }

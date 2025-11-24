@@ -16,7 +16,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     }
 
     #region Db Sets
-    public virtual DbSet<Product> Products { get; set; }
     #endregion
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

@@ -11,11 +11,11 @@ public class ProductServices(IUnitOfWork unitOfWork) : IProductServices
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
-    public async Task<Product> CreateAsync(Product product, CancellationToken cancellationToken)
-    {
-        await _unitOfWork.Products.AddAsync(product,cancellationToken);
-        await _unitOfWork.SaveAsync(cancellationToken);
+    //public async Task<Product> CreateAsync(Product product, CancellationToken cancellationToken)
+    //{
+    //    await _unitOfWork.Products.AddAsync(product,cancellationToken);
+    //    await _unitOfWork.SaveAsync(cancellationToken);
 
-        return product;
-    }
+    //    return product;
+    //}
 }

@@ -17,5 +17,5 @@ public class Student
     public int UserId { get; set; }
     public int ProgramId { get; set; }
 
-    public UniversityManagement.Program Program { get; set; } = default!;
+    //public UniversityManagement.Program Program { get; set; } = default!;
 }
