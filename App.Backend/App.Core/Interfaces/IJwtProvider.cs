@@ -1,0 +1,10 @@
+﻿using App.Core.Entities.Identity;
+
+namespace App.Core.Interfaces;
+
+public interface IJwtProvider
+{
+    //TODO Roles 
+    (string token, int expiresIn) GenerateToken(ApplicationUser user);
+    public string? ValidateToken(string token);
+}
