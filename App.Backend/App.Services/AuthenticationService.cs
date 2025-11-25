@@ -6,8 +6,6 @@ namespace App.Services;
 public class AuthenticationService : IAuthenticationService
 {
     private readonly int _refreshTokenExpirationDays = 14;
-
-
     public  (string refreshToken,DateTime refreshTokenExpiration) AddRefreshToken(ApplicationUser user)
     {
         var refreshToken = GenerateRefreshToken();

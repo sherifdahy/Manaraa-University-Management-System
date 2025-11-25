@@ -1,4 +1,5 @@
 ﻿
+using App.Infrastructure.Abstractions.Consts;
 using System.Security.Cryptography;
 namespace App.Application.Handlers.Commands.Authentications;
 
@@ -18,12 +19,15 @@ public class RegisterCommandHandler(UserManager<ApplicationUser> userManager,
 
         var user = request.Adapt<ApplicationUser>();
 
-        user.UserName = "omarzaky";
+        user.UserName = request.Email;
 
         var result = await _userManager.CreateAsync(user, request.Password);
 
         if (result.Succeeded)
         {
+
+            await _userManager.AddToRoleAsync(user,DefaultRoles.Admin);
+
             #region TODO
             //TODO
             //var (userRoles, userPermissions) = await GetUserRolesAndPermissions(user, cancellationToken);

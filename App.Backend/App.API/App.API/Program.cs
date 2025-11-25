@@ -12,14 +12,24 @@ builder.Services.AddOpenApi();
 
 builder.AddDepenecyInjectionRegistration();
 
+builder.Services.AddSingleton<BearerSecuritySchemeTransformer>();
+
+builder.Services.AddOpenApi("v1", options =>
+{
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    {
+        options.WithPreferredScheme("Bearer");
+    });
 }
+
 
 app.UseSerilogRequestLogging();
 
