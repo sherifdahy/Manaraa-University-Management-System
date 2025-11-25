@@ -2,3 +2,16 @@
 global using FluentValidation.AspNetCore;
 global using Microsoft.Extensions.DependencyInjection;
 global using System.Reflection;
+global using  App.Application.Abstractions;
+global using  MediatR;
+global using App.Application.Commands.Authentications;
+global using App.Application.Errors;
+global using App.Application.Responses.Authentications;
+global using App.Core.Entities.Identity;
+global using App.Core.Interfaces;
+global using App.Services;
+global using Mapster;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.WebUtilities;
+global using Microsoft.EntityFrameworkCore;

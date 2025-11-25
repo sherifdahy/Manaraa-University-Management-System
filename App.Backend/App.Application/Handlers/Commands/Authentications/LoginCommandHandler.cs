@@ -1,27 +1,16 @@
-﻿using App.Application.Abstractions;
-using App.Application.Commands.Authentications;
-using App.Application.Commands.Roles;
-using App.Application.Errors;
-using App.Application.Responses.Authentications;
-using App.Application.Responses.Role;
-using App.Core.Entities.Identity;
-using App.Core.Interfaces;
-using App.Services;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 
 namespace App.Application.Handlers.Commands.Authentications;
 
 public class LoginCommandHandler(UserManager<ApplicationUser> userManager
     ,SignInManager<ApplicationUser> signInManager
     ,IJwtProvider jwtProvider,
-    IAuthService authService) : IRequestHandler<LoginCommand, Result<AuthenticationResponse>>
+    IAuthenticationService authService) : IRequestHandler<LoginCommand, Result<AuthenticationResponse>>
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
     private readonly IJwtProvider _jwtProvider = jwtProvider;
-    private readonly IAuthService _authService = authService;
+    private readonly IAuthenticationService _authService = authService;
 
     public async Task<Result<AuthenticationResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {

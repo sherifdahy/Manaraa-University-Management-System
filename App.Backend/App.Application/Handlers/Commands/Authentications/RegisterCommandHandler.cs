@@ -1,30 +1,14 @@
-﻿using App.Application.Abstractions;
-using App.Application.Commands.Authentications;
-using App.Application.Errors;
-using App.Application.Responses.Authentications;
-using App.Core.Entities.Identity;
-using App.Core.Interfaces;
-using App.Services;
-using Mapster;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿
 using System.Security.Cryptography;
-using System.Text;
-
 namespace App.Application.Handlers.Commands.Authentications;
 
 public class RegisterCommandHandler(UserManager<ApplicationUser> userManager,
     IJwtProvider jwtProvider
-    ,IAuthService authService) : IRequestHandler<RegisterCommand, Result<AuthenticationResponse>>
+    ,IAuthenticationService authService) : IRequestHandler<RegisterCommand, Result<AuthenticationResponse>>
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly IJwtProvider _jwtProvider = jwtProvider;
-    private readonly IAuthService _authService = authService;
+    private readonly IAuthenticationService _authService = authService;
     public async Task<Result<AuthenticationResponse>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
         var emailIsExists = await _userManager.Users.AnyAsync(x => x.Email == request.Email, cancellationToken);

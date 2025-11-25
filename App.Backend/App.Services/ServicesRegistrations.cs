@@ -10,6 +10,6 @@ public static class ServicesRegistrations
 {
     public static void AddServicesRegistration(this IServiceCollection services)
     {
-        services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IAuthenticationService, AuthenticationService>();
     }
 }

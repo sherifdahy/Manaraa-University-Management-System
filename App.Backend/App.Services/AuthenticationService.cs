@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using App.Core.Interfaces;
 namespace App.Services;
 
-public class AuthService : IAuthService
+public class AuthenticationService : IAuthenticationService
 {
     private readonly int _refreshTokenExpirationDays = 14;
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace App.Core.Interfaces;
 
-public interface IAuthService
+public interface IAuthenticationService
 {
     (string refreshToken, DateTime refreshTokenExpiration) AddRefreshToken(ApplicationUser user);
 }
