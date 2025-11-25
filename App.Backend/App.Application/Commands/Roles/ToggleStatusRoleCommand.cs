@@ -8,7 +8,7 @@ namespace App.Application.Commands.Roles;
 
 public class ToggleStatusRoleCommand : IRequest<Result>
 {
-    public const string Route = "toggle-status/{id}";
+    public const string Route = "{id}/toggle-status";
     public int Id { get; set; }
 
     public ToggleStatusRoleCommand(int id)

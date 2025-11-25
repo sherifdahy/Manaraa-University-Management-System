@@ -18,12 +18,12 @@ public class GetRoleByIdQueryHandler(RoleManager<ApplicationRole> _roleManager) 
         var permissions = await _roleManager.GetClaimsAsync(role);
 
         var response = new RoleDetailResponse
-        {
-            Id = role.Id,
-            Name = role.Name!,
-            IsDeleted = role.IsDeleted,
-            Permissions = permissions.Select(c => c.Value)
-        };
+        (
+            role.Id,
+            role.Name!,
+            role.IsDeleted,
+            permissions.Select(c => c.Value)
+        );
 
         return Result.Success(response);
     }

@@ -42,12 +42,12 @@ public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager) 
                 await _roleManager.AddClaimAsync(newRole, new Claim(Permissions.Type, permission));
             }
 
-            return Result.Success(new RoleDetailResponse()
-            {
-                Id = newRole.Id,
-                Name = request.Name,
-                Permissions = request.Permissions,
-            });
+            return Result.Success(new RoleDetailResponse
+            (   newRole.Id,
+                newRole.Name,
+                newRole.IsDeleted,
+                request.Permissions
+            ));
         }
 
         var error = result.Errors.First();

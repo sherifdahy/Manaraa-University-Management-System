@@ -1,8 +1,6 @@
 ﻿using App.Application.Commands.Roles;
-using App.Application.Filters;
 using App.Application.Queries.Roles;
 using App.Core.Extensions;
-using App.Infrastructure.Abstractions.Consts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +11,11 @@ namespace App.API.Controllers.Roles;
 public class RolesController(IMediator _mediator) : ControllerBase
 {
 
-    [HttpGet]
+    [HttpGet(GetAllRolesCommand.Route)]
     //[HasPermission(Permissions.GetRoles)]
-    public async Task<IActionResult> GetAllRoles(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllRoles([FromQuery] bool includeDisabled,CancellationToken cancellationToken)
     {
-        var result = await _mediator.Send(new GetAllRolesCommand(), cancellationToken);
+        var result = await _mediator.Send(new GetAllRolesCommand(includeDisabled), cancellationToken);
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 

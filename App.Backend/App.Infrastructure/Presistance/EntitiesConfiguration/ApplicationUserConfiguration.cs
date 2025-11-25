@@ -8,7 +8,6 @@ namespace App.Infrastructure.Presistance.EntitiesConfiguration;
 
 public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
 {
-    private readonly PasswordHasher<ApplicationUser> _passwordHasher = new();
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
         builder.Property(x => x.FirstName).HasMaxLength(100);

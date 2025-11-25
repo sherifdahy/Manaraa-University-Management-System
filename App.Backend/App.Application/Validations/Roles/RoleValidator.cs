@@ -11,9 +11,12 @@ public class RoleValidator : AbstractValidator<CreateRoleCommand>
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Role name is required.")
-            .MaximumLength(100).WithMessage("Role name must not exceed 100 characters.");
+            .Length(3, 200);
 
-        RuleFor(x => x.Permissions).NotNull().WithMessage("Permissions list cannot be null.");
+
+        RuleFor(x => x.Permissions)
+            .NotNull()
+            .NotEmpty();
 
         RuleFor(x => x.Permissions).Must(x=>x.Distinct().Count() == x.Count())
             .WithMessage("You cannot add Duplicated Permissions for the same Role")

@@ -23,6 +23,7 @@ public class ApplicationRoleConfiguration : IEntityTypeConfiguration<Application
             {
                 Id = DefaultRoles.MemberRoleId,
                 Name = DefaultRoles.Member,
+                IsDefualt = true,
                 NormalizedName = DefaultRoles.Member.ToUpper(),
                 ConcurrencyStamp = DefaultRoles.MemberRoleConcurrencyStamp,
             }

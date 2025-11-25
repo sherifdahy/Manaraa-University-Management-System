@@ -10,4 +10,11 @@ namespace App.Application.Queries.Roles;
 public class GetAllRolesCommand : IRequest<Result<List<RoleResponse>>>
 {
     public const string Route = "";
+
+    public bool? IncludeDisabled { get; set; } = false;
+
+    public GetAllRolesCommand(bool? includeDisabled)
+    {
+        IncludeDisabled = includeDisabled;
+    }
 }
