@@ -16,6 +16,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     }
 
     #region Db Sets
+    public DbSet<RefreshToken> RefreshTokens { get; set; }  
     #endregion
 
 
