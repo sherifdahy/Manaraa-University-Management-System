@@ -1,5 +1,5 @@
-﻿using App.Application.Commands.Roles;
-using App.Application.Filters;
+﻿using App.Application.Authentication.Filters;
+using App.Application.Commands.Roles;
 using App.Application.Queries.Roles;
 using App.Core.Extensions;
 using App.Infrastructure.Abstractions.Consts;
@@ -32,7 +32,7 @@ public class RolesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPost(CreateRoleCommand.Route)]
-    [HasPermission(Permissions.CreateRoles)]
+    //[HasPermission(Permissions.CreateRoles)]
     public async Task<IActionResult> Create([FromBody] CreateRoleCommand command ,CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);

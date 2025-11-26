@@ -9,6 +9,7 @@ namespace App.Application.Commands.Authentications;
 
 public class RegisterCommand  : IRequest<Result<AuthenticationResponse>>
 {
+    public const string Route = "register";
     public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;

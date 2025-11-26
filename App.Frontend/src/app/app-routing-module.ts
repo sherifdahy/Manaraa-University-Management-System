@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
+import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,18 @@ const routes: Routes = [
   {
     path : 'lms',
     loadChildren : () => import('./features/lms/lms.module').then(m => m.LmsModule)
+  },
+  {
+    path : 'access-denied',
+    component : AccessDeniedComponent,
+  },
+  {
+    path : 'server-error',
+    component : ServerErrorComponent,
+  },
+  {
+    path : 'not-found',
+    component : NotFoundComponent,
   },
   {
     path : '**',

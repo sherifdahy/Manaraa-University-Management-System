@@ -1,5 +1,5 @@
 ﻿using App.Application;
-using App.Application.Filters;
+using App.Application.Authentication.Filters;
 using App.Core.Interfaces;
 using App.Infrastructure;
 using App.Infrastructure.Authentications;
@@ -24,6 +24,7 @@ public static class DependancyInjection
         builder.AddSeriLogConfig();
         builder.Services.AddOptionPatternsConfig(builder.Configuration);
         builder.Services.AddAuthConfig(builder.Configuration);
+        builder.Services.AddScalerConfig();
     }
     private static void AddSeriLogConfig(this WebApplicationBuilder builder)
     {
@@ -31,6 +32,19 @@ public static class DependancyInjection
         {
             configuration.ReadFrom.Configuration(context.Configuration);
         });
+    }
+    private static IServiceCollection AddScalerConfig(this IServiceCollection services)
+    {
+        services.AddOpenApi();
+
+        services.AddSingleton<BearerSecuritySchemeTransformer>();
+
+        services.AddOpenApi("v1", options =>
+        {
+            options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+        });
+
+        return services;
     }
     private static IServiceCollection AddServicesConfig(this IServiceCollection services)
     {

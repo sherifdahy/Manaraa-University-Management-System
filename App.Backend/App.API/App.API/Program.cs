@@ -8,16 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
 
 builder.AddDepenecyInjectionRegistration();
-
-builder.Services.AddSingleton<BearerSecuritySchemeTransformer>();
-
-builder.Services.AddOpenApi("v1", options =>
-{
-    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
-});
 
 var app = builder.Build();
 
@@ -34,6 +26,8 @@ if (app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthentication();
 

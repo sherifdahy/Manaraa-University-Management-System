@@ -11,7 +11,11 @@ public class UnitOfWork : IUnitOfWork
     public UnitOfWork(ApplicationDbContext context)
     {
         _context = context;
+
+        RoleClaims = new Repository<IdentityRoleClaim<int>>(_context);
     }
+
+    public IRepository<IdentityRoleClaim<int>> RoleClaims { get; set; }
 
     public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
