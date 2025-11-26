@@ -20,5 +20,9 @@ public static class AuthenticationErrors
     public static readonly Error DuplicatedEmail = 
         new Error("User.DuplicatedEmail", "Duplicated Email", StatusCodes.Status400BadRequest);
 
+    public static readonly Error InvalidToken = 
+        new Error("User.InvalidToken", "Invalid Token", StatusCodes.Status401Unauthorized);
+
+
 
 }
