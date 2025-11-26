@@ -1,8 +1,10 @@
 ﻿
 
 using App.Core.Interfaces;
+using App.Infrastructure.Abstractions.Consts;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -14,12 +16,8 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 {
     private readonly JwtOptions options = options.Value;
 
-    public (string token, int expiresIn) GenerateToken(ApplicationUser user)
+    public (string token, int expiresIn) GenerateToken(ApplicationUser user,IEnumerable<string> roles, IEnumerable<string> permissions)
     {
-        #region TODO
-        //new(nameof(roles), JsonSerializer.Serialize(roles), JsonClaimValueTypes.JsonArray),//Concat The roles in form of json array
-        //    new(nameof(permissions), JsonSerializer.Serialize(permissions), JsonClaimValueTypes.JsonArray),//Concat The roles in form of json array
-        #endregion
 
         Claim[] claims = [
             new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
@@ -27,7 +25,8 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
             new(JwtRegisteredClaimNames.GivenName, user.FirstName),
             new(JwtRegisteredClaimNames.FamilyName, user.LastName),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-
+            new(nameof(roles),JsonSerializer.Serialize(roles),JsonClaimValueTypes.JsonArray),
+            new(nameof(permissions),JsonSerializer.Serialize(permissions),JsonClaimValueTypes.JsonArray),
             ];
 
 
@@ -49,7 +48,6 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
         return (token: new JwtSecurityTokenHandler().WriteToken(token), expiresIn: expiresIn * 60);
     }
 
-    //This is consider the expieration
     public string? ValidateToken(string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();

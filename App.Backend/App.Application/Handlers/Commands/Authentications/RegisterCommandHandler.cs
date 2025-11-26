@@ -26,17 +26,13 @@ public class RegisterCommandHandler(UserManager<ApplicationUser> userManager,
         if (result.Succeeded)
         {
 
-            await _userManager.AddToRoleAsync(user,DefaultRoles.Admin);
+            await _userManager.AddToRoleAsync(user, DefaultRoles.Member);
 
-            #region TODO
-            //TODO
-            //var (userRoles, userPermissions) = await GetUserRolesAndPermissions(user, cancellationToken);
-            //var (token, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions); 
-            #endregion
+            var (userRoles, userPermissions) = await _authenticationService.GetUserRolesAndPermissions(user, cancellationToken);
 
-            var (token, expiresIn) = _jwtProvider.GenerateToken(user);
+            var (token, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions); 
 
-           var (refreshToken, refreshTokenExpiration) = _authenticationService.AddRefreshToken(user);
+            var (refreshToken, refreshTokenExpiration) = _authenticationService.AddRefreshToken(user);
 
             await _userManager.UpdateAsync(user);
 

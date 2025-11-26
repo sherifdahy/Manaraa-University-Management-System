@@ -221,4 +221,9 @@ public class Repository<T> : IRepository<T> where T : class
     {
         throw new NotImplementedException();
     }
+
+    public IQueryable<T> Query()
+    {
+        return _context.Set<T>();
+    }
 }
