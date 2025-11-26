@@ -5,12 +5,12 @@ namespace App.Application.Handlers.Commands.Authentications;
 public class LoginCommandHandler(UserManager<ApplicationUser> userManager
     ,SignInManager<ApplicationUser> signInManager
     ,IJwtProvider jwtProvider,
-    IAuthenticationService authService) : IRequestHandler<LoginCommand, Result<AuthenticationResponse>>
+    IAuthenticationService authenticationService) : IRequestHandler<LoginCommand, Result<AuthenticationResponse>>
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
     private readonly IJwtProvider _jwtProvider = jwtProvider;
-    private readonly IAuthenticationService _authService = authService;
+    private readonly IAuthenticationService _authenticationService = authenticationService;
 
     public async Task<Result<AuthenticationResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
@@ -27,15 +27,11 @@ public class LoginCommandHandler(UserManager<ApplicationUser> userManager
         if (result.Succeeded)
         {
 
-            #region TODO
-            //TODO
-            //var (userRoles, userPermissions) = await GetUserRolesAndPermissions(user, cancellationToken);
-            //var (token, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions); 
-            #endregion
+            var (userRoles, userPermissions) = await _authenticationService.GetUserRolesAndPermissions(user, cancellationToken);
 
-            var (token, expiresIn) = _jwtProvider.GenerateToken(user);
+            var (token, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions);
 
-            var (refreshToken, refreshTokenExpiration) = _authService.AddRefreshToken(user);
+            var (refreshToken, refreshTokenExpiration) = _authenticationService.AddRefreshToken(user);
 
             await _userManager.UpdateAsync(user);
 

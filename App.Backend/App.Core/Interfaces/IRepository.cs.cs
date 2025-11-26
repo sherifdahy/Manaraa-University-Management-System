@@ -43,5 +43,7 @@ namespace App.Core.Entities.Interfaces
         long Max(Expression<Func<T, bool>> criteria, Expression<Func<T, object>> column);
         bool IsExist(Expression<Func<T, bool>> criteria);
         T? Last(Expression<Func<T, bool>> criteria, Expression<Func<T, object>> orderBy);
+        IQueryable<T> Query();
+
     }
 }

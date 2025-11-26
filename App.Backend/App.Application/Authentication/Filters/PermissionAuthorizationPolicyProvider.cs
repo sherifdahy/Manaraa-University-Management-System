@@ -1,5 +1,4 @@
-﻿using App.Application.Filters;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 
 namespace App.Application.Authentication.Filters;

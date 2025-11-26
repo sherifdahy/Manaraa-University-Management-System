@@ -71,4 +71,8 @@
     <ProjectReference Include="..\..\App.Application\App.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Product\" />
+  </ItemGroup>
+
 </Project>
