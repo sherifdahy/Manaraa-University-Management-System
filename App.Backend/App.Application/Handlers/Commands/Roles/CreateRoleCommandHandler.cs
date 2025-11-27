@@ -7,14 +7,15 @@ using App.Infrastructure.Abstractions.Consts;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using SA.Accountring.Core.Entities.Interfaces;
 using System.Security.Claims;
 
 namespace App.Application.Handlers.Commands.Roles;
 
-public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager) : IRequestHandler<CreateRoleCommand, Result<RoleDetailResponse>>
+public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,IUnitOfWork unitOfWork) : IRequestHandler<CreateRoleCommand, Result<RoleDetailResponse>>
 {
     private readonly RoleManager<ApplicationRole> _roleManager = roleManager;
-
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     public async Task<Result<RoleDetailResponse>> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
     {
         var existRole = await _roleManager.FindByNameAsync(request.Name);
@@ -37,10 +38,20 @@ public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager) 
 
         if(result.Succeeded)
         {
-            foreach(var permission in request.Permissions)
+            var roleClaims = new List<IdentityRoleClaim<int>>();
+
+            foreach (var permission in request.Permissions)
             {
-                await _roleManager.AddClaimAsync(newRole, new Claim(Permissions.Type, permission));
+                roleClaims.Add(new IdentityRoleClaim<int>
+                {
+                    RoleId = newRole.Id,
+                    ClaimType = Permissions.Type,
+                    ClaimValue = permission
+                });
             }
+
+            await _unitOfWork.RoleClaims.AddRangeAsync(roleClaims, cancellationToken);
+            await _unitOfWork.SaveAsync(cancellationToken);
 
             return Result.Success(new RoleDetailResponse
             (   newRole.Id,

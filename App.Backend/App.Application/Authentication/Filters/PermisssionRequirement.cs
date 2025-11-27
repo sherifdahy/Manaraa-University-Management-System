@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace App.Application.Filters;
+namespace App.Application.Authentication.Filters;
 
 public class PermisssionRequirement : IAuthorizationRequirement
 {

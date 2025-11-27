@@ -10,7 +10,7 @@ namespace App.Application.Commands.Authentications;
 
 public class LoginCommand : IRequest<Result<AuthenticationResponse>>
 {
-    public const string Route = "";
+    public const string Route = "login";
     public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 }

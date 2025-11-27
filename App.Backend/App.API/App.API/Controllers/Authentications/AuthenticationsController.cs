@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace App.API.Controllers.Authentications;
 
-[Route("[controller]")]
+[Route("api/[controller]")]
 [ApiController]
 public class AuthenticationsController(IMediator mediator) : ControllerBase
 {
     private readonly IMediator _mediator = mediator;
 
-    [HttpPost("login")]
+    [HttpPost(LoginCommand.Route)]
 
     public async Task<IActionResult> Login(LoginCommand request, CancellationToken cancellationToken)
     {
@@ -20,7 +20,7 @@ public class AuthenticationsController(IMediator mediator) : ControllerBase
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
-    [HttpPost("register")]
+    [HttpPost(RegisterCommand.Route)]
     public async Task<IActionResult> Register(RegisterCommand request, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);
