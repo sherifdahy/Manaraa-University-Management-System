@@ -1,87 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Basic Configuration */
-:root{
-    --main-font-family: Arial, Helvetica, sans-serif;
-    --half-rem: 0.5rem;
-    --one-rem: 1rem;
-    --one-half-rem: 1.5rem;
-    --two-rem: 2rem;
-    --two_half-rem: 2.5rem;
-    --three-rem: 3rem;
-    --v-8px: 8px;
-    --v-10px: 10px;
-    --v-12px: 12px;
-    --v-13px: 13px;
-    --v-15px: 15px;
-    --v-20px: 20px;
-    --v-32px: 32px;
-    --fz-8: 8px;
-    --fz-10: 10px;
-    --fz-12: 12px;
-    --fz-14: 14px;
-    --fz-16: 16px;
-    --fz-18: 18px;
-    --fz-20: 20px;
-    --fz-24: 24px;
-    --fz-25: 25px;
-    --fz-30: 30px;
-    --fz-35: 35px;
-    --fz-36: 36px;
-    --fz-40: 40px;
-    --fz-48: 48px;
-    --fz-60: 60px;
-    --fz-72: 72px;
-    --fw-400: 400;
-    --fw-500: 500;
-    --fw-600: 600;
-    --fw-700: 700;
-    --fw-900: 900;
-    --white-color: white;
+/* pricing */
+
+.pricing-h{
+    font-size: var(--fz-16);
+    color: #0A1F44;
 }
 
-
-body{
-    font-family: var(--main-font-family);
-}
-
-
-.custom-container{
-    padding-inline: var(--v-32px);
+.pricing-p{
+    font-size: var(--fz-12);
+    color: #4A5565;
 }
 
 
 
-
-
-
-
-/* header Section */
-#header .btn-warning {
-    --bs-btn-color: #0A1F44;
-    --bs-btn-bg: #ffc107;
-    --bs-btn-border-color: #ffc107;
-    --bs-btn-hover-color: white;
-    --bs-btn-hover-bg: #0A1F44;
-    --bs-btn-hover-border-color: #0A1F44;
-    --bs-btn-active-color: white;
-    --bs-btn-active-bg: #0A1F44;
-    --bs-btn-active-border-color: #0A1F44;
+.pricing-one-card{
+    border: 2px solid #E5E7EB;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-#header .fa-circle{
+.pricing-one-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 10px -6px #0000001A;
+    border-color: green;
+}
+
+.pricing-one-card-h{
+    font-size: var(--fz-14);
+    color: #0A1F44;
+}
+
+.pricing-one-card-p{
+    color: #364153;
     font-size: var(--fz-10);
 }
 
-#header .fa-arrow-right{
-    transition: all 0.3s ease;
+#pricing .fa-check{
+    color: #D4AF37;
 }
 
 
-/* end of header Section */
+#pricing ul li{
+    padding: 0;
+    list-style: none;
+    color: #364153;
+    font-size: var(--fz-12);
+}
 
 
-
+#pricing ul {
+    padding-left: 0;
+}
 
 
 #pricing .btn-warning {
@@ -95,12 +65,11 @@ body{
     --bs-btn-active-bg: #ffc720;
     --bs-btn-active-border-color: #ffc720;
     --bs-btn--border-color: #ffc107;
-    transition: all 0.3s ease;
 }
 
-#pricing .btn-warning:hover{
-  transform: translateY(-5px);
-}
+
+/* End Of pricing */
+
 
 
 
