@@ -9,5 +9,8 @@
   <Folder Name="/Presentation/">
     <Project Path="App.API/App.API.csproj" />
   </Folder>
+  <Folder Name="/UnitTest/">
+    <Project Path="App.UnitTest.Application/App.UnitTest.Application.csproj" Id="16caf00d-8ec5-42d3-8182-dccf6a692a46" />
+  </Folder>
   <Project Path="../App.Application/App.Application.csproj" />
 </Solution>

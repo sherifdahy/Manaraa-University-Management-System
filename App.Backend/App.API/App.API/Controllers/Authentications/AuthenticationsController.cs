@@ -2,7 +2,9 @@
 using App.Core.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 
 namespace App.API.Controllers.Authentications;
 
@@ -36,6 +38,13 @@ public class AuthenticationsController(IMediator mediator) : ControllerBase
 
     [HttpPost("revoke-refresh-token")]
     public async Task<IActionResult> RevokeRefreshToken(RevokeRefreshTokenCommand request, CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(request, cancellationToken);
+        return result.IsSuccess ? Ok() : result.ToProblem();
+    }
+
+    [HttpPost("forget-password")]
+    public async Task<IActionResult> ForgetPassword([FromBody] ForgetPasswordCommand request,CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);
         return result.IsSuccess ? Ok() : result.ToProblem();

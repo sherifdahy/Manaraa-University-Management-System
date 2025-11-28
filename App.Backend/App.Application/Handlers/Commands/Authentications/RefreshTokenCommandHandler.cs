@@ -37,12 +37,12 @@ public class RefreshTokenCommandHandler(IJwtProvider jwtProvider
 
         var (newToken, newExpiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions);
 
-        var (refreshToken, refreshTokenExpiration) = _authenticationService.AddRefreshToken(user);
+        var (newRefreshToken, newRefreshTokenExpiration) = _authenticationService.AddRefreshToken(user);
 
         await _userManager.UpdateAsync(user);
 
         var response = new AuthenticationResponse(user.Id, user.Email, user.FirstName, user.LastName
-            , newToken, newExpiresIn, refreshToken, refreshTokenExpiration);
+            , newToken, newExpiresIn, newRefreshToken, newRefreshTokenExpiration);
 
         return Result.Success<AuthenticationResponse>(response);
 
