@@ -1,25 +1,31 @@
-﻿using App.Core.Interfaces;
-using App.Infrastructure.Authentications;
+﻿using App.Infrastructure.Email;
 using App.Infrastructure.Repository;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using SA.Accountring.Core.Entities.Interfaces;
-using System.Text;
 
 namespace App.Infrastructure;
 public static class InfrastructureRegistrations
 {
+    //TODO 
+    //Infrastructure ShouldNot See the configuration it must be In the API LAYER
     public static void AddInfrastructureRegistrations(this IServiceCollection services,IConfiguration configuration)
     {
         services.AddDbContextConfig(configuration);
+
         services.AddIdentityConfig();
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddScoped<IEmailSender, EmailSender>();
+
+        services.AddOptionPatternConfig(configuration);
     }
 
     private static void AddIdentityConfig(this IServiceCollection services)
     {
         services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
         services.Configure<IdentityOptions>(options =>
         {
@@ -39,5 +45,11 @@ public static class InfrastructureRegistrations
             x.UseSqlServer(connetionString);
         });
     }
-    
+
+    private static void AddOptionPatternConfig(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.Configure<MailSettings>(configuration.GetSection(nameof(MailSettings)));
+
+    }
+
 }

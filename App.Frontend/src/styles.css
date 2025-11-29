@@ -1,9 +1,274 @@
-.mat-mdc-snack-bar-container {
-  --mdc-snackbar-container-color: #323232 !important;
-  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87) !important;
-  --mat-snack-bar-button-color: #bb86fc !important;
+/* Basic Configuration */
+:root{
+    --main-font-family: Arial, Helvetica, sans-serif;
+    --half-rem: 0.5rem;
+    --one-rem: 1rem;
+    --one-half-rem: 1.5rem;
+    --two-rem: 2rem;
+    --two_half-rem: 2.5rem;
+    --three-rem: 3rem;
+    --v-8px: 8px;
+    --v-10px: 10px;
+    --v-12px: 12px;
+    --v-13px: 13px;
+    --v-15px: 15px;
+    --v-20px: 20px;
+    --v-32px: 32px;
+    --fz-8: 8px;
+    --fz-10: 10px;
+    --fz-12: 12px;
+    --fz-14: 14px;
+    --fz-16: 16px;
+    --fz-18: 18px;
+    --fz-20: 20px;
+    --fz-24: 24px;
+    --fz-25: 25px;
+    --fz-30: 30px;
+    --fz-35: 35px;
+    --fz-36: 36px;
+    --fz-40: 40px;
+    --fz-48: 48px;
+    --fz-60: 60px;
+    --fz-72: 72px;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+    --fw-900: 900;
+    --white-color: white;
 }
 
-.mat-mdc-snack-bar-label {
-  white-space: pre-line !important;
+
+body{
+    font-family: var(--main-font-family);
+}
+
+
+.custom-container{
+    padding-inline: var(--v-32px);
+}
+
+
+
+
+
+
+
+/* header Section */
+#header .btn-warning {
+    --bs-btn-color: #0A1F44;
+    --bs-btn-bg: #ffc107;
+    --bs-btn-border-color: #ffc107;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: #0A1F44;
+    --bs-btn-hover-border-color: #0A1F44;
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: #0A1F44;
+    --bs-btn-active-border-color: #0A1F44;
+}
+
+#header .fa-circle{
+    font-size: var(--fz-10);
+}
+
+#header .fa-arrow-right{
+    transition: all 0.3s ease;
+}
+
+
+/* end of header Section */
+
+
+
+
+
+#pricing .btn-warning {
+    --bs-btn-color: white;
+    --bs-btn-bg: #0A1F44;
+    --bs-btn-border-color: #0A1F44;
+    --bs-btn-hover-color: #0A1F44;
+    --bs-btn-hover-bg: #ffc720;
+    --bs-btn-hover-border-color: #ffc720;
+    --bs-btn-active-color: #ffc720;
+    --bs-btn-active-bg: #ffc720;
+    --bs-btn-active-border-color: #ffc720;
+    --bs-btn--border-color: #ffc107;
+    transition: all 0.3s ease;
+}
+
+#pricing .btn-warning:hover{
+  transform: translateY(-5px);
+}
+
+
+
+/* Media Qeuries If Exists */
+@media (min-width: 576px) {
+
+.Certified {
+    visibility: visible;
+    bottom: -22px;
+    left: -22px;
+    border-left: 4px #D4AF37 solid;
+    z-index: 1;
+    background-color: white;
+}
+
+
+
+    h1{
+    font-size: var(--fz-20);
+}
+
+.header-p{
+    color: #E5E7EB;
+    font-size: var(--fz-14);
+}
+
+
+    .Ministry{
+    font-size: var(--fz-16);
+}
+
+.ISO{
+    font-size: var(--fz-14);
+}
+
+    .header-p{
+    font-size: var(--fz-16);
+}
+
+
+
+    h1{
+    font-size: var(--fz-30);
+}
+
+
+
+    .pricing-h{
+    font-size: var(--fz-18);
+}
+
+.pricing-p{
+    font-size: var(--fz-16);
+}
+
+
+    .pricing-one-card-h{
+    font-size: var(--fz-16);
+}
+
+.pricing-one-card-p{
+    font-size: var(--fz-12);
+}
+
+
+
+.trustedPartners-h{
+    font-size: var(--fz-16);
+}
+
+.trustedPartners-p{
+    font-size: var(--fz-14);
+}
+
+
+    .trustedPartners-last-item-n{
+        font-size: var(--fz-20) ;
+    }
+
+    .trustedPartners-last-item-p{
+    font-size: var(--fz-16) ;
+}
+
+
+.Reserved{
+    font-size: var(--fz-12);
+}
+
+
+.endorSementBar{
+    font-size: var(--fz-12);
+}
+}
+
+
+
+
+@media (min-width: 768px) {
+    .header-p{
+    font-size: var(--fz-18);
+}
+
+
+
+
+    h1{
+    font-size: var(--fz-36);
+}
+
+
+
+        .pricing-h{
+    font-size: var(--fz-20);
+}
+
+.pricing-p{
+    font-size: var(--fz-16);
+}
+
+
+.pricing-one-card-p{
+    font-size: var(--fz-14);
+}
+
+
+
+#pricing ul li{
+    font-size: var(--fz-14);
+}
+
+
+
+.trustedPartners-h{
+    font-size: var(--fz-20);
+}
+
+.trustedPartners-p{
+    font-size: var(--fz-16);
+}
+
+
+.Reserved{
+    font-size: var(--fz-14);
+}
+
+    .endorSementBar{
+    font-size: var(--fz-14);
+}
+}
+
+@media (min-width: 992px) {
+
+
+.pricing-one-card-p{
+    font-size: var(--fz-16);
+}
+
+#pricing ul li{
+    font-size: var(--fz-16);
+}
+
+
+}
+
+
+@media (min-width: 1200px) {
+
+}
+
+
+@media (min-width: 1400px) {
+
 }

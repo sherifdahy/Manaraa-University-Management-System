@@ -23,9 +23,9 @@ public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,I
         if (existRole is not null)
             return Result.Failure<RoleDetailResponse>(RoleErrors.Duplicated);
 
-        var allawedPermissions = Permissions.GetAllPermissions();
+        var allowedPermissions = Permissions.GetAllPermissions();
 
-        if (request.Permissions.Except(allawedPermissions).Any())
+        if (request.Permissions.Except(allowedPermissions).Any())
             return Result.Failure<RoleDetailResponse>(RoleErrors.InvalidPermissions);
 
         var newRole = new ApplicationRole()
