@@ -6,6 +6,10 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { guestGuard } from '../../core/guards/guest-guard';
+import { ForgetPasswordFormComponent } from './components/forget-password-form/forget-password-form.component';
+import { ForgetPasswordPageComponent } from './pages/forget-password-page/forget-password-page.component';
+import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
 const routes: Routes = [
   {
@@ -15,7 +19,17 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginPageComponent,
-        canMatch: [guestGuard]
+        canActivate: [guestGuard]
+      },
+      {
+        path : 'forget-password',
+        component : ForgetPasswordPageComponent,
+        canActivate : [guestGuard],
+      },
+      {
+        path : 'reset-password',
+        component : ResetPasswordPageComponent,
+        canActivate : [guestGuard]
       }
     ]
   }
@@ -34,10 +48,13 @@ const routes: Routes = [
 
     // components
     LoginFormComponent,
+    ForgetPasswordFormComponent,
+    ResetPasswordFormComponent,
 
     // pages
     LoginPageComponent,
-
+    ForgetPasswordPageComponent,
+    ResetPasswordPageComponent
   ]
 })
 export class AuthModule { }

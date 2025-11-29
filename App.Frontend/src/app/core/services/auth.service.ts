@@ -26,7 +26,8 @@ export class AuthService {
 
   checkOnInit() {
     const token = this.getAccessToken;
-    if (token) {
+    const refreshToken = this.getRefreshToken;
+    if (token && refreshToken) {
       const decoded = this.decode(token);
       this.currentUserSubject.next(decoded as User);
       this.isAuthenticatedSubject.next(true);
