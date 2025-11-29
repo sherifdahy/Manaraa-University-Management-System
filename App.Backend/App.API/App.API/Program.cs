@@ -1,6 +1,7 @@
 using App.API;
 using Hangfire;
-using HangfireBasicAuthenticationFilter;
+using App.Infrastructure.Presistance.Data;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using Serilog;
 
@@ -15,15 +16,20 @@ builder.AddDepenecyInjectionRegistration();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.MapOpenApi();
+app.MapScalarApiReference(options =>
 {
-    app.MapOpenApi();
-    app.MapScalarApiReference(options =>
-    {
-        options.WithPreferredScheme("Bearer");
-    });
-}
+    options.AddPreferredSecuritySchemes("Bearer");
+});
 
+if (app.Environment.IsProduction())
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        db.Database.Migrate();
+    }
+}
 
 app.UseSerilogRequestLogging();
 

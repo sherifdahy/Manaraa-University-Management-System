@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\Product\**" />
+    <Content Remove="Controllers\Product\**" />
+    <EmbeddedResource Remove="Controllers\Product\**" />
+    <None Remove="Controllers\Product\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="C:\Users\shrif\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.14.0\contentFiles\any\any\BuildHost-net472\cs\System.CommandLine.resources.dll" />
     <Content Remove="C:\Users\shrif\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.14.0\contentFiles\any\any\BuildHost-net472\de\System.CommandLine.resources.dll" />
     <Content Remove="C:\Users\shrif\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.14.0\contentFiles\any\any\BuildHost-net472\es\System.CommandLine.resources.dll" />
@@ -70,10 +77,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\App.Application\App.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\Product\" />
+    <ProjectReference Include="..\..\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

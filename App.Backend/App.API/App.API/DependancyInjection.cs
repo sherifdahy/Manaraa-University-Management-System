@@ -42,8 +42,6 @@ public static class DependancyInjection
     }
     private static IServiceCollection AddScalerConfig(this IServiceCollection services)
     {
-        services.AddOpenApi();
-
         services.AddSingleton<BearerSecuritySchemeTransformer>();
 
         services.AddOpenApi("v1", options =>
@@ -91,6 +89,7 @@ public static class DependancyInjection
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings!.Key)),
                 ValidIssuer = jwtSettings.Issuer,
                 ValidAudience = jwtSettings.Audience,
+                ClockSkew = TimeSpan.Zero
             };
         });
 

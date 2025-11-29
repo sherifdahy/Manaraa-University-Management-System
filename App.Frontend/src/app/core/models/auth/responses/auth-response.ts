@@ -1,4 +1,4 @@
-export interface LoginResponse {
+export interface AuthResponse {
   id : number;
   email : string;
   firstName : string;
