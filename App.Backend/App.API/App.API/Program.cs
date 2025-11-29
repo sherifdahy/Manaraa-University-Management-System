@@ -1,4 +1,6 @@
 using App.API;
+using Hangfire;
+using HangfireBasicAuthenticationFilter;
 using Scalar.AspNetCore;
 using Serilog;
 
@@ -26,6 +28,8 @@ if (app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+
+app.UseHangfireDashboard("/jobs");
 
 app.UseCors();
 
