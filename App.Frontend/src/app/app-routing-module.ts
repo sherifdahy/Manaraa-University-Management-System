@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
 import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
+import { PortalSelectionComponent } from './shared/components/portal-selection/portal-selection.component';
+import { authGuard } from './core/guards/auth-guard';
 
 const routes: Routes = [
   {
@@ -20,6 +22,11 @@ const routes: Routes = [
   {
     path : 'lms',
     loadChildren : () => import('./features/lms/lms.module').then(m => m.LmsModule)
+  },
+  {
+    path : 'protal-selection',
+    canActivate : [authGuard],
+    component : PortalSelectionComponent,
   },
   {
     path : 'access-denied',

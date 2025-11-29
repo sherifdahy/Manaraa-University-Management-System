@@ -5,7 +5,7 @@ import { AuthResponse } from '../models/auth/responses/auth-response';
 import { ApiClientService } from './api-client.service';
 import { API_ENDPOINTS_CONSTS } from '../constants/end-point-consts';
 import { User } from '../models/User/responses/user';
-import { STORAGE_KEY_CONSTS } from '../constants/storage-key-consts';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,54 +15,55 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-  public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
   constructor(
     private apiClient: ApiClientService,
+    private tokenService : TokenService,
   ) {
     this.checkOnInit();
   }
 
   checkOnInit() {
-    const token = this.getAccessToken;
-    const refreshToken = this.getRefreshToken;
+    const token = this.tokenService.accessToken;
+    const refreshToken = this.tokenService.refreshToken;
     if (token && refreshToken) {
       const decoded = this.decode(token);
       this.currentUserSubject.next(decoded as User);
-      this.isAuthenticatedSubject.next(true);
+      this.isLoggedInSubject.next(true);
     }
   }
 
   isLoggedIn(): boolean {
-    let token = this.getAccessToken;
-
-    if (token)
-      return true;
-
-    return false;
+    return (this.tokenService.accessToken && this.tokenService.refreshToken)? true : false;
   }
 
   login(request: LoginRequest): Observable<AuthResponse> {
     return this.apiClient.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.LOGIN, request).pipe(
       tap(response => {
-        debugger;
-        this.setCredentials(response.token, response.refreshToken);
+        this.tokenService.setCredentials(response.token, response.refreshToken);
         const decoded = this.decode(response.token);
         this.currentUserSubject.next(decoded as User);
-        this.isAuthenticatedSubject.next(true);
+        this.isLoggedInSubject.next(true);
       },
       )
     );
   }
 
+  logout(){
+    this.tokenService.clearCredentials();
+    this.isLoggedInSubject.next(false);
+    this.currentUserSubject.next(null);
+  }
+
   public refreshToken(): Observable<AuthResponse> {
     return this.apiClient.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.REFRESH_TOKEN, {
-      token: this.getAccessToken,
-      refreshToken: this.getRefreshToken
+      token: this.tokenService.accessToken,
+      refreshToken: this.tokenService.refreshToken
     }).pipe(
       tap((response)=>{
-        this.setCredentials(response.token,response.refreshToken);
+        this.tokenService.setCredentials(response.token,response.refreshToken);
       })
     );
   }
@@ -78,21 +79,5 @@ export class AuthService {
   }
 
 
-  setCredentials(token: string, refreshToken: string): void {
-    localStorage.setItem(STORAGE_KEY_CONSTS.AUTH.ACCESS_TOKEN, token);
-    localStorage.setItem(STORAGE_KEY_CONSTS.AUTH.REFRESH_TOKEN, refreshToken);
-  }
 
-  clearCredentials(): void {
-    localStorage.removeItem(STORAGE_KEY_CONSTS.AUTH.ACCESS_TOKEN);
-    localStorage.removeItem(STORAGE_KEY_CONSTS.AUTH.REFRESH_TOKEN)
-  }
-
-  get getAccessToken(): string | null {
-    return localStorage.getItem(STORAGE_KEY_CONSTS.AUTH.ACCESS_TOKEN);
-  }
-
-  get getRefreshToken(): string | null {
-    return localStorage.getItem(STORAGE_KEY_CONSTS.AUTH.REFRESH_TOKEN);
-  }
 }

@@ -8,5 +8,5 @@ import { AuthService } from './core/services/auth.service';
   styleUrl: './app.css'
 })
 export class App  {
-  protected readonly title = signal('App.Frontend');
+  protected readonly title = signal('Manara Platform');
 }
