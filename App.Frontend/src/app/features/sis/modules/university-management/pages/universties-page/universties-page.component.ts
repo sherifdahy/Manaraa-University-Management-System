@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UniverstiesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }
 
   ngOnInit() {
+    this.httpClient.get('http://manaraa.runasp.net/api/Roles?includeDisabled=true').subscribe(response=>{
+    })
   }
 
 }

@@ -7,6 +7,7 @@ export const API_ENDPOINTS_CONSTS = {
 
   AUTH: {
     LOGIN: `${BASE_URL}/authentications/login`,
+    REFRESH_TOKEN : `${BASE_URL}/authentications/refresh-token`,
     REGISTER: `${BASE_URL}/authentications/register`,
     LOGOUT: `${BASE_URL}/authentications/logout`,
     FORGOT_PASSWORD: `${BASE_URL}/authentications/forgot-password`,

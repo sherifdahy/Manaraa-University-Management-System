@@ -16,7 +16,7 @@ public class RolesController(IMediator _mediator) : ControllerBase
 {
 
     [HttpGet(GetAllRolesCommand.Route)]
-    [HasPermission(Permissions.GetRoles)]
+    //[HasPermission(Permissions.GetRoles)]
     public async Task<IActionResult> GetAllRoles([FromQuery] bool includeDisabled,CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(new GetAllRolesCommand(includeDisabled), cancellationToken);
@@ -32,7 +32,7 @@ public class RolesController(IMediator _mediator) : ControllerBase
     }
 
     [HttpPost(CreateRoleCommand.Route)]
-    //[HasPermission(Permissions.CreateRoles)]
+    [HasPermission(Permissions.CreateRoles)]
     public async Task<IActionResult> Create([FromBody] CreateRoleCommand command ,CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);

@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #323232 !important;
+  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87) !important;
+  --mat-snack-bar-button-color: #bb86fc !important;
+}
+
+.mat-mdc-snack-bar-label {
+  white-space: pre-line !important;
+}

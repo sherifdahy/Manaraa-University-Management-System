@@ -4,15 +4,18 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { guestGuard } from '../../core/guards/guest-guard';
 
-const routes : Routes = [
+const routes: Routes = [
   {
-    path : '',
-    component : AuthLayoutComponent,
-    children : [
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
       {
-        path : 'login',
-        component : LoginPageComponent
+        path: 'login',
+        component: LoginPageComponent,
+        canMatch: [guestGuard]
       }
     ]
   }
@@ -21,6 +24,8 @@ const routes : Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild(routes),
   ],
   declarations: [
