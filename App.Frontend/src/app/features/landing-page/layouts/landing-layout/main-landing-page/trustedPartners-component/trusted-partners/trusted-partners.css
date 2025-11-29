@@ -1,5 +1,8 @@
 
+
 /* trustedPartners */
+
+
 .trustedPartners{
     background-color: #f9fafb;
 }
@@ -27,11 +30,11 @@
 
 }
 
-#trustedPartners .row::-webkit-scrollbar {
+#trustedPartners .trustedPartners-slider::-webkit-scrollbar {
   height: 5px;
 }
 
-#trustedPartners .row::-webkit-scrollbar-thumb {
+#trustedPartners .trustedPartners-slider::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 4px;
 }
@@ -89,70 +92,13 @@ background-color: #155dfc;
 /* End Of trustedPartners */
 
 
-
-
 /* Media Qeuries If Exists */
 @media (min-width: 576px) {
-
-.Certified {
-    visibility: visible;
-    bottom: -22px;
-    left: -22px;
-    border-left: 4px #D4AF37 solid;
-    z-index: 1;
-    background-color: white;
-}
-
-
-
-    h1{
-    font-size: var(--fz-20);
-}
-
-.header-p{
-    color: #E5E7EB;
-    font-size: var(--fz-14);
-}
 
 
     .Ministry{
     font-size: var(--fz-16);
 }
-
-.ISO{
-    font-size: var(--fz-14);
-}
-
-    .header-p{
-    font-size: var(--fz-16);
-}
-
-
-
-    h1{
-    font-size: var(--fz-30);
-}
-
-
-
-    .pricing-h{
-    font-size: var(--fz-18);
-}
-
-.pricing-p{
-    font-size: var(--fz-16);
-}
-
-
-    .pricing-one-card-h{
-    font-size: var(--fz-16);
-}
-
-.pricing-one-card-p{
-    font-size: var(--fz-12);
-}
-
-
 
 .trustedPartners-h{
     font-size: var(--fz-16);
@@ -171,53 +117,12 @@ background-color: #155dfc;
     font-size: var(--fz-16) ;
 }
 
-
-.Reserved{
-    font-size: var(--fz-12);
-}
-
-
-.endorSementBar{
-    font-size: var(--fz-12);
-}
 }
 
 
 
 
 @media (min-width: 768px) {
-    .header-p{
-    font-size: var(--fz-18);
-}
-
-
-
-
-    h1{
-    font-size: var(--fz-36);
-}
-
-
-
-        .pricing-h{
-    font-size: var(--fz-20);
-}
-
-.pricing-p{
-    font-size: var(--fz-16);
-}
-
-
-.pricing-one-card-p{
-    font-size: var(--fz-14);
-}
-
-
-
-#pricing ul li{
-    font-size: var(--fz-14);
-}
-
 
 
 .trustedPartners-h{
@@ -228,44 +133,8 @@ background-color: #155dfc;
     font-size: var(--fz-16);
 }
 
-
-.Reserved{
-    font-size: var(--fz-14);
-}
-
-    .endorSementBar{
-    font-size: var(--fz-14);
-}
 }
 
 
-
-
-
-@media (min-width: 992px) {
-
-
-.pricing-one-card-p{
-    font-size: var(--fz-16);
-}
-
-
-
-#pricing ul li{
-    font-size: var(--fz-16);
-}
-
-
-}
-
-
-@media (min-width: 1200px) {
-
-}
-
-
-@media (min-width: 1400px) {
-
-}
 
 
