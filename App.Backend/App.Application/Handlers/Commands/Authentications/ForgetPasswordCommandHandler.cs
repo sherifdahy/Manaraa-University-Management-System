@@ -45,8 +45,6 @@ public class ForgetPasswordCommandHandler (UserManager<ApplicationUser> userMana
             }
         );
 
-        //await _emailSender.SendEmailAsync(user.Email!, "✅ Manaraa: Change Password", emailBody);
-
         BackgroundJob.Enqueue(() => _emailSender.SendEmailAsync(user.Email!, "✅ Manaraa: Change Password", emailBody));
 
         await Task.CompletedTask;
