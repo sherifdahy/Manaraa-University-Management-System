@@ -103,9 +103,6 @@ h1{
 
 
 
-    h1{
-    font-size: var(--fz-20);
-}
 
 .header-p{
     color: #E5E7EB;
@@ -133,51 +130,6 @@ h1{
 
 
 
-    .pricing-h{
-    font-size: var(--fz-18);
-}
-
-.pricing-p{
-    font-size: var(--fz-16);
-}
-
-
-    .pricing-one-card-h{
-    font-size: var(--fz-16);
-}
-
-.pricing-one-card-p{
-    font-size: var(--fz-12);
-}
-
-
-
-.trustedPartners-h{
-    font-size: var(--fz-16);
-}
-
-.trustedPartners-p{
-    font-size: var(--fz-14);
-}
-
-
-    .trustedPartners-last-item-n{
-        font-size: var(--fz-20) ;
-    }
-
-    .trustedPartners-last-item-p{
-    font-size: var(--fz-16) ;
-}
-
-
-.Reserved{
-    font-size: var(--fz-12);
-}
-
-
-.endorSementBar{
-    font-size: var(--fz-12);
-}
 }
 
 
@@ -197,73 +149,9 @@ h1{
 
 
 
-        .pricing-h{
-    font-size: var(--fz-20);
-}
-
-.pricing-p{
-    font-size: var(--fz-16);
-}
-
-
-.pricing-one-card-p{
-    font-size: var(--fz-14);
 }
 
 
 
-#pricing ul li{
-    font-size: var(--fz-14);
-}
-
-
-
-.trustedPartners-h{
-    font-size: var(--fz-20);
-}
-
-.trustedPartners-p{
-    font-size: var(--fz-16);
-}
-
-
-.Reserved{
-    font-size: var(--fz-14);
-}
-
-    .endorSementBar{
-    font-size: var(--fz-14);
-}
-}
-
-
-
-
-
-@media (min-width: 992px) {
-
-
-.pricing-one-card-p{
-    font-size: var(--fz-16);
-}
-
-
-
-#pricing ul li{
-    font-size: var(--fz-16);
-}
-
-
-}
-
-
-@media (min-width: 1200px) {
-
-}
-
-
-@media (min-width: 1400px) {
-
-}
 
 
