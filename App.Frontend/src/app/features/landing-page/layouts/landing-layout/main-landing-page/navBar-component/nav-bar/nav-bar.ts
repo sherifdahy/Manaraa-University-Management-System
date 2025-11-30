@@ -17,9 +17,12 @@ export class NavBar implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated$.subscribe(response=>{
+    this.authService.isLoggedIn$.subscribe(response=>{
       this.isLoggedIn = response;
     })
   }
 
+  logout(){
+    this.authService.logout();
+  }
 }

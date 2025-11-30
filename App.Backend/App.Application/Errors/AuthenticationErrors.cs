@@ -23,6 +23,10 @@ public static class AuthenticationErrors
     public static readonly Error InvalidToken = 
         new Error("User.InvalidToken", "Invalid Token", StatusCodes.Status401Unauthorized);
 
+    public static readonly Error InvalidCode = 
+        new Error("User.InvalidCode", "Invalid Code", StatusCodes.Status400BadRequest);
+
+
 
 
 }

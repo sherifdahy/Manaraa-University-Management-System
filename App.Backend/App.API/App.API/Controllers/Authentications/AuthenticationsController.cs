@@ -49,4 +49,11 @@ public class AuthenticationsController(IMediator mediator) : ControllerBase
         var result = await _mediator.Send(request, cancellationToken);
         return result.IsSuccess ? Ok() : result.ToProblem();
     }
+
+    [HttpPost("reset-password")]
+    public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordCommand request, CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(request, cancellationToken);
+        return result.IsSuccess ? Ok() : result.ToProblem();
+    }
 }

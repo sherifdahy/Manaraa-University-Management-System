@@ -3,13 +3,17 @@ using App.Application.Authentication.Filters;
 using App.Core.Interfaces;
 using App.Infrastructure;
 using App.Infrastructure.Authentications;
+using App.Infrastructure.Email;
+using App.Infrastructure.Presistance.Data;
 using App.Services;
+using Hangfire;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
-
+    
 namespace App.API;
 
 public static class DependancyInjection
@@ -17,7 +21,7 @@ public static class DependancyInjection
     public static void AddDepenecyInjectionRegistration(this WebApplicationBuilder builder)
     {
         builder.Services.AddApplicationRegistrations();
-        builder.Services.AddInfrastructureRegistrations(builder.Configuration);
+        builder.Services.AddInfrastructureRegistrations();
         builder.Services.AddServicesRegistration();
         builder.Services.AddServicesConfig();
         builder.Services.AddCorsConfig(builder.Configuration);
@@ -25,6 +29,9 @@ public static class DependancyInjection
         builder.Services.AddOptionPatternsConfig(builder.Configuration);
         builder.Services.AddAuthConfig(builder.Configuration);
         builder.Services.AddScalerConfig();
+        builder.Services.AddDbContextConfig(builder.Configuration);
+        builder.Services.AddBackgroundJobsConfig(builder.Configuration);
+
     }
     private static void AddSeriLogConfig(this WebApplicationBuilder builder)
     {
@@ -110,6 +117,32 @@ public static class DependancyInjection
             .BindConfiguration(JwtOptions.SectionName)
             .ValidateDataAnnotations()
             .ValidateOnStart();
+
+        services.Configure<MailSettings>(configuration.GetSection(nameof(MailSettings)));
+
+        return services;
+    }
+
+    private static void AddDbContextConfig(this IServiceCollection services, IConfiguration configuration)
+    {
+        var connetionString = configuration.GetConnectionString("default")
+                ?? throw new InvalidOperationException("Connetion String Not Found");
+
+        services.AddDbContext<ApplicationDbContext>(x =>
+        {
+            x.UseSqlServer(connetionString);
+        });
+    }
+
+    private static IServiceCollection AddBackgroundJobsConfig(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddHangfire(config => config
+            .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+            .UseSimpleAssemblyNameTypeSerializer()
+            .UseRecommendedSerializerSettings()
+            .UseSqlServerStorage(configuration.GetConnectionString("default")));
+
+        services.AddHangfireServer();
 
         return services;
     }

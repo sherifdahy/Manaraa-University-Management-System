@@ -32,12 +32,15 @@
         class="d-flex justify-content-sm-center justify-content-lg-between flex-column flex-sm-row"
         role="search"
       >
-        <a  class="btn btn-outline-success px-4 py-2 mb-3 mb-sm-0 mt-3 mt-sm-0">
+        <a [routerLink]="['protal-selection']" class="btn btn-outline-success px-4 py-2 mb-3 mb-sm-0 mt-3 mt-sm-0">
           Portal
         </a>
-        <a class="btn btn-outline-success px-4 py-2 login-btn ms-sm-3 ms-0">
+        <a *ngIf="!isLoggedIn" [routerLink]="['auth/login',{returnUrl : '/'}]" class="btn btn-outline-success px-4 py-2 login-btn ms-sm-3 ms-0">
           Login
         </a>
+        <button *ngIf="isLoggedIn" (click)="logout()" type="button" class="btn btn-outline-success px-4 py-2 logout-btn ms-sm-3 ms-0">
+          Logout
+        </button>
       </form>
     </div>
   </div>

@@ -1,4 +1,5 @@
 ﻿using App.Infrastructure.Helpers;
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Logging;
@@ -44,9 +45,7 @@ public class ForgetPasswordCommandHandler (UserManager<ApplicationUser> userMana
             }
         );
 
-        await _emailSender.SendEmailAsync(user.Email!, "✅ Manaraa: Change Password", emailBody);
-
-        //BackgroundJob.Enqueue(() => _emailSender.SendEmailAsync(user.Email!, "✅ Survey Basket: Change Password", emailBody));
+        BackgroundJob.Enqueue(() => _emailSender.SendEmailAsync(user.Email!, "✅ Manaraa: Change Password", emailBody));
 
         await Task.CompletedTask;
     }

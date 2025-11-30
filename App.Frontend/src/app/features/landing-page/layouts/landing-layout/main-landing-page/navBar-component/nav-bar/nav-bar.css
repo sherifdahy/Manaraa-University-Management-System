@@ -47,7 +47,17 @@
     --bs-btn-hover-color: #0A1F44;
     --bs-btn-active-color: #0A1F44;
     --bs-btn-active-border-color: #D4AF37;
+}
 
+.logout-btn {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #dc3545;
+  --bs-btn-active-bg: #bb2d3b;
+  --bs-btn-hover-border-color: #dc3545;
+  --bs-btn-hover-bg: #c82333;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-border-color: #dc3545;
 }
 
 .bg-body-tertiary {

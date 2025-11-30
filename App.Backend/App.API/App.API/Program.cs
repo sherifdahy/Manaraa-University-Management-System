@@ -1,4 +1,5 @@
 using App.API;
+using Hangfire;
 using App.Infrastructure.Presistance.Data;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -33,6 +34,8 @@ if (app.Environment.IsProduction())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+
+app.UseHangfireDashboard("/jobs");
 
 app.UseCors();
 
