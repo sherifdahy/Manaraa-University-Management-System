@@ -1,5 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
+import { RolesService } from './core/services/roles.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,6 @@ import { AuthService } from './core/services/auth.service';
   standalone: false,
   styleUrl: './app.css'
 })
-export class App  {
-  protected readonly title = signal('App.Frontend');
+export class App   {
+  protected readonly title = signal('Manara Platform');
 }

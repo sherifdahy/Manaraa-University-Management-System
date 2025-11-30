@@ -10,6 +10,8 @@ import { ForgetPasswordFormComponent } from './components/forget-password-form/f
 import { ForgetPasswordPageComponent } from './pages/forget-password-page/forget-password-page.component';
 import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+import { ModuleSeclectionForm } from './components/module-seclection-form/module-seclection-form';
+import { ModuleSelectionPage } from './pages/module-selection-page/module-selection-page';
 
 const routes: Routes = [
   {
@@ -29,6 +31,11 @@ const routes: Routes = [
       {
         path : 'reset-password',
         component : ResetPasswordPageComponent,
+        canActivate : [guestGuard]
+      },
+      {
+        path : 'module-selection',
+        component : ModuleSelectionPage,
         canActivate : [guestGuard]
       }
     ]
@@ -50,11 +57,14 @@ const routes: Routes = [
     LoginFormComponent,
     ForgetPasswordFormComponent,
     ResetPasswordFormComponent,
+    ModuleSeclectionForm,
+
 
     // pages
     LoginPageComponent,
     ForgetPasswordPageComponent,
-    ResetPasswordPageComponent
+    ResetPasswordPageComponent,
+    ModuleSelectionPage
   ]
 })
 export class AuthModule { }

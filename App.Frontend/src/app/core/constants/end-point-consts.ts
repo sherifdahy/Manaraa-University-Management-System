@@ -21,12 +21,12 @@ export const API_ENDPOINTS_CONSTS = {
     ME: `${BASE_URL}/user/me`,
   },
 
-  LMS: {
-
-  },
-
-  SIS: {
-
+  ROLES : {
+    GET_ALL : `${BASE_URL}/roles`,
+    GET : `${BASE_URL}/roles`,
+    CREATE : `${BASE_URL}/roles`,
+    UPDATE : `${BASE_URL}/roles`,
+    TOGGLE_STATUS : `${BASE_URL}/roles`,
   },
 
   FILES: {

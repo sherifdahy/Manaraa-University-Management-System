@@ -133,10 +133,9 @@ img{
 
 /*forgot password style*/
 .forgot{
-  margin-top: 30px;
-}
-.forgot div{
   margin-top: 10px;
+  font-size: 12px;
 }
+
 
 

@@ -1,8 +1,7 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { catchError, Observable, switchMap, switchScan, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { AuthResponse } from '../models/auth/responses/auth-response';
-import { inject } from 'vitest';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -19,27 +18,21 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(req).pipe(
-      catchError((error: HttpErrorResponse) => {
+      catchError((response: HttpErrorResponse) => {
 
-        switch (error.status) {
+        switch (response.status) {
           case 401:
             debugger;
-            const ac = this.authService.getAccessToken;
-            const rt = this.authService.getRefreshToken;
-            if (ac && rt) {
+            if (this.authService.isLoggedIn()) {
               return this.authService.refreshToken().pipe(
                 switchMap((authResponse: AuthResponse) => {
                   const newReq = req.clone({ setHeaders: { Authorization: `Bearer ${authResponse.token}` } });
                   return next.handle(newReq);
                 }),
                 catchError(err => {
-                  this.authService.clearCredentials();
-                  return throwError(() => err);
+                  return throwError(err.error.errors);
                 })
               );
-            }
-            else{
-              this.router.navigateByUrl('auth/login');
             }
             break;
 
@@ -68,10 +61,10 @@ export class ErrorInterceptor implements HttpInterceptor {
             break;
 
           default:
-            console.error('Unexpected error:', error);
+            console.error('Unexpected error:', response);
         }
 
-        return throwError(error);
+        return throwError(response.error.errors);
       })
     )
 
