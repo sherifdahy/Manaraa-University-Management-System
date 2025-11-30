@@ -1,26 +1,29 @@
-<section class="  rounded-4 mx-auto bg-white">
-  <!-- the two icons -->
-  <div class="icons">
-    <div class="left">
-      <span>
-        <i class="fa-solid fa-shield"></i>
-      </span>
-      <p>Ministry of Higher Education</p>
-    </div>
-    <div class="right">
-      <span>
-        <i class="fa-solid fa-book-open"></i>
-      </span>
-      <p>Supreme Council of Universities</p>
-    </div>
-  </div>
+<section class="  rounded-4 mx-auto bg-white ">
 
-  <hr>
+    <!-- the two icons -->
+    <div class="icons">
+      <div class="left">
+        <span>
+          <i class="fa-solid fa-shield"></i>
+        </span>
+        <p>Ministry of Higher Education</p>
+      </div>
+      <div class="right">
+        <span>
+          <i class="fa-solid fa-book-open"></i>
+        </span>
+        <p>Supreme Council of Universities</p>
+      </div>
+    </div>
 
-  <div class="content text-center">
-    <h6>Login to Manaraa</h6>
-    <p>Unified National Education Platform</p>
-  </div>
+    <hr>
+
+    <div class="content text-center">
+      <h6>Login to Manaraa</h6>
+      <p>Unified National Education Platform</p>
+    </div>
+
+
 
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -58,15 +61,16 @@
     </div>
     <button type="submit" class="btn border rounded-2 w-100"> <img src="/windows_2374606.png" alt=""> Login with
       Microsoft Identity</button>
+
+      <div class="forgot text-center">
+        <a class="forget-link" [routerLink]="['/auth/forget-password']">Forgot Password?</a>
+        <div class="first">
+          <a>First Time? Contact your institution</a>
+        </div>
+      </div>
   </form>
 
 
-  <div class="forgot text-center">
-    <a>Forgot Password?</a>
-    <div class="first">
-      <a>First Time? Contact your institution</a>
-    </div>
-  </div>
 
 
 </section>
