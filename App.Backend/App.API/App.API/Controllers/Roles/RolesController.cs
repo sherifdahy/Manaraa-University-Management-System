@@ -16,7 +16,7 @@ public class RolesController(IMediator _mediator) : ControllerBase
 {
 
     [HttpGet(GetAllRolesCommand.Route)]
-    //[HasPermission(Permissions.GetRoles)]
+    [HasPermission(Permissions.GetRoles)]
     public async Task<IActionResult> GetAllRoles([FromQuery] bool includeDisabled,CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(new GetAllRolesCommand(includeDisabled), cancellationToken);
