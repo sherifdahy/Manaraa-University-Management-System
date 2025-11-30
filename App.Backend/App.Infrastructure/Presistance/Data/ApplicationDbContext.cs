@@ -27,6 +27,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     }
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.Entity<ApplicationUser>()
+        .Property(u => u.IsDisabled)
+        .HasColumnName("IsDisabled")
+        .HasDefaultValue(false);
+
         builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         base.OnModelCreating(builder);
     }
