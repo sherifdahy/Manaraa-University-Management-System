@@ -23,40 +23,35 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginPageComponent,
-        canActivate: [guestGuard]
+        canActivate: [guestGuard],
       },
       {
-        path : 'forget-password',
-        component : ForgetPasswordPageComponent,
-        canActivate : [guestGuard],
+        path: 'forget-password',
+        component: ForgetPasswordPageComponent,
+        canActivate: [guestGuard],
       },
       {
-        path : 'reset-password',
-        component : ResetPasswordPageComponent,
-        canActivate : [guestGuard]
+        path: 'reset-password',
+        component: ResetPasswordPageComponent,
+        canActivate: [guestGuard],
       },
       {
-        path : 'new-password',
-        component : NewPasswordPage ,
-        canActivate : [guestGuard],
-        title:'new password'
+        path: 'new-password',
+        component: NewPasswordPage,
+        canActivate: [guestGuard],
+        title: 'new password',
       },
       {
-        path : 'module-selection',
-        component : ModuleSelectionPage,
-        canActivate : [guestGuard]
-      }
-    ]
-  }
+        path: 'module-selection',
+        component: ModuleSelectionPage,
+        canActivate: [guestGuard],
+      },
+    ],
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    RouterModule.forChild(routes),
-  ],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule.forChild(routes)],
   declarations: [
     // layouts
     AuthLayoutComponent,
@@ -64,17 +59,14 @@ const routes: Routes = [
     // components
     LoginFormComponent,
     ForgetPasswordFormComponent,
-    ResetPasswordFormComponent,
     ModuleSeclectionForm,
     NewPasswordForm,
-
 
     // pages
     LoginPageComponent,
     ForgetPasswordPageComponent,
-    ResetPasswordPageComponent,
     ModuleSelectionPage,
-    NewPasswordPage
-  ]
+    NewPasswordPage,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}
