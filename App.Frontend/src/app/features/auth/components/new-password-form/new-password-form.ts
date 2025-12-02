@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewPasswordRequest } from '../../../../core/models/auth/requests/new-password-request';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegexPatternConsts } from '../../../../core/constants/regex-pattern-consts';
 import { passwordMatch } from '../../../../shared/validators/password-match-validator';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-password-form',
@@ -13,12 +14,10 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
   styleUrl: './new-password-form.css',
 })
 //TODO
-//1.Use Toastr and remove this alerts
 //2.Handel Errors (Backend Erros)
-//3.see now where to go after success
 //4.AutoMapping in the request
-//6.remove the [disable] from the Html
 //5.use the apperror
+//route the new password
 export class NewPasswordForm implements OnInit {
   form!: FormGroup;
   code!: string;
@@ -26,7 +25,9 @@ export class NewPasswordForm implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private activeatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.buildForm();
@@ -35,6 +36,10 @@ export class NewPasswordForm implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     let request = this.form.value as NewPasswordRequest;
     this.callEndPoint(request);
   }
@@ -69,11 +74,11 @@ export class NewPasswordForm implements OnInit {
     });
   }
   private submitSuccess() {
-    alert('new Password Has Change');
+    this.toastrService.success('new Password Has Change');
+    this.router.navigate(['/auth/login']);
   }
   private submitFail(error: any) {
-    alert(error);
-    console.log(error);
+    this.toastrService.error('error');
   }
 
   get newPassword() {

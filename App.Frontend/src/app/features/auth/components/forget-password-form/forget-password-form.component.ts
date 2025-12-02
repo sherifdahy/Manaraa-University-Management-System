@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgetPasswordRequest } from '../../../../core/models/auth/requests/forget-password-request';
-import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forget-password-form',
@@ -12,17 +12,14 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
 })
 
 //TODO
-//1.Use Toastr and remove this alerts
 //2.Handel Errors (Backend Erros)
-//3.see now where to go after success
-//4.remove the [disable] from the Html
 //5.use the apperror
 export class ForgetPasswordFormComponent implements OnInit {
   form!: FormGroup;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -30,6 +27,10 @@ export class ForgetPasswordFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     let request = this.form.value as ForgetPasswordRequest;
     this.callEndPoint(request);
   }
@@ -47,10 +48,10 @@ export class ForgetPasswordFormComponent implements OnInit {
   }
 
   private submitSuccess() {
-    alert('Email Send Successfully');
+    this.toastrService.success('Email Send Successfully');
   }
   private submitFail(error: any) {
-    alert(error);
+    this.toastrService.error('error');
   }
 
   get email() {
