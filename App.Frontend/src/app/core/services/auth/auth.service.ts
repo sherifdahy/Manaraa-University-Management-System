@@ -6,11 +6,12 @@ import { AuthResponse } from '../../models/auth/responses/auth-response';
 import { API_ENDPOINTS_CONSTS } from '../../constants/end-point-consts';
 import { ApiClientService } from '../api/api-client.service';
 import { AuthenticatedUserResponse } from '../../models/auth/responses/authenticated-user-response';
-import { ForgetPasswordRequest } from '../../models/auth/requests/forget-password-request';
 import { AuthStorageService } from './auth-storage.service';
+import { ForgetPasswordRequest } from '../../models/auth/requests/forget-password-request';
+import { NewPasswordRequest } from '../../models/auth/requests/new-password-request';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
@@ -18,28 +19,40 @@ export class AuthService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
 
   constructor(private apiCall: ApiClientService, private authStorageService: AuthStorageService, private jwtService: JwtService) {
-    this.checkOnInit();
+    {
+      this.currentUserSubject = new BehaviorSubject<AuthenticatedUserResponse | null>(null);
+      this.isLoggedInSubject = new BehaviorSubject<boolean>(false);
+      this.checkOnInit();
+    }
+
   }
 
   checkOnInit() {
     this.authStorageService.getAuthData$().subscribe(response => {
-      if (response) {
-        this.currentUserSubject.next(this.jwtService.decodeToken(response?.token))
-        this.isLoggedInSubject.next(true);
-      }
-      else {
-        this.isLoggedInSubject.next(false);
-      }
+      this.authStorageService.getAuthData$().subscribe((response) => {
+        if (response) {
+          this.currentUserSubject.next(this.jwtService.decodeToken(response?.token));
+          this.isLoggedInSubject.next(true);
+        } else {
+          this.isLoggedInSubject.next(false);
+        }
+      });
     })
   }
+
 
   login(request: LoginRequest): Observable<AuthResponse> {
     return this.apiCall.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.LOGIN, request).pipe(
       tap(response => {
         this.authStorageService.saveAuthData(response);
       }),
+      tap((response) => {
+        this.authStorageService.saveAuthData(response);
+      })
     );
   }
+
+
 
   logout(): Observable<any> {
     return this.apiCall.post(API_ENDPOINTS_CONSTS.AUTH.REVOKE, {
@@ -53,20 +66,24 @@ export class AuthService {
   }
 
   forgetPassword(request: ForgetPasswordRequest): Observable<void> {
-    console.log(request);
-    alert(API_ENDPOINTS_CONSTS.AUTH.FORGET_PASSWORD);
     return this.apiCall.post<void>(API_ENDPOINTS_CONSTS.AUTH.FORGET_PASSWORD, request);
   }
 
   refreshToken(): Observable<AuthResponse> {
-    return this.apiCall.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.REFRESH_TOKEN, {
-      token: this.authStorageService.getAuthData()?.token,
-      refreshToken: this.authStorageService.getAuthData()?.refreshToken
-    }).pipe(
-      tap(response => {
-        this.authStorageService.saveAuthData(response);
+    return this.apiCall
+      .post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.REFRESH_TOKEN, {
+        token: this.authStorageService.getAuthData()?.token,
+        refreshToken: this.authStorageService.getAuthData()?.refreshToken,
       })
-    );
+      .pipe(
+        tap((response) => {
+          this.authStorageService.saveAuthData(response);
+        })
+      );
+  }
+
+  resetPassword(request: NewPasswordRequest): Observable<void> {
+    return this.apiCall.post<void>(API_ENDPOINTS_CONSTS.AUTH.RESET_PASSWORD, request);
   }
 
   get currentUser(): AuthenticatedUserResponse | null {
@@ -85,3 +102,9 @@ export class AuthService {
     return this.isLoggedInSubject.value;
   }
 }
+
+
+
+
+
+
