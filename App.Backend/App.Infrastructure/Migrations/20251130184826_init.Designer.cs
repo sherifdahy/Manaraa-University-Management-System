@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251124173137_RemoveProducts")]
-    partial class RemoveProducts
+    [Migration("20251130184826_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,12 @@ namespace App.Infrastructure.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDefualt")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -53,6 +59,26 @@ namespace App.Infrastructure.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "51655B45-963A-4DD7-A68F-1F18B3F4BE47",
+                            IsDefualt = false,
+                            IsDeleted = false,
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ConcurrencyStamp = "9601DE96-3D34-48D0-BA24-4D7C1A9F6C7F",
+                            IsDefualt = true,
+                            IsDeleted = false,
+                            Name = "Member",
+                            NormalizedName = "MEMBER"
+                        });
                 });
 
             modelBuilder.Entity("App.Core.Entities.Identity.ApplicationUser", b =>
@@ -76,6 +102,22 @@ namespace App.Infrastructure.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsDisabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDisabled");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -121,6 +163,26 @@ namespace App.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "21BB4316-3388-4644-B048-C514DEB63A58",
+                            Email = "admin@manara.org",
+                            EmailConfirmed = true,
+                            FirstName = "",
+                            IsDisabled = false,
+                            LastName = "",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@MANARA.ORG",
+                            NormalizedUserName = "ADMIN@MANARA.ORG",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "CE187833-A9A3-4682-8594-7BFE6A08AE64",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@manara.org"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -145,6 +207,36 @@ namespace App.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClaimType = "permissions",
+                            ClaimValue = "roles:read",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClaimType = "permissions",
+                            ClaimValue = "roles:create",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClaimType = "permissions",
+                            ClaimValue = "roles:update",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClaimType = "permissions",
+                            ClaimValue = "roles:delete",
+                            RoleId = 1
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
@@ -224,6 +316,43 @@ namespace App.Infrastructure.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("App.Core.Entities.Identity.ApplicationUser", b =>
+                {
+                    b.OwnsMany("App.Core.Entities.Identity.RefreshToken", "RefreshTokens", b1 =>
+                        {
+                            b1.Property<int>("UserId")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<DateTime>("CreatedOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime>("ExpireOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime?>("RevokedOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("Token")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("UserId", "Id");
+
+                            b1.ToTable("RefreshTokens", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("RefreshTokens");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

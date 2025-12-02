@@ -4,13 +4,9 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
-import { AuthResponse } from '../models/auth/responses/auth-response';
-import { TokenService } from '../services/token.service';
+import { Observable } from 'rxjs';
+import { TokenService } from '../services/auth/token.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -19,7 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.tokenService.accessToken;
+    const token = this.tokenService.token?.token;
 
     const authReq = token
       ? req.clone({ setHeaders: { Authorization: `Bearer ${token}` } })

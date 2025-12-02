@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth.service';
+import { AuthService } from '../../../../core/services/auth/auth.service';
 import { LoginRequest } from '../../../../core/models/auth/requests/login-request';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

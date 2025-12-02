@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiClientService } from './api-client.service';
+import { ApiClientService } from './api/api-client.service';
 import { Observable } from 'rxjs';
 import { RoleResponse } from '../models/roles/responses/role-response';
 import { API_ENDPOINTS_CONSTS } from '../constants/end-point-consts';

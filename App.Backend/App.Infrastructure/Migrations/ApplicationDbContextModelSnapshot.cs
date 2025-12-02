@@ -105,6 +105,12 @@ namespace App.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("IsDisabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDisabled");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -164,6 +170,7 @@ namespace App.Infrastructure.Migrations
                             Email = "admin@manara.org",
                             EmailConfirmed = true,
                             FirstName = "",
+                            IsDisabled = false,
                             LastName = "",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MANARA.ORG",
@@ -306,6 +313,43 @@ namespace App.Infrastructure.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("App.Core.Entities.Identity.ApplicationUser", b =>
+                {
+                    b.OwnsMany("App.Core.Entities.Identity.RefreshToken", "RefreshTokens", b1 =>
+                        {
+                            b1.Property<int>("UserId")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<DateTime>("CreatedOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime>("ExpireOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<DateTime?>("RevokedOn")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("Token")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("UserId", "Id");
+
+                            b1.ToTable("RefreshTokens", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("RefreshTokens");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

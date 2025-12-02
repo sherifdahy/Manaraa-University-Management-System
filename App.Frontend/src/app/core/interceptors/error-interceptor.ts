@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { catchError, Observable, switchMap, switchScan, throwError } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { AuthResponse } from '../models/auth/responses/auth-response';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         switch (response.status) {
           case 401:
             debugger;
-            if (this.authService.isLoggedIn()) {
+            if (this.authService.isLoggedIn) {
               return this.authService.refreshToken().pipe(
                 switchMap((authResponse: AuthResponse) => {
                   const newReq = req.clone({ setHeaders: { Authorization: `Bearer ${authResponse.token}` } });
