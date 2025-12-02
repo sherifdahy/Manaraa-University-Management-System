@@ -14,6 +14,7 @@ import { ModuleSeclectionForm } from './components/module-seclection-form/module
 import { ModuleSelectionPage } from './pages/module-selection-page/module-selection-page';
 import { NewPasswordForm } from './components/new-password-form/new-password-form';
 import { NewPasswordPage } from './pages/new-password-page/new-password-page';
+import { authGuard } from '../../core/guards/auth-guard';
 
 const routes: Routes = [
   {
@@ -44,7 +45,7 @@ const routes: Routes = [
       {
         path : 'module-selection',
         component : ModuleSelectionPage,
-        canActivate : [guestGuard]
+        canActivate : [authGuard]
       }
     ]
   }
