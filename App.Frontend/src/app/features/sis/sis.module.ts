@@ -11,10 +11,7 @@ const routes : Routes = [
     canActivate : [authGuard],
     component : SisLayoutComponent,
     children : [
-      {
-        path : 'university-management',
-        loadChildren : () => import('./modules/university-management/university-management.module').then(m => m.UniversityManagementModule)
-      }
+
     ]
 
   }

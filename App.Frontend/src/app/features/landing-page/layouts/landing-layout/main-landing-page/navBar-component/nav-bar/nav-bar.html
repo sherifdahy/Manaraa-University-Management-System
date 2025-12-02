@@ -19,7 +19,7 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item me-4">
-          <a class="nav-link" href="#solutions">Solutions</a>
+          <a class="nav-link" href="#solutions">Services</a>
         </li>
         <li class="nav-item me-4">
           <a class="nav-link" href="#partners">Partners</a>
@@ -32,9 +32,6 @@
         class="d-flex justify-content-sm-center justify-content-lg-between flex-column flex-sm-row"
         role="search"
       >
-        <a [routerLink]="['protal-selection']" class="btn btn-outline-success px-4 py-2 mb-3 mb-sm-0 mt-3 mt-sm-0">
-          Portal
-        </a>
         <a *ngIf="!isLoggedIn" [routerLink]="['auth/login',{returnUrl : '/'}]" class="btn btn-outline-success px-4 py-2 login-btn ms-sm-3 ms-0">
           Login
         </a>

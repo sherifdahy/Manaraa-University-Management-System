@@ -1,8 +1,8 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoginRequest } from '../../../../core/models/auth/requests/login-request';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +11,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-
   form!: FormGroup;
   @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   constructor(
@@ -31,11 +30,11 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  get email() {
+  get email() : any {
     return this.form.get('email');
   }
 
-  get password() {
+  get password() : any {
     return this.form.get('password');
   }
 

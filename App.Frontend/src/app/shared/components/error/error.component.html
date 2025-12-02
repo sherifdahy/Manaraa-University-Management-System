@@ -1,0 +1,25 @@
+<div class="text-danger mt-1" *ngIf="control?.invalid && control?.touched">
+
+  <!-- required -->
+  <small *ngIf="control?.errors?.['required']">هذا الحقل مطلوب</small>
+
+  <!-- minlength -->
+  <small *ngIf="control?.errors?.['minlength']">
+    يجب أن يكون على الأقل {{control?.errors?.['minlength'].requiredLength}} أحرف
+  </small>
+
+  <!-- maxlength -->
+  <small *ngIf="control?.errors?.['maxlength']">
+    يجب ألا يتجاوز {{control?.errors?.['maxlength'].requiredLength}} أحرف
+  </small>
+
+  <!-- pattern -->
+  <small *ngIf="control?.errors?.['pattern']">القيمة غير صالحة</small>
+
+  <!-- email -->
+  <small *ngIf="control?.errors?.['email']">البريد الإلكتروني غير صالح</small>
+
+  <!-- custom errors -->
+  <small *ngIf="control?.errors?.['custom']">{{ control?.errors?.['custom'] }}</small>
+
+</div>

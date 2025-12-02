@@ -41,7 +41,7 @@ public class ForgetPasswordCommandHandler (UserManager<ApplicationUser> userMana
             templateModel: new Dictionary<string, string>
             {
                 { "{{name}}", user.FirstName },
-                { "{{action_url}}", $"{origin}/auth/forgetPassword?email={user.Email}&code={code}" }//This will Be the route of the frontend 
+                { "{{action_url}}", $"{origin}/auth/new-password?email={user.Email}&code={code}" }//This will Be the route of the frontend 
             }
         );
 
