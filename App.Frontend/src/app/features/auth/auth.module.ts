@@ -12,6 +12,7 @@ import { ModuleSeclectionForm } from './components/module-seclection-form/module
 import { ModuleSelectionPage } from './pages/module-selection-page/module-selection-page';
 import { NewPasswordForm } from './components/new-password-form/new-password-form';
 import { NewPasswordPage } from './pages/new-password-page/new-password-page';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -44,7 +45,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule.forChild(routes),
+    SharedModule
+  ],
   declarations: [
     // layouts
     AuthLayoutComponent,
@@ -62,4 +69,4 @@ const routes: Routes = [
     NewPasswordPage,
   ],
 })
-export class AuthModule {}
+export class AuthModule { }

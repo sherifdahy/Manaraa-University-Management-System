@@ -9,20 +9,23 @@ import { AuthService } from '../../../../../../../core/services/auth/auth.servic
 })
 export class NavBar implements OnInit {
 
-  isLoggedIn! : boolean;
+  isLoggedIn!: boolean;
 
-  constructor(private authService : AuthService)
-  {
+  constructor(private authService: AuthService) {
 
   }
 
   ngOnInit(): void {
-    this.authService.isLoggedIn$.subscribe(response=>{
+    this.authService.isLoggedIn$.subscribe(response => {
       this.isLoggedIn = response;
     })
   }
 
-  logout(){
-    this.authService.logout();
+  logout() {
+    this.authService.logout().subscribe({
+      error: (errors) => {
+        alert(errors);
+      }
+    });
   }
 }

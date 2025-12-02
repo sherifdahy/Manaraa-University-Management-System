@@ -31,11 +31,11 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  get email() {
+  get email() : any {
     return this.form.get('email');
   }
 
-  get password() {
+  get password() : any {
     return this.form.get('password');
   }
 

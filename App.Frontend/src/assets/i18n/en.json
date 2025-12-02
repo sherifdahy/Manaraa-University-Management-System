@@ -1,0 +1,5 @@
+{
+  "validation":{
+    "requiredMessage" : "this field is required"
+  }
+}

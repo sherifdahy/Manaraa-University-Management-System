@@ -1,30 +1,28 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { JwtService } from './jwt.service';
-import { TokenService } from './token.service';
 import { LoginRequest } from '../../models/auth/requests/login-request';
 import { AuthResponse } from '../../models/auth/responses/auth-response';
 import { API_ENDPOINTS_CONSTS } from '../../constants/end-point-consts';
 import { ApiClientService } from '../api/api-client.service';
 import { AuthenticatedUserResponse } from '../../models/auth/responses/authenticated-user-response';
 import { ForgetPasswordRequest } from '../../models/auth/requests/forget-password-request';
+import { AuthStorageService } from './auth-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<AuthenticatedUserResponse | null>;
-  private isLoggedInSubject: BehaviorSubject<boolean>;
+  private currentUserSubject = new BehaviorSubject<AuthenticatedUserResponse | null>(null);
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(private apiCall: ApiClientService, private tokenService: TokenService, private jwtService: JwtService) {
-    this.currentUserSubject = new BehaviorSubject<AuthenticatedUserResponse | null>(null);
-    this.isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  constructor(private apiCall: ApiClientService, private authStorageService: AuthStorageService, private jwtService: JwtService) {
     this.checkOnInit();
   }
 
   checkOnInit() {
-    this.tokenService.token$.subscribe(response => {
+    this.authStorageService.getAuthData$().subscribe(response => {
       if (response) {
         this.currentUserSubject.next(this.jwtService.decodeToken(response?.token))
         this.isLoggedInSubject.next(true);
@@ -38,17 +36,17 @@ export class AuthService {
   login(request: LoginRequest): Observable<AuthResponse> {
     return this.apiCall.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.LOGIN, request).pipe(
       tap(response => {
-        this.tokenService.setToken(response);
+        this.authStorageService.saveAuthData(response);
       }),
     );
   }
 
   logout(): Observable<any> {
     return this.apiCall.post(API_ENDPOINTS_CONSTS.AUTH.REVOKE, {
-      token: this.tokenService.token?.token,
-      refreshToken: this.tokenService.token?.refreshToken
+      token: this.authStorageService.getAuthData()?.token,
+      refreshToken: this.authStorageService.getAuthData()?.refreshToken
     }).pipe((response) => {
-      this.tokenService.removeToken();
+      this.authStorageService.clearAuthData();
       return response;
     }
     )
@@ -62,11 +60,11 @@ export class AuthService {
 
   refreshToken(): Observable<AuthResponse> {
     return this.apiCall.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.REFRESH_TOKEN, {
-      token: this.tokenService.token?.token,
-      refreshToken: this.tokenService.token?.refreshToken
+      token: this.authStorageService.getAuthData()?.token,
+      refreshToken: this.authStorageService.getAuthData()?.refreshToken
     }).pipe(
       tap(response => {
-        this.tokenService.setToken(response);
+        this.authStorageService.saveAuthData(response);
       })
     );
   }
