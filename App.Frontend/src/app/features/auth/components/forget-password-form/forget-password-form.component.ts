@@ -12,9 +12,11 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
 })
 
 //TODO
-//1.Use Toastr
+//1.Use Toastr and remove this alerts
 //2.Handel Errors (Backend Erros)
-//3.Complete the new PasswordComponent Logic
+//3.see now where to go after success
+//4.remove the [disable] from the Html
+//5.use the apperror
 export class ForgetPasswordFormComponent implements OnInit {
   form!: FormGroup;
   constructor(
@@ -25,10 +27,6 @@ export class ForgetPasswordFormComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-  }
-
-  get email() {
-    return this.form.get('email');
   }
 
   onSubmit() {
@@ -53,5 +51,9 @@ export class ForgetPasswordFormComponent implements OnInit {
   }
   private submitFail(error: any) {
     alert(error);
+  }
+
+  get email() {
+    return this.form.get('email');
   }
 }
