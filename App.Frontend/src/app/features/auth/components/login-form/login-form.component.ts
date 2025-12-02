@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth/auth.service';
 import { LoginRequest } from '../../../../core/models/auth/requests/login-request';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -22,6 +22,7 @@ export class LoginFormComponent implements OnInit {
   ) {
 
   }
+
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -63,3 +64,4 @@ export class LoginFormComponent implements OnInit {
     });
   }
 }
+

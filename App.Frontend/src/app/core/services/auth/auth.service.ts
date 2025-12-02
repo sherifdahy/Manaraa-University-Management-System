@@ -7,11 +7,13 @@ import { AuthResponse } from '../../models/auth/responses/auth-response';
 import { API_ENDPOINTS_CONSTS } from '../../constants/end-point-consts';
 import { ApiClientService } from '../api/api-client.service';
 import { AuthenticatedUserResponse } from '../../models/auth/responses/authenticated-user-response';
+import { ForgetPasswordRequest } from '../../models/auth/requests/forget-password-request';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   private currentUserSubject: BehaviorSubject<AuthenticatedUserResponse | null>;
   private isLoggedInSubject: BehaviorSubject<boolean>;
 
@@ -52,6 +54,11 @@ export class AuthService {
     )
   }
 
+  forgetPassword(request: ForgetPasswordRequest): Observable<void> {
+    console.log(request);
+    alert(API_ENDPOINTS_CONSTS.AUTH.FORGET_PASSWORD);
+    return this.apiCall.post<void>(API_ENDPOINTS_CONSTS.AUTH.FORGET_PASSWORD, request);
+  }
 
   refreshToken(): Observable<AuthResponse> {
     return this.apiCall.post<AuthResponse>(API_ENDPOINTS_CONSTS.AUTH.REFRESH_TOKEN, {
