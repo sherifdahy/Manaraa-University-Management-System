@@ -20,6 +20,7 @@
   <small *ngIf="control?.errors?.['email']">البريد الإلكتروني غير صالح</small>
 
   <!-- custom errors -->
-  <small *ngIf="control?.errors?.['custom']">{{ control?.errors?.['custom'] }}</small>
-
+<small *ngIf="control?.errors?.['UnmatchedPassword']">
+  كلمتا المرور غير متطابقتين
+</small>
 </div>

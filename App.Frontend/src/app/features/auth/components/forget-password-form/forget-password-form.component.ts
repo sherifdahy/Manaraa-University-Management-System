@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgetPasswordRequest } from '../../../../core/models/auth/requests/forget-password-request';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
 
 @Component({
   selector: 'app-forget-password-form',
@@ -10,16 +11,14 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './forget-password-form.component.html',
   styleUrls: ['./forget-password-form.component.css'],
 })
-
-//TODO
-//2.Handel Errors (Backend Erros)
-//5.use the apperror
 export class ForgetPasswordFormComponent implements OnInit {
   form!: FormGroup;
+  @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   ngOnInit() {
@@ -43,18 +42,18 @@ export class ForgetPasswordFormComponent implements OnInit {
   private callEndPoint(request: ForgetPasswordRequest) {
     this.authService.forgetPassword(request).subscribe({
       next: () => this.submitSuccess(),
-      error: (error: any) => this.submitFail(error),
+      error: (errors: any) => this.submitFail(errors),
     });
   }
 
   private submitSuccess() {
     this.toastrService.success('Email Send Successfully');
   }
-  private submitFail(error: any) {
-    this.toastrService.error('error');
+  private submitFail(errors: any) {
+    this.errorHandler.handleError(errors, 'User.InvalidCredentials', this.errorMessageRef);
   }
 
-  get email() {
+  get email(): any {
     return this.form.get('email');
   }
 }

@@ -4,13 +4,23 @@ export function passwordMatch(
   passControlName: string = 'newPassword',
   confrimPassControlName: string = 'confirmPassword'
 ): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    let passControl = control.get(passControlName);
-    let confirmControll = control.get(confrimPassControlName);
-    if (!passControl || !confirmControll || !passControl.value || !confirmControll.value)
-      return null;
+  return (group: AbstractControl): ValidationErrors | null => {
+    const pass = group.get(passControlName);
+    const confirm = group.get(confrimPassControlName);
 
-    let ValidationError = { UnmatchedPassword: { pass: passControl.value } };
-    return passControl.value === confirmControll.value ? null : ValidationError;
+    if (!pass || !confirm) return null;
+
+    if (pass.value !== confirm.value) {
+      confirm.setErrors({ ...confirm.errors, UnmatchedPassword: true });
+      return { UnmatchedPassword: true };
+    } else {
+      if (confirm.errors) {
+        delete confirm.errors['UnmatchedPassword'];
+        if (Object.keys(confirm.errors).length === 0) {
+          confirm.setErrors(null);
+        }
+      }
+      return null;
+    }
   };
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewPasswordRequest } from '../../../../core/models/auth/requests/new-password-request';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,6 +6,7 @@ import { RegexPatternConsts } from '../../../../core/constants/regex-pattern-con
 import { passwordMatch } from '../../../../shared/validators/password-match-validator';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
 
 @Component({
   selector: 'app-new-password-form',
@@ -13,12 +14,8 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './new-password-form.html',
   styleUrl: './new-password-form.css',
 })
-//TODO
-//2.Handel Errors (Backend Erros)
-//4.AutoMapping in the request
-//5.use the apperror
-//route the new password
 export class NewPasswordForm implements OnInit {
+  @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   form!: FormGroup;
   code!: string;
   email!: string;
@@ -27,7 +24,8 @@ export class NewPasswordForm implements OnInit {
     private activeatedRoute: ActivatedRoute,
     private authService: AuthService,
     private toastrService: ToastrService,
-    private router: Router
+    private router: Router,
+    private errorHandler: ErrorHandlerService
   ) {}
   ngOnInit(): void {
     this.buildForm();
@@ -70,21 +68,21 @@ export class NewPasswordForm implements OnInit {
     request.email = this.email;
     this.authService.resetPassword(request).subscribe({
       next: () => this.submitSuccess(),
-      error: (error: any) => this.submitFail(error),
+      error: (errors: any) => this.submitFail(errors),
     });
   }
   private submitSuccess() {
     this.toastrService.success('new Password Has Change');
     this.router.navigate(['/auth/login']);
   }
-  private submitFail(error: any) {
-    this.toastrService.error('error');
+  private submitFail(errors: any) {
+    this.errorHandler.handleError(errors, 'User.InvalidCredentials', this.errorMessageRef);
   }
 
-  get newPassword() {
+  get newPassword(): any {
     return this.form.get('newPassword');
   }
-  get confirmPassword() {
+  get confirmPassword(): any {
     return this.form.get('confirmPassword');
   }
 }
