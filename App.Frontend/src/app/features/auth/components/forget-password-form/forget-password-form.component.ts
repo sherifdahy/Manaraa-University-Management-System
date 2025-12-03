@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgetPasswordRequest } from '../../../../core/models/auth/requests/forget-password-request';
 import { AuthService } from '../../../../core/services/auth/auth.service';
@@ -12,15 +12,15 @@ import { ErrorHandlerService } from '../../../../core/services/error-handler.ser
   styleUrls: ['./forget-password-form.component.css'],
 })
 export class ForgetPasswordFormComponent implements OnInit {
-  sucMsg: boolean = false;
-
+  successMessage: boolean = false;
   form!: FormGroup;
   @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -50,7 +50,8 @@ export class ForgetPasswordFormComponent implements OnInit {
 
   private submitSuccess() {
     this.toastrService.success('Email Send Successfully');
-    this.sucMsg = true;
+    this.successMessage = true;
+    this.cdr.detectChanges();
   }
   private submitFail(errors: any) {
     this.errorHandler.handleError(errors, 'User.InvalidCredentials', this.errorMessageRef);
