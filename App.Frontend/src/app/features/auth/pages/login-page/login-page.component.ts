@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppTranslateModule } from '../../../../shared/modules/app-translate.module';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-page',
@@ -10,11 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
 
   constructor(
-
   ) { }
 
   ngOnInit() {
   }
 
-
+  
 }

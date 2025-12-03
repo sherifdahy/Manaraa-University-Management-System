@@ -50,7 +50,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     // layouts

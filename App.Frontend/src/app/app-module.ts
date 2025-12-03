@@ -4,10 +4,11 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './core/interceptors/loader-interceptor';
 import { TokenInterceptor } from './core/interceptors/token-interceptor';
 import { ErrorInterceptor } from './core/interceptors/error-interceptor';
+import { AppTranslateModule } from './shared/modules/app-translate.module';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    AppTranslateModule.forRoot(),
     ToastrModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
@@ -34,15 +36,15 @@ import { ToastrModule } from 'ngx-toastr';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
-      multi: true,
+      multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
-      multi: true,
+      multi: true
     },
-    provideBrowserGlobalErrorListeners(),
+    provideBrowserGlobalErrorListeners()
   ],
   bootstrap: [App],
 })
-export class AppModule {}
+export class AppModule { }
