@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewPasswordRequest } from '../../../../core/models/auth/requests/new-password-request';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegexPatternConsts } from '../../../../core/constants/regex-pattern-consts';
 import { passwordMatch } from '../../../../shared/validators/password-match-validator';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
 
 @Component({
   selector: 'app-new-password-form',
@@ -12,21 +14,18 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
   templateUrl: './new-password-form.html',
   styleUrl: './new-password-form.css',
 })
-//TODO
-//1.Use Toastr and remove this alerts
-//2.Handel Errors (Backend Erros)
-//3.see now where to go after success
-//4.AutoMapping in the request
-//6.remove the [disable] from the Html
-//5.use the apperror
 export class NewPasswordForm implements OnInit {
+  @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   form!: FormGroup;
   code!: string;
   email!: string;
   constructor(
     private formBuilder: FormBuilder,
     private activeatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private router: Router,
+    private errorHandler: ErrorHandlerService
   ) {}
   ngOnInit(): void {
     this.buildForm();
@@ -35,6 +34,10 @@ export class NewPasswordForm implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     let request = this.form.value as NewPasswordRequest;
     this.callEndPoint(request);
   }
@@ -65,21 +68,21 @@ export class NewPasswordForm implements OnInit {
     request.email = this.email;
     this.authService.resetPassword(request).subscribe({
       next: () => this.submitSuccess(),
-      error: (error: any) => this.submitFail(error),
+      error: (errors: any) => this.submitFail(errors),
     });
   }
   private submitSuccess() {
-    alert('new Password Has Change');
+    this.toastrService.success('new Password Has Change');
+    this.router.navigate(['/auth/login']);
   }
-  private submitFail(error: any) {
-    alert(error);
-    console.log(error);
+  private submitFail(errors: any) {
+    this.errorHandler.handleError(errors, 'User.InvalidCredentials', this.errorMessageRef);
   }
 
-  get newPassword() {
+  get newPassword(): any {
     return this.form.get('newPassword');
   }
-  get confirmPassword() {
+  get confirmPassword(): any {
     return this.form.get('confirmPassword');
   }
 }

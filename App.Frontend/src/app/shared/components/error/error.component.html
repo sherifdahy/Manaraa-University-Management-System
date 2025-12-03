@@ -4,10 +4,10 @@
       {{ 'validation.requiredMessage' | translate }}
     </small>
     <small [class.visible]="control?.errors?.['minlength']">
-      {{ 'validation.minLengthMessage' | translate: {min: control?.errors?.['minlength']} }}
+      {{ 'validation.minLengthMessage' | translate: {min: control?.errors?.['minlength'].requiredLength} }}
     </small>
     <small [class.visible]="control?.errors?.['maxlength']">
-      {{ 'validation.maxLengthMessage' | translate: {max: control?.errors?.['maxlength']} }}
+      {{ 'validation.maxLengthMessage' | translate: {max: control?.errors?.['maxlength'].requiredLength} }}
     </small>
     <small [class.visible]="control?.errors?.['pattern']">
       {{ 'validation.patternMessage' | translate }}
@@ -17,6 +17,10 @@
     </small>
     <small [class.visible]="control?.errors?.['custom']">
       {{ control?.errors?.['custom'] }}
+    </small>
+    <!-- custom errors -->
+    <small *ngIf="control?.errors?.['UnmatchedPassword']">
+      كلمتا المرور غير متطابقتين
     </small>
   </div>
 </div>

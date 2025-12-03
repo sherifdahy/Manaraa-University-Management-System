@@ -8,12 +8,9 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./error.component.css'],
 })
 export class ErrorComponent implements OnInit {
-
   @Input() control!: FormControl | null;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-  
+  ngOnInit() {}
 }

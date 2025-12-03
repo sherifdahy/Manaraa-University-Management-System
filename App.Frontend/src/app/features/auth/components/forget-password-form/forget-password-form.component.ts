@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgetPasswordRequest } from '../../../../core/models/auth/requests/forget-password-request';
-import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
 
 @Component({
   selector: 'app-forget-password-form',
@@ -10,19 +11,16 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
   templateUrl: './forget-password-form.component.html',
   styleUrls: ['./forget-password-form.component.css'],
 })
-
-//TODO
-//1.Use Toastr and remove this alerts
-//2.Handel Errors (Backend Erros)
-//3.see now where to go after success
-//4.remove the [disable] from the Html
-//5.use the apperror
 export class ForgetPasswordFormComponent implements OnInit {
+  sucMsg: boolean = false;
+
   form!: FormGroup;
+  @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private toastrService: ToastrService,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   ngOnInit() {
@@ -30,6 +28,10 @@ export class ForgetPasswordFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     let request = this.form.value as ForgetPasswordRequest;
     this.callEndPoint(request);
   }
@@ -42,18 +44,19 @@ export class ForgetPasswordFormComponent implements OnInit {
   private callEndPoint(request: ForgetPasswordRequest) {
     this.authService.forgetPassword(request).subscribe({
       next: () => this.submitSuccess(),
-      error: (error: any) => this.submitFail(error),
+      error: (errors: any) => this.submitFail(errors),
     });
   }
 
   private submitSuccess() {
-    alert('Email Send Successfully');
+    this.toastrService.success('Email Send Successfully');
+    this.sucMsg = true;
   }
-  private submitFail(error: any) {
-    alert(error);
+  private submitFail(errors: any) {
+    this.errorHandler.handleError(errors, 'User.InvalidCredentials', this.errorMessageRef);
   }
 
-  get email() {
+  get email(): any {
     return this.form.get('email');
   }
 }
