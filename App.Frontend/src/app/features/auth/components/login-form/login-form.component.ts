@@ -11,7 +11,6 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-
   form!: FormGroup;
   @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   constructor(

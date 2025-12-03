@@ -12,6 +12,8 @@ import { ErrorHandlerService } from '../../../../core/services/error-handler.ser
   styleUrls: ['./forget-password-form.component.css'],
 })
 export class ForgetPasswordFormComponent implements OnInit {
+  sucMsg: boolean = false;
+
   form!: FormGroup;
   @ViewChild('errorMessage') errorMessageRef!: ElementRef<HTMLDivElement>;
   constructor(
@@ -48,6 +50,7 @@ export class ForgetPasswordFormComponent implements OnInit {
 
   private submitSuccess() {
     this.toastrService.success('Email Send Successfully');
+    this.sucMsg = true;
   }
   private submitFail(errors: any) {
     this.errorHandler.handleError(errors, 'User.InvalidCredentials', this.errorMessageRef);

@@ -36,12 +36,12 @@ const routes: Routes = [
         title: 'new password',
       },
       {
-        path: 'module-selection',
-        component: ModuleSelectionPage,
-        canActivate: [guestGuard],
-      },
-    ],
-  },
+        path : 'module-selection',
+        component : ModuleSelectionPage,
+        canActivate : [guestGuard]
+      }
+    ]
+  }
 ];
 
 @NgModule({
