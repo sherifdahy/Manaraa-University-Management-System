@@ -4,10 +4,10 @@
       {{ 'validation.requiredMessage' | translate }}
     </small>
     <small [class.visible]="control?.errors?.['minlength']">
-      {{ 'validation.minLengthMessage' | translate: {min: control?.errors?.['minlength'].requiredLength} }}
+      {{ 'validation.minLengthMessage' | translate: {min: control?.errors?.['minlength']} }}
     </small>
     <small [class.visible]="control?.errors?.['maxlength']">
-      {{ 'validation.maxLengthMessage' | translate: {max: control?.errors?.['maxlength'].requiredLength} }}
+      {{ 'validation.maxLengthMessage' | translate: {max: control?.errors?.['maxlength']} }}
     </small>
     <small [class.visible]="control?.errors?.['pattern']">
       {{ 'validation.patternMessage' | translate }}

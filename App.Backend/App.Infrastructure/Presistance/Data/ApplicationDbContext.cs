@@ -1,5 +1,6 @@
 ﻿using App.Core.Entities;
 using App.Core.Entities.Identity;
+using App.Core.Entities.University;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,13 +17,19 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     }
 
     #region Db Sets
+    // identity
     public DbSet<RefreshToken> RefreshTokens { get; set; }  
+
+
+    // bussiness logic
+    public DbSet<University> Universities { get; set; }
+    public DbSet<Faculty> Faculties{ get; set; }
+
     #endregion
 
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-
         return base.SaveChangesAsync(cancellationToken);
     }
     protected override void OnModelCreating(ModelBuilder builder)
@@ -33,6 +40,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
         .HasDefaultValue(false);
 
         builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
         base.OnModelCreating(builder);
     }
 }

@@ -9,7 +9,6 @@ import { FormControl } from '@angular/forms';
 })
 export class ErrorComponent implements OnInit {
   @Input() control!: FormControl | null;
-
   constructor() {}
 
   ngOnInit() {}

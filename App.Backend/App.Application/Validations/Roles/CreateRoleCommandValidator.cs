@@ -5,9 +5,9 @@ using System.Text;
 
 namespace App.Application.Validations.Roles;
 
-public class RoleValidator : AbstractValidator<CreateRoleCommand>
+public class CreateRoleCommandValidator : AbstractValidator<CreateRoleCommand>
 {
-    public RoleValidator()
+    public CreateRoleCommandValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Role name is required.")
