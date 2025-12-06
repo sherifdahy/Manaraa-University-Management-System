@@ -7,7 +7,7 @@ public class UpdateUniversityCommandHandler(IUnitOfWork unitOfWork): IRequestHan
     public async Task<Result> Handle(UpdateUniversityCommand request, CancellationToken cancellationToken)
     {
         if (_unitOfWork.Universities.IsExist(x => x.Name == request.Name && x.Id != request.Id))
-            return Result.Failure(UniversityErrors.Duplicated);
+            return Result.Failure(UniversityErrors.DuplicatedName);
         
         var university = await _unitOfWork.Universities.GetByIdAsync(request.Id,cancellationToken);
 

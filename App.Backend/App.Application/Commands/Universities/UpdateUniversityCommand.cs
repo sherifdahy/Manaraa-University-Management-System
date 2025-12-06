@@ -6,7 +6,6 @@ public record UpdateUniversityCommand
 (
     int Id,
     string Name,
-    string Code,
     string Description,
     string Address,
     string Email,

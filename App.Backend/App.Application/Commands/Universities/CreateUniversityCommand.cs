@@ -3,7 +3,6 @@
 public record CreateUniversityCommand
 (
     string Name,
-    string Code,
     string Description,
     string Address,
     string Email,

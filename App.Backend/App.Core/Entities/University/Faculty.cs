@@ -5,7 +5,7 @@ public class Faculty
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string DeanName { get; set; } = string.Empty;
-    public string Location { get; set; } = string.Empty;
+    public string Address { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Website { get; set; } = string.Empty;
     public bool IsDeleted { get; set; }

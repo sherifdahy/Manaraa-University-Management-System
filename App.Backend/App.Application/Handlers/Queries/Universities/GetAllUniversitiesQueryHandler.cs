@@ -7,7 +7,7 @@ public class GetAllFacultiesQueryHandler(IUnitOfWork unitOfWork) : IRequestHandl
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     public async Task<Result<List<UniversityResponse>>> Handle(GetAllUniverisitiesQuery request, CancellationToken cancellationToken)
     {
-        var universities = await _unitOfWork.Universities.GetAllAsync(cancellationToken);
+        var universities = await _unitOfWork.Universities.FindAllAsync(x=> !x.IsDeleted || (request.IncludeDisabled.HasValue && request.IncludeDisabled.Value), null,cancellationToken);
 
         var response = universities.Adapt<List<UniversityResponse>>();
 

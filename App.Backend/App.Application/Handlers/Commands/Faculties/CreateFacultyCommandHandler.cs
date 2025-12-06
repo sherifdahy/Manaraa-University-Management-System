@@ -9,6 +9,9 @@ public class CreateFacultyCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
 
     public async Task<Result<FacultyResponse>> Handle(CreateFacultyCommand request, CancellationToken cancellationToken)
     {
+        if (_unitOfWork.Fauclties.IsExist(x => x.Name == request.Name))
+            return Result.Failure<FacultyResponse>(FacultyErrors.DuplicatedName);
+
         var faculty = request.Adapt<Faculty>();
 
         await _unitOfWork.Fauclties.AddAsync(faculty,cancellationToken);

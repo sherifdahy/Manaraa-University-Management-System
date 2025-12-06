@@ -12,5 +12,6 @@ public record UniversityResponse
     string Description,
     string Address,
     string Email,
-    string Website
+    string Website,
+    bool IsDeleted
 );

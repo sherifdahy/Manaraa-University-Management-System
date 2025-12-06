@@ -2,5 +2,9 @@
 
 namespace App.Application.Queries.Universities;
 
-public record GetAllUniverisitiesQuery() : IRequest<Result<List<UniversityResponse>>>;
+public record GetAllUniverisitiesQuery
+(
+    bool? IncludeDisabled
+    
+) : IRequest<Result<List<UniversityResponse>>>;
 

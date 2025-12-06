@@ -10,6 +10,8 @@ public class FacultyConfiguration : IEntityTypeConfiguration<Faculty>
 {
     public void Configure(EntityTypeBuilder<Faculty> builder)
     {
+        builder.HasIndex(f => f.Name).IsUnique();
+
         builder.Property(f => f.Name)
             .IsRequired()
             .HasMaxLength(200);
@@ -20,7 +22,7 @@ public class FacultyConfiguration : IEntityTypeConfiguration<Faculty>
         builder.Property(f => f.DeanName)
             .HasMaxLength(200);
 
-        builder.Property(f => f.Location)
+        builder.Property(f => f.Address)
             .HasMaxLength(200);
 
         builder.Property(f => f.Email)

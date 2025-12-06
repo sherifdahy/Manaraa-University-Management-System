@@ -10,10 +10,6 @@ public class CreateUniversityCommandValidator : AbstractValidator<CreateUniversi
         .NotEmpty().WithMessage("University name is required.")
         .MaximumLength(200).WithMessage("University name must not exceed 200 characters.");
 
-        RuleFor(x => x.Code)
-            .NotEmpty().WithMessage("University code is required.")
-            .MaximumLength(50).WithMessage("University code must not exceed 50 characters.");
-
         RuleFor(x => x.Description)
             .NotEmpty().WithMessage("Description is required.")
             .MaximumLength(500).WithMessage("Description must not exceed 500 characters.");

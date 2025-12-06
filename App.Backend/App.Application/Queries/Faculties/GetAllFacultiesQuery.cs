@@ -2,4 +2,8 @@
 
 namespace App.Application.Queries.Faculties;
 
-public record GetAllFacultiesQuery : IRequest<Result<List<FacultyResponse>>>;
+public record GetAllFacultiesQuery
+(
+    bool? IncludeDisabled
+
+) : IRequest<Result<List<FacultyResponse>>>;

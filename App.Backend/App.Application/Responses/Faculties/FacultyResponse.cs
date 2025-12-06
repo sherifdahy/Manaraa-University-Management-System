@@ -2,5 +2,11 @@
 
 public record FacultyResponse
 (
-
+    string Name,
+    string Description,
+    string DeanName,
+    string Address,
+    string Email,
+    string Website,
+    bool IsDeleted
 );

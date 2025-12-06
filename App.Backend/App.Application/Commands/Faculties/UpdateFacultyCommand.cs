@@ -3,10 +3,9 @@
 public record UpdateFacultyCommand(
     int Id,
     string Name,
-    string Code,
     string Description,
     string DeanName,
-    string Location,
+    string Address,
     string Email,
     string Website,
     int UniversityId

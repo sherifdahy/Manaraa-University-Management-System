@@ -11,6 +11,6 @@ public static class FacultyErrors
     public static readonly Error InvalidId
         = new Error("Faculty.InvalidId", "Invalid Id.", StatusCodes.Status400BadRequest);
 
-    public static readonly Error Duplicated =
-            new("Faculty.Duplicated", "Faculty is Already Exist.", StatusCodes.Status409Conflict);
+    public static readonly Error DuplicatedName =
+            new("Faculty.DuplicatedName", "Name of Faculty is Already Exist.", StatusCodes.Status409Conflict);
 }

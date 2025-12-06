@@ -6,7 +6,7 @@ public class CreateUniversityCommandHandler(IUnitOfWork unitOfWork) : IRequestHa
     public async Task<Result<UniversityResponse>> Handle(CreateUniversityCommand request, CancellationToken cancellationToken)
     {
         if (_unitOfWork.Universities.IsExist(x => x.Name == request.Name))
-            return Result.Failure<UniversityResponse>(UniversityErrors.Duplicated);
+            return Result.Failure<UniversityResponse>(UniversityErrors.DuplicatedName);
 
         var university = request.Adapt<University>();
 

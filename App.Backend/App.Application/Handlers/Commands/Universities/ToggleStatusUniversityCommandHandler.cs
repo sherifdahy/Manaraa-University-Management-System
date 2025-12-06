@@ -12,6 +12,8 @@ public class ToggleStatusUniversityCommandHandler(IUnitOfWork unitOfWork) : IReq
 
         university.IsDeleted = !university.IsDeleted;
 
+        await _unitOfWork.SaveAsync(cancellationToken);
+
         return Result.Success();
     }
 }

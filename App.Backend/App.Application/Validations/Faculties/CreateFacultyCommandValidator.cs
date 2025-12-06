@@ -13,17 +13,13 @@ public class CreateFacultyCommandValidator : AbstractValidator<CreateFacultyComm
             .NotEmpty().WithMessage("Faculty name is required.")
             .MaximumLength(200);
 
-        RuleFor(f => f.Code)
-            .NotEmpty().WithMessage("Faculty code is required.")
-            .MaximumLength(50);
-
         RuleFor(f => f.Description)
             .MaximumLength(1000);
 
         RuleFor(f => f.DeanName)
             .MaximumLength(200);
 
-        RuleFor(f => f.Location)
+        RuleFor(f => f.Address)
             .MaximumLength(200);
 
         RuleFor(f => f.Email)
@@ -32,5 +28,6 @@ public class CreateFacultyCommandValidator : AbstractValidator<CreateFacultyComm
 
         RuleFor(f => f.Website)
             .MaximumLength(200);
+
     }
 }
