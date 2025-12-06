@@ -14,9 +14,11 @@ public class CreateFacultyCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
 
         var faculty = request.Adapt<Faculty>();
 
+        faculty.UniversityId = request.UniversityId;
+
         await _unitOfWork.Fauclties.AddAsync(faculty,cancellationToken);
         await _unitOfWork.SaveAsync(cancellationToken);
 
-        return Result.Success(request.Adapt<FacultyResponse>());
+        return Result.Success(faculty.Adapt<FacultyResponse>());
     }
 }

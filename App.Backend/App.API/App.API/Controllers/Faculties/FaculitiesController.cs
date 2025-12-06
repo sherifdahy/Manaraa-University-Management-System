@@ -30,14 +30,14 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(CreateUniversityCommand command, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> Create(CreateFacultyCommand command, CancellationToken cancellationToken = default)
     {
         var result = await _mediator.Send(command, cancellationToken);
         return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value.Id }, result.Value) : result.ToProblem();
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(UpdateUniversityCommand command, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> Update(UpdateFacultyCommand command, CancellationToken cancellationToken = default)
     {
         var result = await _mediator.Send(command, cancellationToken);
         return result.IsSuccess ? NoContent() : result.ToProblem();

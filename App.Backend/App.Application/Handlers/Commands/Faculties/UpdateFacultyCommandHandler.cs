@@ -9,7 +9,7 @@ public class UpdateFacultyCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
     public async Task<Result> Handle(UpdateFacultyCommand request, CancellationToken cancellationToken)
     {
         if (_unitOfWork.Fauclties.IsExist(x => x.Name == request.Name && x.Id != request.Id))
-            return Result.Failure(FacultyErrors.Duplicated);
+            return Result.Failure(FacultyErrors.DuplicatedName);
 
         var faculty = await _unitOfWork.Fauclties.GetByIdAsync(request.Id, cancellationToken);
 
@@ -17,6 +17,9 @@ public class UpdateFacultyCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
             return Result.Failure(FacultyErrors.NotFound);
 
         request.Adapt(faculty);
+
+        _unitOfWork.Fauclties.Update(faculty);
+        await _unitOfWork.SaveAsync(cancellationToken);
 
         return Result.Success();
     }
