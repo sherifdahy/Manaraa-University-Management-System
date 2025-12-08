@@ -3,7 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "04b33165-bc5c-492a-bef3-9335e6240bf9"
+    "analytics": "1d250b79-21e8-44b0-967f-5dd3ddbce8d0"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -37,7 +37,7 @@
               {
                 "glob": "**/*",
                 "input": "src/assets",
-                "output": "/assets"
+                "output": "assets"
               }
             ],
             "styles": [
@@ -47,8 +47,8 @@
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
-            "scripts":[
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
