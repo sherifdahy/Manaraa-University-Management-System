@@ -7,26 +7,32 @@ public class CreateFacultyCommandValidator : AbstractValidator<CreateFacultyComm
     public CreateFacultyCommandValidator()
     {
         RuleFor(f => f.UniversityId)
-            .GreaterThan(0).WithMessage("University Id must be greater than 0.");
+            .NotEmpty()
+            .GreaterThan(0);
 
         RuleFor(f => f.Name)
-            .NotEmpty().WithMessage("Faculty name is required.")
+            .NotEmpty()
             .MaximumLength(200);
 
         RuleFor(f => f.Description)
+            .NotEmpty()
             .MaximumLength(1000);
 
         RuleFor(f => f.DeanName)
+            .NotEmpty()
             .MaximumLength(200);
 
         RuleFor(f => f.Address)
+            .NotEmpty()
             .MaximumLength(200);
 
         RuleFor(f => f.Email)
-            .EmailAddress().WithMessage("Invalid email format.")
+            .NotEmpty()
+            .EmailAddress()
             .MaximumLength(200);
 
         RuleFor(f => f.Website)
+            .NotEmpty()
             .MaximumLength(200);
 
     }

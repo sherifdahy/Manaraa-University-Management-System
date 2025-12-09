@@ -10,24 +10,24 @@ public class UpdateUniversityCommandValidator : AbstractValidator<UpdateUniversi
     public UpdateUniversityCommandValidator()
     {
         RuleFor(x => x.Name)
-        .NotEmpty().WithMessage("University name is required.")
-        .MaximumLength(200).WithMessage("University name must not exceed 200 characters.");
+        .NotEmpty()
+        .MaximumLength(200);
 
         RuleFor(x => x.Description)
-            .NotEmpty().WithMessage("Description is required.")
-            .MaximumLength(500).WithMessage("Description must not exceed 500 characters.");
+            .NotEmpty()
+            .MaximumLength(500);
 
         RuleFor(x => x.Address)
-            .NotEmpty().WithMessage("Address is required.")
-            .MaximumLength(300).WithMessage("Address must not exceed 300 characters.");
+            .NotEmpty()
+            .MaximumLength(300);
 
         RuleFor(x => x.Email)
-            .NotEmpty().WithMessage("Email is required.")
-            .EmailAddress().WithMessage("Invalid email format.")
-            .MaximumLength(200).WithMessage("Email must not exceed 200 characters.");
+            .NotEmpty()
+            .EmailAddress()
+            .MaximumLength(200);
 
         RuleFor(x => x.Website)
-            .NotEmpty().WithMessage("Website is required.")
-            .MaximumLength(300).WithMessage("Website must not exceed 300 characters.");
+            .NotEmpty()
+            .MaximumLength(300);
     }
 }

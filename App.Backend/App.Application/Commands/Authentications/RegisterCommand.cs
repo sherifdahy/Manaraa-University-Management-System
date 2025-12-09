@@ -7,7 +7,7 @@ using System.Text;
 
 namespace App.Application.Commands.Authentications;
 
-public class RegisterCommand  : IRequest<Result<AuthenticationResponse>>
+public record RegisterCommand  : IRequest<Result<AuthenticationResponse>>
 {
     public const string Route = "register";
     public string Email { get; set; } = string.Empty;

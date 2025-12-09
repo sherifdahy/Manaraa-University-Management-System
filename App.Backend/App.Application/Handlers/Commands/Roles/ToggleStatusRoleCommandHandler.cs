@@ -11,16 +11,17 @@ using System.Text;
 
 namespace App.Application.Handlers.Commands.Roles;
 
-public class ToggleStatusRoleCommandHandler(RoleManager<ApplicationRole> roleManager) : IRequestHandler<ToggleStatusRoleCommand, Result>
+public class ToggleStatusRoleCommandHandler(RoleManager<ApplicationRole> roleManager,RoleErrors errors) : IRequestHandler<ToggleStatusRoleCommand, Result>
 {
     private readonly RoleManager<ApplicationRole> _roleManager = roleManager;
+    private readonly RoleErrors _errors = errors;
 
     public async Task<Result> Handle(ToggleStatusRoleCommand request, CancellationToken cancellationToken)
     {
         var role = await _roleManager.FindByIdAsync(request.Id.ToString());
 
         if (role is null)
-            return Result.Failure(RoleErrors.NotFound);
+            return Result.Failure(_errors.NotFound);
 
         role.IsDeleted = !role.IsDeleted;
 

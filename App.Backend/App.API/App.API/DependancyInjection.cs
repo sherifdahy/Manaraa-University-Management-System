@@ -1,19 +1,5 @@
-﻿using App.Application;
-using App.Application.Authentication.Filters;
-using App.Core.Interfaces;
-using App.Infrastructure;
-using App.Infrastructure.Authentications;
-using App.Infrastructure.Email;
-using App.Infrastructure.Presistance.Data;
-using App.Services;
-using Hangfire;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using System.Text;
-    
+﻿using App.Infrastructure.Localization.Localizers;
+
 namespace App.API;
 
 public static class DependancyInjection
@@ -31,6 +17,7 @@ public static class DependancyInjection
         builder.Services.AddScalerConfig();
         builder.Services.AddDbContextConfig(builder.Configuration);
         builder.Services.AddBackgroundJobsConfig(builder.Configuration);
+        builder.Services.AddLocalizationConfig(builder.Configuration);
 
     }
     private static void AddSeriLogConfig(this WebApplicationBuilder builder)
@@ -143,6 +130,30 @@ public static class DependancyInjection
             .UseSqlServerStorage(configuration.GetConnectionString("default")));
 
         services.AddHangfireServer();
+
+        return services;
+    }
+    private static IServiceCollection AddLocalizationConfig(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddSingleton<JsonStringLocalizer>();
+
+        services.AddLocalization();
+
+        services.AddMvc();
+
+        services.AddDistributedMemoryCache();
+
+        services.Configure<RequestLocalizationOptions>(options =>
+        {
+            var supportedCultures = new[]
+            {
+                new CultureInfo("ar-EG"),
+                new CultureInfo("en-US")
+            };
+
+            options.DefaultRequestCulture = new RequestCulture(culture: supportedCultures[0]);
+            options.SupportedCultures = supportedCultures;
+        });
 
         return services;
     }

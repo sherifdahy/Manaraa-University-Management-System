@@ -1,19 +1,27 @@
 ﻿using App.Application.Abstractions;
+using App.Infrastructure.Localization.Constants;
+using App.Infrastructure.Localization.Localizers;
 using Microsoft.AspNetCore.Http;
 
 namespace App.Application.Errors;
 
-public static class RoleErrors
+public  class RoleErrors
 {
-    public static readonly Error NotFound
-        = new Error("Role.NotFound", "Role is Not Exist.", StatusCodes.Status404NotFound);
+    private readonly JsonStringLocalizer _localizer;
 
-    public static readonly Error InvalidPermissions
-       = new Error("Role.InvalidPermissions", "Invalid Permissions.", StatusCodes.Status404NotFound);
+    public RoleErrors(JsonStringLocalizer localizer)
+    {
+        _localizer = localizer;
+    }
+    public   Error NotFound
+        => new Error("Role.NotFound", _localizer[RoleLocalizationKeys.NotFound,LocalizationFolderNames.Role], StatusCodes.Status404NotFound);
 
-    public static readonly Error InvalidId
-        = new Error("Role.InvalidId", "Invalid Id.", StatusCodes.Status400BadRequest);
+    public  Error InvalidPermissions
+       => new Error("Role.InvalidPermissions", _localizer[RoleLocalizationKeys.InvalidPermissions, LocalizationFolderNames.Role], StatusCodes.Status404NotFound);
 
-    public static readonly Error Duplicated =
-            new("Role.DuplicatedRole", "Role is Already Exist.", StatusCodes.Status409Conflict);
+    public  Error InvalidId
+        => new Error("Role.InvalidId", _localizer[RoleLocalizationKeys.InvalidId, LocalizationFolderNames.Role], StatusCodes.Status400BadRequest);
+
+    public  Error Duplicated 
+        => new("Role.DuplicatedRole", _localizer[RoleLocalizationKeys.DuplicatedRole, LocalizationFolderNames.Role], StatusCodes.Status409Conflict);
 }

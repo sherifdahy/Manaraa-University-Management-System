@@ -1,13 +1,16 @@
 ﻿
 
 using App.Application.Constants;
+using App.Infrastructure.Localization;
+using App.Infrastructure.Localization.Constants;
+using App.Infrastructure.Localization.Localizers;
 
 namespace App.Application.Validations.Authentications;
 
 public class ResetPasswordCommandValidator : AbstractValidator<ResetPasswordCommand>    
 {
 
-    public ResetPasswordCommandValidator()
+    public ResetPasswordCommandValidator(JsonStringLocalizer localizer)
     {
         RuleFor(x => x.Email)
             .NotEmpty()
@@ -19,6 +22,6 @@ public class ResetPasswordCommandValidator : AbstractValidator<ResetPasswordComm
         RuleFor(x => x.NewPassword)
             .NotEmpty()
             .Matches(RegexPatterns.Password)
-            .WithMessage("Password should be at least 8 digits and should contains Lowercase, NonAlphanumeric and Uppercase");
+            .WithMessage(localizer[AuthenticationLocalizationKeys.PasswordRegex, LocalizationFolderNames.Authentication]);
     }
 }

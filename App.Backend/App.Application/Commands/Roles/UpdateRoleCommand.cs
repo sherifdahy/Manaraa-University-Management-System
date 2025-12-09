@@ -6,7 +6,7 @@ using System.Text;
 
 namespace App.Application.Commands.Roles;
 
-public class UpdateRoleCommand : IRequest<Result>
+public record UpdateRoleCommand : IRequest<Result>
 {
     public const string Route = "";
     public int Id { get; set; }

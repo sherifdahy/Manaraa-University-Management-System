@@ -8,12 +8,14 @@ using Microsoft.AspNetCore.Identity;
 
 namespace App.Application.Handlers.Queries.Roles;
 
-public class GetRoleByIdQueryHandler(RoleManager<ApplicationRole> _roleManager) : IRequestHandler<GetRoleByIdCommand, Result<RoleDetailResponse>>
+public class GetRoleByIdQueryHandler(RoleManager<ApplicationRole> _roleManager,RoleErrors errors) : IRequestHandler<GetRoleByIdCommand, Result<RoleDetailResponse>>
 {
+    private readonly RoleErrors _errors = errors;
+
     public async Task<Result<RoleDetailResponse>> Handle(GetRoleByIdCommand request, CancellationToken cancellationToken)
     {
         if (await _roleManager.FindByIdAsync(request.Id.ToString()) is not { } role)
-            return Result.Failure<RoleDetailResponse>(RoleErrors.NotFound);
+            return Result.Failure<RoleDetailResponse>(_errors.NotFound);
 
         var permissions = await _roleManager.GetClaimsAsync(role);
 

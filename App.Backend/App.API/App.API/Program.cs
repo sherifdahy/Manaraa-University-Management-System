@@ -26,6 +26,13 @@ app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
+var supportedCultures = new[] { "ar-EG", "en-US" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+     .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 app.UseHangfireDashboard("/jobs");
 
 app.UseCors();

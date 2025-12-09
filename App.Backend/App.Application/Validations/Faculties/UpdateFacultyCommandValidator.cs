@@ -7,14 +7,14 @@ public class UpdateFacultyCommandValidator : AbstractValidator<UpdateFacultyComm
     public UpdateFacultyCommandValidator()
     {
         RuleFor(f => f.Id)
-            .NotEmpty().WithMessage("Id is required.")
-            .GreaterThan(0).WithMessage("Id must be greater than 0.");
+            .NotEmpty()
+            .GreaterThan(0);
 
         RuleFor(f => f.UniversityId)
-            .GreaterThan(0).WithMessage("University Id must be greater than 0.");
+            .GreaterThan(0);
 
         RuleFor(f => f.Name)
-            .NotEmpty().WithMessage("Faculty name is required.")
+            .NotEmpty()
             .MaximumLength(200);
 
 
@@ -28,7 +28,7 @@ public class UpdateFacultyCommandValidator : AbstractValidator<UpdateFacultyComm
             .MaximumLength(200);
 
         RuleFor(f => f.Email)
-            .EmailAddress().WithMessage("Invalid email format.")
+            .EmailAddress()
             .MaximumLength(200);
 
         RuleFor(f => f.Website)

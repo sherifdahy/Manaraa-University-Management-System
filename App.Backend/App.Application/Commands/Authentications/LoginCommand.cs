@@ -8,7 +8,7 @@ using System.Text;
 
 namespace App.Application.Commands.Authentications;
 
-public class LoginCommand : IRequest<Result<AuthenticationResponse>>
+public record LoginCommand : IRequest<Result<AuthenticationResponse>>
 {
     public const string Route = "login";
     public string Email { get; set; } = string.Empty;

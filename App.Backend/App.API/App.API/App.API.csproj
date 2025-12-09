@@ -80,4 +80,8 @@
     <ProjectReference Include="..\..\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Faculty\" />
+  </ItemGroup>
+
 </Project>

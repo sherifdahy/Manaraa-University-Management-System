@@ -1,5 +1,8 @@
 ﻿using App.Application.Commands.Authentications;
 using App.Application.Constants;
+using App.Infrastructure.Localization;
+using App.Infrastructure.Localization.Constants;
+using App.Infrastructure.Localization.Localizers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +11,7 @@ namespace App.Application.Validations.Authentications;
 
 public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
 {
-    public RegisterCommandValidator()
+    public RegisterCommandValidator(JsonStringLocalizer localizer)
     {
         RuleFor(x => x.Email)
             .NotEmpty()
@@ -17,7 +20,7 @@ public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
         RuleFor(x => x.Password)
             .NotEmpty()
             .Matches(RegexPatterns.Password)
-            .WithMessage("Password should be at least 8 digits and should contains Lowercase, NonAlphanumeric and Uppercase");
+            .WithMessage(localizer[AuthenticationLocalizationKeys.PasswordRegex,LocalizationFolderNames.Authentication]);
 
         RuleFor(x => x.FirstName)
             .NotEmpty()

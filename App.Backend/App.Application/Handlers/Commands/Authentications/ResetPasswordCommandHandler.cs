@@ -5,16 +5,17 @@ using System.Text;
 
 namespace App.Application.Handlers.Commands.Authentications;
 
-public class ResetPasswordCommandHandler (UserManager<ApplicationUser> userManager) : IRequestHandler<ResetPasswordCommand, Result>
+public class ResetPasswordCommandHandler (UserManager<ApplicationUser> userManager,AuthenticationErrors errors) : IRequestHandler<ResetPasswordCommand, Result>
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
+    private readonly AuthenticationErrors _errors = errors;
 
     public async Task<Result> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
     {
         var user = await _userManager.FindByEmailAsync(request.Email);
 
         if (user is null)
-            return Result.Failure(AuthenticationErrors.InvalidCode);
+            return Result.Failure(_errors.InvalidCode);
 
         IdentityResult result;
 
