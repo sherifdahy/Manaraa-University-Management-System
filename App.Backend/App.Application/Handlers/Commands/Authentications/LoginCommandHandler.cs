@@ -5,22 +5,23 @@ namespace App.Application.Handlers.Commands.Authentications;
 public class LoginCommandHandler(UserManager<ApplicationUser> userManager
     ,SignInManager<ApplicationUser> signInManager
     ,IJwtProvider jwtProvider,
-    IAuthenticationService authenticationService) : IRequestHandler<LoginCommand, Result<AuthenticationResponse>>
+    IAuthenticationService authenticationService,AuthenticationErrors errors) : IRequestHandler<LoginCommand, Result<AuthenticationResponse>>
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
     private readonly IJwtProvider _jwtProvider = jwtProvider;
     private readonly IAuthenticationService _authenticationService = authenticationService;
+    private readonly AuthenticationErrors _errors = errors;
 
     public async Task<Result<AuthenticationResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
         var user = await _userManager.FindByEmailAsync(request.Email);
 
         if (user is null)
-            return Result.Failure<AuthenticationResponse>(AuthenticationErrors.InvalidCredentials);
+            return Result.Failure<AuthenticationResponse>(_errors.InvalidCredentials);
 
         if (user.IsDisabled)
-            return Result.Failure<AuthenticationResponse>(AuthenticationErrors.DisabledUser);
+            return Result.Failure<AuthenticationResponse>(_errors.DisabledUser);
 
         var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
 
@@ -42,10 +43,10 @@ public class LoginCommandHandler(UserManager<ApplicationUser> userManager
         }
 
         var error = result.IsNotAllowed
-            ? AuthenticationErrors.EmailNotConfirmed
+            ? _errors.DisabledUser
             : result.IsLockedOut
-            ? AuthenticationErrors.LockedUser
-            : AuthenticationErrors.InvalidCredentials;
+            ? _errors.LockedUser
+            : _errors.InvalidCredentials;
 
         return Result.Failure<AuthenticationResponse>(error);
     }

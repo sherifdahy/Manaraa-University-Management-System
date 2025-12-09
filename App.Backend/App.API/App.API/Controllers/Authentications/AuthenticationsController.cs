@@ -29,28 +29,28 @@ public class AuthenticationsController(IMediator mediator) : ControllerBase
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
-    [HttpPost("refresh-token")]
+    [HttpPost(RefreshTokenCommand.Route)]
     public async Task<IActionResult> RefreshToken(RefreshTokenCommand request, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
-    [HttpPost("revoke-refresh-token")]
+    [HttpPost(RevokeRefreshTokenCommand.Route)]
     public async Task<IActionResult> RevokeRefreshToken(RevokeRefreshTokenCommand request, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);
         return result.IsSuccess ? Ok() : result.ToProblem();
     }
 
-    [HttpPost("forget-password")]
+    [HttpPost(ForgetPasswordCommand.Route)]
     public async Task<IActionResult> ForgetPassword([FromBody] ForgetPasswordCommand request,CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);
         return result.IsSuccess ? Ok() : result.ToProblem();
     }
 
-    [HttpPost("reset-password")]
+    [HttpPost(ResetPasswordCommand.Route)]
     public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordCommand request, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);

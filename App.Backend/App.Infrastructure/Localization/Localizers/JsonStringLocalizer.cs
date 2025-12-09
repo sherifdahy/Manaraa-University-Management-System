@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.Globalization;
 using System.Text;
 
-namespace App.Infrastructure.Localization;
+namespace App.Infrastructure.Localization.Localizers;
 public class JsonStringLocalizer : IStringLocalizer
 {
     private readonly IDistributedCache _cache;
@@ -15,7 +15,7 @@ public class JsonStringLocalizer : IStringLocalizer
     public JsonStringLocalizer(IDistributedCache cache, IWebHostEnvironment webHostEnvironment)
     {
         _cache = cache;
-        this._webHostEnvironment = webHostEnvironment;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     public LocalizedString this[string name]

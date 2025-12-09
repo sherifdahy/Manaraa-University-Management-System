@@ -12,22 +12,23 @@ using System.Security.Claims;
 
 namespace App.Application.Handlers.Commands.Roles;
 
-public class UpdateRoleCommandHandler(RoleManager<ApplicationRole> roleManager) : IRequestHandler<UpdateRoleCommand, Result>
+public class UpdateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,RoleErrors errors) : IRequestHandler<UpdateRoleCommand, Result>
 {
     private readonly RoleManager<ApplicationRole> _roleManager = roleManager;
+    private readonly RoleErrors _errors = errors;
 
     public async Task<Result> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
     {
         if (await _roleManager.Roles.AnyAsync(x=>x.Name == request.Name && x.Id != request.Id))
-            return Result.Failure(RoleErrors.Duplicated);
+            return Result.Failure(_errors.Duplicated);
 
         var allawedPermissions = Permissions.GetAllPermissions();
 
         if (request.Permissions.Except(allawedPermissions).Any())
-            return Result.Failure<RoleDetailResponse>(RoleErrors.InvalidPermissions);
+            return Result.Failure<RoleDetailResponse>(_errors.InvalidPermissions);
 
         if (await _roleManager.FindByIdAsync(request.Id.ToString()) is not { } role)
-            return Result.Failure(RoleErrors.NotFound);
+            return Result.Failure(_errors.NotFound);
 
         role.Name = request.Name;
 

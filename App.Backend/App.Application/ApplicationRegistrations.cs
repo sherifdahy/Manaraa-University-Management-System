@@ -8,5 +8,10 @@ public static class ApplicationRegistrations
         services
             .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
             .AddFluentValidationAutoValidation();
+
+        services.AddSingleton<AuthenticationErrors>();
+        services.AddSingleton<FacultyErrors>();
+        services.AddSingleton<UniversityErrors>();
+        services.AddSingleton<RoleErrors>();
     }
 }

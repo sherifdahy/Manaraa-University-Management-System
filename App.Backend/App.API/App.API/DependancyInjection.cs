@@ -1,4 +1,6 @@
-﻿namespace App.API;
+﻿using App.Infrastructure.Localization.Localizers;
+
+namespace App.API;
 
 public static class DependancyInjection
 {

@@ -5,17 +5,19 @@ namespace App.Application.Handlers.Commands.Authentications;
 
 public class RegisterCommandHandler(UserManager<ApplicationUser> userManager,
     IJwtProvider jwtProvider
-    ,IAuthenticationService authenticationService) : IRequestHandler<RegisterCommand, Result<AuthenticationResponse>>
+    ,IAuthenticationService authenticationService,AuthenticationErrors errors) : IRequestHandler<RegisterCommand, Result<AuthenticationResponse>>
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly IJwtProvider _jwtProvider = jwtProvider;
     private readonly IAuthenticationService _authenticationService = authenticationService;
+    private readonly AuthenticationErrors _errors = errors;
+
     public async Task<Result<AuthenticationResponse>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
         var emailIsExists = await _userManager.Users.AnyAsync(x => x.Email == request.Email, cancellationToken);
 
         if (emailIsExists)
-            return Result.Failure<AuthenticationResponse>(AuthenticationErrors.DuplicatedEmail);
+            return Result.Failure<AuthenticationResponse>(_errors.DuplicatedEmail);
 
         var user = request.Adapt<ApplicationUser>();
 

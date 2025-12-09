@@ -1,6 +1,8 @@
 ﻿using App.Application.Commands.Authentications;
 using App.Application.Constants;
 using App.Infrastructure.Localization;
+using App.Infrastructure.Localization.Constants;
+using App.Infrastructure.Localization.Localizers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +20,7 @@ public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
         RuleFor(x => x.Password)
             .NotEmpty()
             .Matches(RegexPatterns.Password)
-            .WithMessage(localizer[LocalizationKeyNames.PasswordRegex,LocalizationFolderNames.Authentication]);
+            .WithMessage(localizer[AuthenticationLocalizationKeys.PasswordRegex,LocalizationFolderNames.Authentication]);
 
         RuleFor(x => x.FirstName)
             .NotEmpty()

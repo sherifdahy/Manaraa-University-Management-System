@@ -1,5 +1,7 @@
 ﻿using App.Application.Commands.Roles;
 using App.Infrastructure.Localization;
+using App.Infrastructure.Localization.Constants;
+using App.Infrastructure.Localization.Localizers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +22,7 @@ public class CreateRoleCommandValidator : AbstractValidator<CreateRoleCommand>
             .NotEmpty();
 
         RuleFor(x => x.Permissions).Must(x=>x.Distinct().Count() == x.Count())
-            .WithMessage(localizer[LocalizationKeyNames.DuplicatedPermissions, LocalizationFolderNames.Authentication])
+            .WithMessage(localizer[AuthenticationLocalizationKeys.DuplicatedPermissions, LocalizationFolderNames.Authentication])
             .When(x=>x.Permissions != null);
     
     }

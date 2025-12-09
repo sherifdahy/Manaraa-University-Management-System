@@ -1,16 +1,26 @@
-﻿namespace App.Application.Errors;
+﻿using App.Infrastructure.Localization.Constants;
+using App.Infrastructure.Localization.Localizers;
 
-public static class FacultyErrors
+namespace App.Application.Errors;
+
+public  class FacultyErrors
 {
-    public static readonly Error NotFound
-        = new Error("Faculty.NotFound", "Faculty is Not Exist.", StatusCodes.Status404NotFound);
+    public JsonStringLocalizer _localizer { get; }
 
-    public static readonly Error InvalidPermissions
-       = new Error("Faculty.InvalidPermissions", "Invalid Permissions.", StatusCodes.Status404NotFound);
+    public FacultyErrors(JsonStringLocalizer localizer)
+    {
+        _localizer = localizer;
+    }
+    public  Error NotFound
+        => new Error("Faculty.NotFound", _localizer[FacultyLocalizationKeys.NotFound,LocalizationFolderNames.Faculty], StatusCodes.Status404NotFound);
 
-    public static readonly Error InvalidId
-        = new Error("Faculty.InvalidId", "Invalid Id.", StatusCodes.Status400BadRequest);
+    public   Error InvalidPermissions
+       => new Error("Faculty.InvalidPermissions", _localizer[FacultyLocalizationKeys.InvalidPermissions, LocalizationFolderNames.Faculty], StatusCodes.Status404NotFound);
 
-    public static readonly Error DuplicatedName =
-            new("Faculty.DuplicatedName", "Name of Faculty is Already Exist.", StatusCodes.Status409Conflict);
+    public   Error InvalidId
+        => new Error("Faculty.InvalidId", _localizer[FacultyLocalizationKeys.InvalidId, LocalizationFolderNames.Faculty], StatusCodes.Status400BadRequest);
+
+    public   Error DuplicatedName =>
+            new("Faculty.DuplicatedName", _localizer[FacultyLocalizationKeys.DuplicatedName, LocalizationFolderNames.Faculty], StatusCodes.Status409Conflict);
+
 }
