@@ -26,8 +26,14 @@ public class ApplicationRoleConfiguration : IEntityTypeConfiguration<Application
                 IsDefualt = true,
                 NormalizedName = DefaultRoles.Member.ToUpper(),
                 ConcurrencyStamp = DefaultRoles.MemberRoleConcurrencyStamp,
+            },
+            new ApplicationRole()
+            {
+                Id = DefaultRoles.SystemAdminRoleId,
+                Name = DefaultRoles.SystemAdmin,
+                NormalizedName = DefaultRoles.SystemAdmin.ToUpper(),
+                ConcurrencyStamp = DefaultRoles.SystemAdminRoleConcurrencyStamp,
             }
-
         );
     }
 }

@@ -60,7 +60,7 @@ namespace App.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 100,
                             ConcurrencyStamp = "51655B45-963A-4DD7-A68F-1F18B3F4BE47",
                             IsDefualt = false,
                             IsDeleted = false,
@@ -69,12 +69,21 @@ namespace App.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            Id = 101,
                             ConcurrencyStamp = "9601DE96-3D34-48D0-BA24-4D7C1A9F6C7F",
                             IsDefualt = true,
                             IsDeleted = false,
                             Name = "Member",
                             NormalizedName = "MEMBER"
+                        },
+                        new
+                        {
+                            Id = 102,
+                            ConcurrencyStamp = "AE6C6754-0862-4EA2-8868-BF5C27E7AEF9",
+                            IsDefualt = false,
+                            IsDeleted = false,
+                            Name = "SystemAdmin",
+                            NormalizedName = "SYSTEMADMIN"
                         });
                 });
 
@@ -164,7 +173,26 @@ namespace App.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 101,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "F0DD1622-6D6B-4654-9F52-82EDE53E5AD8",
+                            Email = "system.admin@manara.org",
+                            EmailConfirmed = true,
+                            FirstName = "",
+                            IsDisabled = false,
+                            LastName = "",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SYSTEM.ADMIN@MANARA.ORG",
+                            NormalizedUserName = "SYSTEM.ADMIN@MANARA.ORG",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE9EyJUN4Xz2bvn2+h3p+oAlYKNgZ0pdEOC/OGIcSmBUG2cPPtftxmy87pluEQ6pLw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "5965A8A5-ACBA-46EE-8612-4F0771FDFAB8",
+                            TwoFactorEnabled = false,
+                            UserName = "system.admin@manara.org"
+                        },
+                        new
+                        {
+                            Id = 100,
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "21BB4316-3388-4644-B048-C514DEB63A58",
                             Email = "admin@manara.org",
@@ -175,6 +203,7 @@ namespace App.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MANARA.ORG",
                             NormalizedUserName = "ADMIN@MANARA.ORG",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE9EyJUN4Xz2bvn2+h3p+oAlYKNgZ0pdEOC/OGIcSmBUG2cPPtftxmy87pluEQ6pLw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "CE187833-A9A3-4682-8594-7BFE6A08AE64",
                             TwoFactorEnabled = false,
@@ -309,28 +338,28 @@ namespace App.Infrastructure.Migrations
                             Id = 1,
                             ClaimType = "permissions",
                             ClaimValue = "roles:read",
-                            RoleId = 1
+                            RoleId = 102
                         },
                         new
                         {
                             Id = 2,
                             ClaimType = "permissions",
                             ClaimValue = "roles:create",
-                            RoleId = 1
+                            RoleId = 102
                         },
                         new
                         {
                             Id = 3,
                             ClaimType = "permissions",
                             ClaimValue = "roles:update",
-                            RoleId = 1
+                            RoleId = 102
                         },
                         new
                         {
                             Id = 4,
                             ClaimType = "permissions",
                             ClaimValue = "roles:delete",
-                            RoleId = 1
+                            RoleId = 102
                         });
                 });
 
@@ -392,6 +421,18 @@ namespace App.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 100,
+                            RoleId = 100
+                        },
+                        new
+                        {
+                            UserId = 101,
+                            RoleId = 102
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>

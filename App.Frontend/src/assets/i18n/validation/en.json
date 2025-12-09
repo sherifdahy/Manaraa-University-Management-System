@@ -1,0 +1,7 @@
+{
+  "requiredMessage": "This field is required",
+  "emailMessage": "Please enter a valid email",
+  "minLengthMessage": "Minimum length is {{min}} characters",
+  "maxLengthMessage": "Maximum length is {{max}} characters",
+  "patternMessage": "Invalid format"
+}

@@ -6,7 +6,7 @@ import { RegexPatternConsts } from '../../../../core/constants/regex-pattern-con
 import { passwordMatch } from '../../../../shared/validators/password-match-validator';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
+import { ErrorHandlerService } from '../../../../core/services/configuration/error-handler.service';
 
 @Component({
   selector: 'app-new-password-form',

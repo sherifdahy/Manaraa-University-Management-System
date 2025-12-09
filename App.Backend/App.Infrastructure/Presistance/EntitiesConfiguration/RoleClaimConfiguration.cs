@@ -21,7 +21,7 @@ public class RoleClaimConfiguration : IEntityTypeConfiguration<IdentityRoleClaim
                 new IdentityRoleClaim<int>()
                 {
                     Id =  i + 1,
-                    RoleId = DefaultRoles.AdminRoleId,
+                    RoleId = DefaultRoles.SystemAdminRoleId,
                     ClaimType = Permissions.Type,
                     ClaimValue = permissions[i],
                 }

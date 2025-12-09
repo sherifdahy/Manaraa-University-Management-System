@@ -3,6 +3,7 @@ import { LoginRequest } from '../../../../core/models/auth/requests/login-reques
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import { Role } from '../../../../core/enums/role.enum';
 
 @Component({
   selector: 'app-login-form',
@@ -30,11 +31,11 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  get email() : any {
+  get email(): any {
     return this.form.get('email');
   }
 
-  get password() : any {
+  get password(): any {
     return this.form.get('password');
   }
 
@@ -48,8 +49,38 @@ export class LoginFormComponent implements OnInit {
 
     this.authService.login(request).subscribe({
       next: response => {
-        let returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
-        this.router.navigateByUrl(returnUrl);
+        let returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
+
+        if (returnUrl)
+        {
+          this.router.navigateByUrl(returnUrl);
+          return;
+        }
+
+        const currentRole = this.authService.currentUser?.roles?.[0];
+
+        switch (currentRole) {
+          case (Role[Role.SystemAdmin]):
+            {
+              this.router.navigateByUrl('system-admin/dashboard')
+              break;
+            }
+          case (Role[Role.Admin]):
+            {
+              this.router.navigateByUrl('admin/dashboard');
+              break;
+            }
+          case (Role[Role.Doctor]) :
+          case (Role[Role.Student]) :
+          {
+            this.router.navigateByUrl('');
+            break;
+          }
+          default:
+            {
+              this.router.navigateByUrl('/');
+            }
+        }
       },
       error: (errors: any) => {
         const invalid = errors?.['User.InvalidCredentials']?.[0];
