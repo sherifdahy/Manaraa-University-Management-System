@@ -1,3 +1,4 @@
 ﻿{
-  "greaterThan": "greater  Than from "
+  "PasswordRegex": "Password should be at least 8 digits and should contains Lowercase, NonAlphanumeric and Uppercase",
+  "DuplicatedPermissions": "You cannot add Duplicated Permissions for the same Role"
 }

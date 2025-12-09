@@ -26,7 +26,4 @@ public static class AuthenticationErrors
     public static readonly Error InvalidCode = 
         new Error("User.InvalidCode", "Invalid Code", StatusCodes.Status400BadRequest);
 
-
-
-
 }

@@ -19,7 +19,7 @@ public class TestController : ControllerBase
     public IActionResult Test()
     {
 
-        var message = _localizer.GetString("greaterThan", "Authentication");
+        var message = _localizer.GetString("greaterThan", LocalizationFolderNames.Authentication);
         return message is not null ?Ok(message):BadRequest();
     }
 }

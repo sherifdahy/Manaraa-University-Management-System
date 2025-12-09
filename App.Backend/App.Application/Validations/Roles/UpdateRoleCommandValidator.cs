@@ -1,13 +1,15 @@
 ﻿using App.Application.Commands.Roles;
+using App.Infrastructure.Localization;
+using FluentValidation;
 
 namespace App.Application.Validations.Roles;
 
 public class UpdateRoleCommandValidator : AbstractValidator<UpdateRoleCommand>
 {
-    public UpdateRoleCommandValidator()
+    public UpdateRoleCommandValidator(JsonStringLocalizer localizer)
     {
         RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("Role name is required.")
+            .NotEmpty()
             .Length(3, 200);
 
 
@@ -16,7 +18,7 @@ public class UpdateRoleCommandValidator : AbstractValidator<UpdateRoleCommand>
             .NotEmpty();
 
         RuleFor(x => x.Permissions).Must(x=>x.Distinct().Count() == x.Count())
-            .WithMessage("You cannot add Duplicated Permissions for the same Role")
+            .WithMessage(localizer[LocalizationKeyNames.DuplicatedPermissions,LocalizationFolderNames.Authentication])
             .When(x=>x.Permissions != null);
     
     }

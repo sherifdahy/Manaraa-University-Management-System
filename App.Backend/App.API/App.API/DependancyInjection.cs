@@ -1,23 +1,4 @@
-﻿using App.Application;
-using App.Application.Authentication.Filters;
-using App.Core.Interfaces;
-using App.Infrastructure;
-using App.Infrastructure.Authentications;
-using App.Infrastructure.Email;
-using App.Infrastructure.Localization;
-using App.Infrastructure.Presistance.Data;
-using App.Services;
-using Hangfire;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using System.Globalization;
-using System.Text;
-    
-namespace App.API;
+﻿namespace App.API;
 
 public static class DependancyInjection
 {
