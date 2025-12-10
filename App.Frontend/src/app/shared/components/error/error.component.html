@@ -1,26 +1,42 @@
-<div class="error-wrapper" [class.show]="control?.invalid && control?.touched">
-  <div class="text-danger mt-1">
-    <small [class.visible]="control?.errors?.['required']">
-      {{ 'validation.requiredMessage' | translate }}
+<div *ngIf="control?.touched && control?.errors">
+  <div class="text-danger mt-1" [ngSwitch]="true">
+
+    <!-- REQUIRED -->
+    <small *ngSwitchCase="control?.errors?.['required']">
+      {{ 'requiredMessage' | translate }}
     </small>
-    <small [class.visible]="control?.errors?.['minlength']">
-      {{ 'validation.minLengthMessage' | translate: {min: control?.errors?.['minlength']} }}
+
+    <!-- MIN LENGTH -->
+    <small *ngSwitchCase="control?.errors?.['minlength']">
+      {{ 'minLengthMessage'
+      | translate:{ min: control?.errors?.['minlength']?.requiredLength } }}
     </small>
-    <small [class.visible]="control?.errors?.['maxlength']">
-      {{ 'validation.maxLengthMessage' | translate: {max: control?.errors?.['maxlength']} }}
+
+    <!-- MAX LENGTH -->
+    <small *ngSwitchCase="control?.errors?.['maxlength']">
+      {{ 'maxLengthMessage'
+      | translate:{ max: control?.errors?.['maxlength']?.requiredLength } }}
     </small>
-    <small [class.visible]="control?.errors?.['pattern']">
-      {{ 'validation.patternMessage' | translate }}
+
+    <!-- PATTERN -->
+    <small *ngSwitchCase="control?.errors?.['pattern']">
+      {{ 'patternMessage' | translate }}
     </small>
-    <small [class.visible]="control?.errors?.['email']">
-      {{ 'validation.emailMessage' | translate }}
+
+    <!-- EMAIL -->
+    <small *ngSwitchCase="control?.errors?.['email']">
+      {{ 'emailMessage' | translate }}
     </small>
-    <small [class.visible]="control?.errors?.['custom']">
+
+    <!-- CUSTOM (TEXT) -->
+    <small *ngSwitchCase="control?.errors?.['custom']">
       {{ control?.errors?.['custom'] }}
     </small>
-    <!-- custom errors -->
-    <small *ngIf="control?.errors?.['UnmatchedPassword']">
+
+    <!-- UNMATCHED PASSWORD -->
+    <small *ngSwitchCase="control?.errors?.['UnmatchedPassword']">
       كلمتا المرور غير متطابقتين
     </small>
+
   </div>
 </div>

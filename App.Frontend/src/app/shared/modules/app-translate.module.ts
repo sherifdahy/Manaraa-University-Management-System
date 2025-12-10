@@ -29,9 +29,9 @@ class CustomMultiTranslateLoader implements TranslateLoader {
 // =======================================
 const httpLoaderFactory = (http: HttpClient) => {
   return new CustomMultiTranslateLoader(http, [
-    { prefix: './assets/i18n/validations/', suffix: '.json' },
-    { prefix: './assets/i18n/auth/login/', suffix: '.json' },
-
+    { prefix: './assets/i18n/validation/', suffix: '.json' },
+    { prefix: './assets/i18n/landing/', suffix: '.json' },
+    { prefix: './assets/i18n/auth/', suffix: '.json' },
   ]);
 };
 
@@ -57,23 +57,6 @@ export class AppTranslateModule {
         provide: TranslateCompiler,
         useFactory: translateCompilerFactory
       }
-    });
-  }
-
-  static forChild(path: string): ModuleWithProviders<TranslateModule> {
-    return TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpLoaderFactory,
-        deps: [HttpClient]
-      },
-      compiler: {
-        provide: TranslateCompiler,
-        useFactory: translateCompilerFactory
-      },
-      isolate: false, 
-      extend: true 
     });
   }
 }

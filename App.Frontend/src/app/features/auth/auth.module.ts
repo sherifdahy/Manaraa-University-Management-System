@@ -13,6 +13,8 @@ import { ModuleSelectionPage } from './pages/module-selection-page/module-select
 import { NewPasswordForm } from './components/new-password-form/new-password-form';
 import { NewPasswordPage } from './pages/new-password-page/new-password-page';
 import { SharedModule } from '../../shared/shared.module';
+import { authGuard } from '../../core/guards/auth-guard';
+import { AppTranslateModule } from '../../shared/modules/app-translate.module';
 
 const routes: Routes = [
   {
@@ -36,9 +38,9 @@ const routes: Routes = [
         title: 'new password',
       },
       {
-        path : 'module-selection',
-        component : ModuleSelectionPage,
-        canActivate : [guestGuard]
+        path: 'module-selection',
+        component: ModuleSelectionPage,
+        canActivate: [authGuard]
       }
     ]
   }

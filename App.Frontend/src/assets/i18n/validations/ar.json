@@ -1,9 +1,0 @@
-{
-  "validation": {
-    "requiredMessage": "هذا الحقل مطلوب",
-    "emailMessage": "من فضلك أدخل بريد إلكتروني صحيح",
-    "minLengthMessage": "الحد الأدنى {{min}} حرف",
-    "maxLengthMessage": "الحد الأقصى {{max}} حرف",
-    "patternMessage": "صيغة غير صحيحة"
-  }
-}

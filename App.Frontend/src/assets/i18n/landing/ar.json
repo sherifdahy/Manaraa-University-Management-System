@@ -1,0 +1,17 @@
+{
+  "header": {
+    "navbar": {
+      "links": {
+        "home": "الرئيسية",
+        "services": "الخدمات",
+        "partners": "الشركاء",
+        "contacts": "اتصل بنا"
+      }
+    }
+  },
+  "footer" : {
+    "contact" : {
+      "address" : "القرية الذكية , القاهرة"
+    }
+  }
+}

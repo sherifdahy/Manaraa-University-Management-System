@@ -1,0 +1,17 @@
+{
+  "header" : {
+    "navbar" : {
+      "links" : {
+        "home" : "Home",
+        "services" : "Services",
+        "partners" : "Partners",
+        "contacts" : "Contancts"
+      }
+    }
+  },
+  "footer" : {
+    "contact" : {
+      "address" : " Cairo Smart Village, Giza, Egypt"
+    }
+  }
+}

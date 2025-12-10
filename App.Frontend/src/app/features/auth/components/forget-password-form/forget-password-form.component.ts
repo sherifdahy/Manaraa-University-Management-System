@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgetPasswordRequest } from '../../../../core/models/auth/requests/forget-password-request';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { ErrorHandlerService } from '../../../../core/services/error-handler.service';
+import { ErrorHandlerService } from '../../../../core/services/configuration/error-handler.service';
 
 @Component({
   selector: 'app-forget-password-form',
