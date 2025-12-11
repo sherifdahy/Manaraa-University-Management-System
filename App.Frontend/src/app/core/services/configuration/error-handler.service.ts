@@ -7,7 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 export class ErrorHandlerService {
   constructor(private toastr: ToastrService) {}
 
-  handleError(errors: any, formKeyValue: string, errorMessageRef?: ElementRef<HTMLDivElement>) {
+  handleError(
+    errors: any,
+    formKeyValue: string,
+    errorMessageRef?: ElementRef<HTMLDivElement>
+  ) {
     const formError = errors?.[formKeyValue]?.[0];
 
     if (formError && errorMessageRef) {

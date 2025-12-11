@@ -5,25 +5,37 @@ import { SystemAdminLayoutComponent } from './layouts/system-admin-layout/system
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { GetAllUniverstyComponent } from './components/get-all-universty/get-all-universty';
+import { UniversityPageComponent } from './pages/university-page/university-page';
+import { AddUniversityComponent } from './components/add-university-component/add-university-component.component';
+import { UniversityFacultyPageComponent } from './pages/university-faculty-page/university-faculty-page.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {
-    path : '',
-    component : SystemAdminLayoutComponent,
-    children : [
+    path: '',
+    component: SystemAdminLayoutComponent,
+    children: [
       {
-        path : 'dashboard',
-        component : DashboardPageComponent,
-      }
-    ]
-  }
+        path: 'dashboard',
+        component: DashboardPageComponent,
+      },
+      {
+        path: 'university',
+        component: UniversityPageComponent,
+      },
+      {
+        path: 'university-faculty/:universityId',
+        component: UniversityFacultyPageComponent,
+      },
+    ],
+  },
 ];
-
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    AddUniversityComponent,
   ],
   declarations: [
     // layouts
@@ -31,10 +43,13 @@ const routes : Routes = [
 
     // pages
     DashboardPageComponent,
+    UniversityPageComponent,
+    UniversityFacultyPageComponent,
 
     // components
     SidebarComponent,
     HeaderComponent,
-  ]
+    GetAllUniverstyComponent,
+  ],
 })
-export class SystemAdminModule { }
+export class SystemAdminModule {}
