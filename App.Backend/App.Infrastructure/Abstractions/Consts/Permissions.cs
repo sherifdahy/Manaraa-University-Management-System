@@ -17,6 +17,20 @@ public class Permissions
     public const string ToggleStatusRoles = "roles:delete";
 
 
+    // University Permissions
+    public const string GetUniversities = "universities:read";
+    public const string CreateUniversities = "universities:create";
+    public const string UpdateUniversities = "universities:update";
+    public const string ToggleStatusUniversities = "universities:delete";
+
+
+    // Faculty Permissions
+    public const string GetFaculties = "faculties:read";
+    public const string CreateFaculties = "faculties:create";
+    public const string UpdateFaculties = "faculties:update";
+    public const string ToggleStatusFaculties = "faculties:delete";
+
+
     public static IList<string> GetAllPermissions()
     {
         return typeof(Permissions).GetFields().Select(x=>x.GetValue(x) as string).ToList()!;

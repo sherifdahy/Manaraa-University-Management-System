@@ -9,7 +9,6 @@ namespace App.Application.Queries.Roles;
 
 public class GetRoleByIdCommand : IRequest<Result<RoleDetailResponse>>
 {
-    public const string Route = "{id}";
     public int Id { get; set; }
 
     public GetRoleByIdCommand(int id)
