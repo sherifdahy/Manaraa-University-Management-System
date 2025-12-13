@@ -1,14 +1,6 @@
-﻿using App.Application.Abstractions;
-using App.Application.Queries.Roles;
+﻿using App.Application.Queries.Roles;
 using App.Application.Responses.Role;
-using App.Core.Entities.Identity;
-using Mapster;
-using MediatR;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace App.Application.Handlers.Queries.Roles;
 

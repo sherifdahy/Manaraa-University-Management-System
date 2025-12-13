@@ -13,6 +13,8 @@ public  class RoleErrors
     {
         _localizer = localizer;
     }
+    public Error ModificationForbidden
+        => new Error("Role.ModificationForbidden", _localizer[RoleLocalizationKeys.ModificationForbidden, LocalizationFolderNames.Role], StatusCodes.Status403Forbidden);
     public   Error NotFound
         => new Error("Role.NotFound", _localizer[RoleLocalizationKeys.NotFound,LocalizationFolderNames.Role], StatusCodes.Status404NotFound);
 

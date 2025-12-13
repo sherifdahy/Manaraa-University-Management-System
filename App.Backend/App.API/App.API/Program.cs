@@ -1,9 +1,5 @@
 using App.API;
-using Hangfire;
-using App.Infrastructure.Presistance.Data;
-using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 

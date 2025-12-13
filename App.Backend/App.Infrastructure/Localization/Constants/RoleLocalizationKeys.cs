@@ -2,6 +2,7 @@
 
 public class RoleLocalizationKeys
 {
+    public static readonly string ModificationForbidden = nameof(ModificationForbidden);
     public static readonly string NotFound = nameof(NotFound);
 
     public static readonly string InvalidPermissions = nameof(InvalidPermissions);

@@ -3,7 +3,7 @@ import { LoginRequest } from '../../../../core/models/auth/requests/login-reques
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth.service';
-import { Role } from '../../../../core/enums/role.enum';
+import { Roles } from '../../../../core/constants/role-consts';
 
 @Component({
   selector: 'app-login-form',
@@ -60,22 +60,16 @@ export class LoginFormComponent implements OnInit {
         const currentRole = this.authService.currentUser?.roles?.[0];
 
         switch (currentRole) {
-          case (Role[Role.SystemAdmin]):
+          case (Roles.systemAdmin):
             {
               this.router.navigateByUrl('system-admin/dashboard')
               break;
             }
-          case (Role[Role.Admin]):
+          case (Roles.admin):
             {
               this.router.navigateByUrl('admin/dashboard');
               break;
             }
-          case (Role[Role.Doctor]) :
-          case (Role[Role.Student]) :
-          {
-            this.router.navigateByUrl('');
-            break;
-          }
           default:
             {
               this.router.navigateByUrl('/');
