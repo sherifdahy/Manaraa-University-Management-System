@@ -12,5 +12,13 @@ export const Permissions = {
     createUniversities: 'universities:create',
     updateUniversities: 'universities:update',
     toggleStatusUniversities: 'universities:toggleStatus',
+  },
+
+
+  faculties : {
+    readFaculties: 'faculties:read',
+    createFaculties: 'faculties:create',
+    updateFaculties: 'faculties:update',
+    toggleStatusFaculties: 'faculties:toggleStatus',
   }
 }

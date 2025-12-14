@@ -14,7 +14,7 @@ import { RolesComponent } from './pages/roles/roles/roles.component';
 import { FormRoleComponent } from './pages/roles/create-role-page/form-role.component';
 import { SharedModule } from "../../shared/shared.module";
 import { UniversitiesPageComponent } from './pages/universities/universities-page/universities-page.component';
-import { UniversityDialogComponent } from './components/universities/university-dialog-component/university-dialog.component';
+import { UniversityDialogComponent } from './components/universities/university-dialog/university-dialog.component';
 import { UniversitiesGridComponent } from './components/universities/universities-grid/universities-grid.component';
 import { FormUniversityPageComponent } from './pages/universities/form-university-page/form-university-page.component';
 

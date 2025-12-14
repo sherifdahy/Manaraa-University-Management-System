@@ -2,7 +2,7 @@
 
 namespace App.Application.Handlers.Queries.Universities;
 
-public class GetFacultyQueryHandler (IUnitOfWork unitOfWork, UniversityErrors errors) : IRequestHandler<GetUniversityQuery, Result<UniversityDetailResponse>>
+public class GetUniversityQueryHandler(IUnitOfWork unitOfWork, UniversityErrors errors) : IRequestHandler<GetUniversityQuery, Result<UniversityDetailResponse>>
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly UniversityErrors _errors = errors;
