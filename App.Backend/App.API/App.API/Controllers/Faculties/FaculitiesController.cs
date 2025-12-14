@@ -17,7 +17,7 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
 
     [HttpGet]
     [HasPermission(Permissions.GetFaculties)]
-    public async Task<IActionResult> GetAll(bool includeDisabled = false,CancellationToken cancellationToken= default)
+    public async Task<IActionResult> GetAll(bool includeDisabled = false, CancellationToken cancellationToken = default)
     {
         var query = new GetAllFacultiesQuery(includeDisabled);
         var result = await _mediator.Send(query, cancellationToken);

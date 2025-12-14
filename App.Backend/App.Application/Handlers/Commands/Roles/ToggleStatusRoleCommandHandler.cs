@@ -2,6 +2,7 @@
 using App.Application.Commands.Roles;
 using App.Application.Errors;
 using App.Core.Entities.Identity;
+using App.Infrastructure.Abstractions.Consts;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -18,6 +19,9 @@ public class ToggleStatusRoleCommandHandler(RoleManager<ApplicationRole> roleMan
 
     public async Task<Result> Handle(ToggleStatusRoleCommand request, CancellationToken cancellationToken)
     {
+        if (request.Id == DefaultRoles.SystemAdminRoleId)
+            return Result.Failure(_errors.ModificationForbidden);
+
         var role = await _roleManager.FindByIdAsync(request.Id.ToString());
 
         if (role is null)

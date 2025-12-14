@@ -17,7 +17,7 @@ public class RolesController(IMediator _mediator) : ControllerBase
 
     [HttpGet]
     [HasPermission(Permissions.GetRoles)]
-    public async Task<IActionResult> GetAllRoles([FromQuery] bool includeDisabled,CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllRoles([FromQuery] bool includeDisabled, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(new GetAllRolesCommand(includeDisabled), cancellationToken);
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
@@ -25,7 +25,7 @@ public class RolesController(IMediator _mediator) : ControllerBase
 
     [HttpGet("{id}")]
     [HasPermission(Permissions.GetRoles)]
-    public async Task<IActionResult> GetById([FromRoute]int id, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetById([FromRoute] int id, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(new GetRoleByIdCommand(id), cancellationToken);
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
@@ -33,13 +33,13 @@ public class RolesController(IMediator _mediator) : ControllerBase
 
     [HttpPost]
     [HasPermission(Permissions.CreateRoles)]
-    public async Task<IActionResult> Create([FromBody] CreateRoleCommand command ,CancellationToken cancellationToken)
+    public async Task<IActionResult> Create([FromBody] CreateRoleCommand command, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);
-        return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value.Id }, result.Value) : result.ToProblem(); 
+        return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value.Id }, result.Value) : result.ToProblem();
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
     [HasPermission(Permissions.UpdateRoles)]
     public async Task<IActionResult> Update([FromBody] UpdateRoleCommand command, CancellationToken cancellationToken)
     {

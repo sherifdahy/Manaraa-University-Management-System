@@ -1,4 +1,3 @@
-import { Permission } from "../../../enums/permission.enum";
 
 export interface AuthenticatedUserResponse {
   id: number;
@@ -6,5 +5,5 @@ export interface AuthenticatedUserResponse {
   email: string;
   fullName: string;
   roles: string[];
-  permissions: Permission[];
+  permissions: string[];
 }

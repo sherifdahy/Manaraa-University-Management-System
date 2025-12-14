@@ -4,7 +4,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
 import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
 import { authGuard } from './core/guards/auth-guard';
-import { Role } from './core/enums/role.enum';
+import {  Roles } from './core/constants/role-consts';
 import { hasRoleGuard } from './core/guards/has-role-guard';
 
 const routes: Routes = [
@@ -29,13 +29,13 @@ const routes: Routes = [
   {
     path : 'system-admin',
     canActivate : [authGuard,hasRoleGuard],
-    data : { 'required-role' : Role[Role.SystemAdmin] },
+    data : { 'required-role' : Roles.systemAdmin },
     loadChildren :()=> import('./features/system-admin/system-admin.module').then(x=>x.SystemAdminModule)
   },
   {
     path : 'admin',
     canActivate : [authGuard,hasRoleGuard],
-    data : { 'required-role' : Role[Role.Admin] },
+    data : { 'required-role' : Roles.admin },
     loadChildren :()=> import('./features/admin/admin.module').then(x=>x.AdminModule)
   },
   {
