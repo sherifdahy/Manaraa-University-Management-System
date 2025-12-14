@@ -6,8 +6,8 @@ const BASE_URL = `${environment.apiUrl}/api`;
 export const API_ENDPOINTS_CONSTS = {
   AUTH: {
     LOGIN: `${BASE_URL}/authentications/login`,
-    REFRESH_TOKEN : `${BASE_URL}/authentications/refresh-token`,
-    REVOKE : `${BASE_URL}/authentications/revoke-refresh-token`,
+    REFRESH_TOKEN: `${BASE_URL}/authentications/refresh-token`,
+    REVOKE: `${BASE_URL}/authentications/revoke-refresh-token`,
     REGISTER: `${BASE_URL}/authentications/register`,
     LOGOUT: `${BASE_URL}/authentications/logout`,
     FORGET_PASSWORD: `${BASE_URL}/authentications/forget-password`,
@@ -33,5 +33,11 @@ export const API_ENDPOINTS_CONSTS = {
     UPLOAD: `${BASE_URL}/files/upload`,
     DOWNLOAD: (fileId: string) => `${BASE_URL}/files/${fileId}/download`,
     DELETE: (fileId: string) => `${BASE_URL}/files/${fileId}`,
+  },
+  UNIVERSITYS: {
+    GET_ALL: `${BASE_URL}/Universities`,
+    CREATE: `${BASE_URL}/Universities`,
+    UPDATE: `${BASE_URL}/Universities`,
+    TOGGLE_STATUS: `${BASE_URL}/Universities`,
   },
 };

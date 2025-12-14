@@ -1,0 +1,56 @@
+.create-role-container {
+  padding: 1rem 0;
+}
+
+.page-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.page-subtitle {
+  font-size: 0.85rem;
+}
+
+.title-icon {
+  font-size: 1.6rem;
+}
+
+.permission-group {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.permission-group .toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 0.7rem;
+  color: #667eea;
+  transition: transform 0.3s ease;
+}
+
+.permission-group .toggle-icon.expanded {
+  transform: rotate(90deg);
+}
+
+.form-actions button {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .create-role-container {
+    padding: 0.8rem;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .d-flex.flex-wrap.justify-content-end > button {
+    width: 100%;
+  }
+}

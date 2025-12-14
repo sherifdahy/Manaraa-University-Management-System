@@ -1,0 +1,9 @@
+{
+  "sidebar" : {
+    "links" : {
+      "dashboard" : "لوحة التحكم",
+      "universities" : "الجامعات",
+      "roles" : "الصلاحيات"
+    }
+  }
+}

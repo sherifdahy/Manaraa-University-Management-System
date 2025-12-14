@@ -19,6 +19,9 @@ public class UpdateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,R
 
     public async Task<Result> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
     {
+        if (request.Id == DefaultRoles.SystemAdminRoleId)
+            return Result.Failure(_errors.ModificationForbidden);
+
         if (await _roleManager.Roles.AnyAsync(x=>x.Name == request.Name && x.Id != request.Id))
             return Result.Failure(_errors.Duplicated);
 
@@ -29,6 +32,7 @@ public class UpdateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,R
 
         if (await _roleManager.FindByIdAsync(request.Id.ToString()) is not { } role)
             return Result.Failure(_errors.NotFound);
+
 
         role.Name = request.Name;
 

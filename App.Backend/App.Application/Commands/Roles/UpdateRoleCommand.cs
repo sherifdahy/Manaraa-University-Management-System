@@ -8,7 +8,6 @@ namespace App.Application.Commands.Roles;
 
 public record UpdateRoleCommand : IRequest<Result>
 {
-    public const string Route = "";
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public IList<string> Permissions { get; set; } = [];

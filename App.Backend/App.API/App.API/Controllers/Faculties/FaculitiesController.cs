@@ -2,6 +2,7 @@
 using App.Application.Commands.Universities;
 using App.Application.Queries.Faculties;
 using App.Core.Extensions;
+using App.Infrastructure.Abstractions.Consts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,12 +10,14 @@ namespace App.API.Controllers.Faculties;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class FaculitiesController(IMediator mediator) : ControllerBase
 {
     private readonly IMediator _mediator = mediator;
 
     [HttpGet]
-    public async Task<IActionResult> GetAll(bool includeDisabled = false,CancellationToken cancellationToken= default)
+    [HasPermission(Permissions.GetFaculties)]
+    public async Task<IActionResult> GetAll(bool includeDisabled = false, CancellationToken cancellationToken = default)
     {
         var query = new GetAllFacultiesQuery(includeDisabled);
         var result = await _mediator.Send(query, cancellationToken);
@@ -22,6 +25,7 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("{id:int}")]
+    [HasPermission(Permissions.GetFaculties)]
     public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken = default)
     {
         var query = new GetFacultyQuery(id);
@@ -30,6 +34,7 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
     }
 
     [HttpPost]
+    [HasPermission(Permissions.CreateFaculties)]
     public async Task<IActionResult> Create(CreateFacultyCommand command, CancellationToken cancellationToken = default)
     {
         var result = await _mediator.Send(command, cancellationToken);
@@ -37,6 +42,7 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
     }
 
     [HttpPut]
+    [HasPermission(Permissions.UpdateFaculties)]
     public async Task<IActionResult> Update(UpdateFacultyCommand command, CancellationToken cancellationToken = default)
     {
         var result = await _mediator.Send(command, cancellationToken);
@@ -44,6 +50,7 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
     }
 
     [HttpDelete("{id}/toggle-status")]
+    [HasPermission(Permissions.ToggleStatusFaculties)]
     public async Task<IActionResult> ToggleStatus(int id, CancellationToken cancellationToken = default)
     {
         var command = new ToggleStatusFacultyCommand(id);

@@ -40,10 +40,10 @@ const routes: Routes = [
       {
         path: 'module-selection',
         component: ModuleSelectionPage,
-        canActivate: [authGuard]
-      }
-    ]
-  }
+        canActivate: [authGuard],
+      },
+    ],
+  },
 ];
 
 @NgModule({
@@ -71,4 +71,4 @@ const routes: Routes = [
     NewPasswordPage,
   ],
 })
-export class AuthModule { }
+export class AuthModule {}

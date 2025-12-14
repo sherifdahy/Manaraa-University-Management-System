@@ -3,13 +3,13 @@ import { LoginRequest } from '../../../../core/models/auth/requests/login-reques
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth.service';
-import { Role } from '../../../../core/enums/role.enum';
+import { Roles } from '../../../../core/constants/role-consts';
 
 @Component({
   selector: 'app-login-form',
   standalone: false,
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent implements OnInit {
   form!: FormGroup;
@@ -18,11 +18,8 @@ export class LoginFormComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {
-
-  }
-
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -48,11 +45,10 @@ export class LoginFormComponent implements OnInit {
     let request = this.form.value as LoginRequest;
 
     this.authService.login(request).subscribe({
-      next: response => {
+      next: (response) => {
         let returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
 
-        if (returnUrl)
-        {
+        if (returnUrl) {
           this.router.navigateByUrl(returnUrl);
           return;
         }
@@ -60,22 +56,16 @@ export class LoginFormComponent implements OnInit {
         const currentRole = this.authService.currentUser?.roles?.[0];
 
         switch (currentRole) {
-          case (Role[Role.SystemAdmin]):
+          case (Roles.systemAdmin):
             {
               this.router.navigateByUrl('system-admin/dashboard')
               break;
             }
-          case (Role[Role.Admin]):
+          case (Roles.admin):
             {
               this.router.navigateByUrl('admin/dashboard');
               break;
             }
-          case (Role[Role.Doctor]) :
-          case (Role[Role.Student]) :
-          {
-            this.router.navigateByUrl('');
-            break;
-          }
           default:
             {
               this.router.navigateByUrl('/');
@@ -90,8 +80,7 @@ export class LoginFormComponent implements OnInit {
         } else {
           console.error(errors);
         }
-      }
+      },
     });
   }
 }
-

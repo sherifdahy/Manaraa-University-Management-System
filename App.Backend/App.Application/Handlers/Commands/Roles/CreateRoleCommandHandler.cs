@@ -12,23 +12,23 @@ using System.Security.Claims;
 
 namespace App.Application.Handlers.Commands.Roles;
 
-public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,IUnitOfWork unitOfWork, RoleErrors errors) : IRequestHandler<CreateRoleCommand, Result<RoleDetailResponse>>
+public class CreateRoleCommandHandler(RoleManager<ApplicationRole> roleManager,IUnitOfWork unitOfWork, RoleErrors roleErrors,PermissionErrors permissionErrors) : IRequestHandler<CreateRoleCommand, Result<RoleDetailResponse>>
 {
     private readonly RoleManager<ApplicationRole> _roleManager = roleManager;
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
-    private readonly RoleErrors _errors = errors;
-
+    private readonly RoleErrors _roleErrors = roleErrors;
+    private readonly PermissionErrors _permissionErrors= permissionErrors;
     public async Task<Result<RoleDetailResponse>> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
     {
         var existRole = await _roleManager.FindByNameAsync(request.Name);
 
         if (existRole is not null)
-            return Result.Failure<RoleDetailResponse>(_errors.Duplicated);
+            return Result.Failure<RoleDetailResponse>(_roleErrors.Duplicated);
 
         var allowedPermissions = Permissions.GetAllPermissions();
 
         if (request.Permissions.Except(allowedPermissions).Any())
-            return Result.Failure<RoleDetailResponse>(_errors.InvalidPermissions);
+            return Result.Failure<RoleDetailResponse>(_permissionErrors.InvalidPermissions);
 
         var newRole = new ApplicationRole()
         {

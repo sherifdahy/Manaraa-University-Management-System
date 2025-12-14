@@ -1,0 +1,29 @@
+<table class="table responsive">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+      <th scope="col">address</th>
+      <th scope="col">email</th>
+      <th scope="col">website</th>
+      <th scope="col">isDeleted</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr *ngFor="let value of values$ | async;let i =index;trackBy: trackById">
+  <td>{{ i+1 }}</td>
+  <td>{{ value.name }}</td>
+  <td>{{ value.description }}</td>
+  <td>{{ value.address }}</td>
+  <td>{{ value.email }}</td>
+  <td>{{ value.website }}</td>
+  <td>{{ value.isDeleted }}</td>
+  <td><a (click)="delete(value.id)">delete</a></td>
+  <td><a [routerLink]="['edit',value.id]">Edit</a></td>
+</tr>
+  </tbody>
+</table>
+

@@ -32,6 +32,7 @@ const httpLoaderFactory = (http: HttpClient) => {
     { prefix: './assets/i18n/validation/', suffix: '.json' },
     { prefix: './assets/i18n/landing/', suffix: '.json' },
     { prefix: './assets/i18n/auth/', suffix: '.json' },
+    { prefix: './assets/i18n/system-admin/', suffix: '.json' },
   ]);
 };
 
