@@ -39,7 +39,7 @@
 
         <a *ngIf="!isLoggedIn" [routerLink]="['auth/login']"
           class="btn btn-outline-success px-4 py-2 login-btn ms-sm-3 ms-0">
-          Login
+          {{'header.navbar.login.Login' | translate}}
         </a>
 
         <button *ngIf="isLoggedIn" (click)="logout()" type="button"
