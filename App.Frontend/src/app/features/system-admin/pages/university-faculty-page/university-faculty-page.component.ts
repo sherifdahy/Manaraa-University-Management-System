@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UniversityFacultyPageComponent implements OnInit {
   univsersityId: number = 0;
   constructor(private activatedRoute: ActivatedRoute) {}
-  //This Will Contains 2 Components
+  //This Will Contains 3 Components
   //1.Edit University Component which want the Id
   //2.Add Or Edit Faculty Which Want the Id
   //3.Tables of All Faculties
@@ -19,6 +19,4 @@ export class UniversityFacultyPageComponent implements OnInit {
       this.univsersityId = Number(params.get('universityId'));
     });
   }
-
-  private setUniversityId() {}
 }

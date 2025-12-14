@@ -64,6 +64,7 @@ export class AddUniversityComponent implements OnInit {
   }
 
   private submitSuccess(id: number) {
+    alert('here');
     this.closeModalBtn.nativeElement.click(); //closes modal
     this.toastrService.success('university add successfully');
     this.router.navigate(['/system-admin/university-faculty', id]);

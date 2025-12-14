@@ -9,23 +9,36 @@ import { UniversityRequest } from '../../models/university/requests/university-r
   providedIn: 'root',
 })
 export class UnivsersityService {
-  constructor(private apiService: ApiClientService) {}
+  constructor(private apiCall: ApiClientService) {}
 
   getAll(): Observable<UniversityResponse[]> {
-    return this.apiService.get<UniversityResponse[]>(
+    return this.apiCall.get<UniversityResponse[]>(
       API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL
     );
   }
 
+  get(id: number): Observable<UniversityResponse> {
+    return this.apiCall.get<UniversityResponse>(
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}/${id}`
+    );
+  }
+
   create(request: UniversityRequest): Observable<UniversityResponse> {
-    return this.apiService.post<UniversityResponse>(
+    return this.apiCall.post<UniversityResponse>(
       API_ENDPOINTS_CONSTS.UNIVERSITYS.CREATE,
       request
     );
   }
 
+  update(id: number, request: UniversityRequest) {
+    return this.apiCall.put(
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.UPDATE}/${id}`,
+      request
+    );
+  }
+
   toggleStatus(id: number): Observable<void> {
-    return this.apiService.delete<void>(`
+    return this.apiCall.delete<void>(`
       ${API_ENDPOINTS_CONSTS.UNIVERSITYS.TOGGLE_STATUS}/${id}/toggle-status`);
   }
 }

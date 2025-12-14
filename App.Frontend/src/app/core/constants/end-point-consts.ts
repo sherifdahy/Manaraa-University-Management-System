@@ -37,6 +37,7 @@ export const API_ENDPOINTS_CONSTS = {
   UNIVERSITYS: {
     GET_ALL: `${BASE_URL}/Universities`,
     CREATE: `${BASE_URL}/Universities`,
+    UPDATE: `${BASE_URL}/Universities`,
     TOGGLE_STATUS: `${BASE_URL}/Universities`,
   },
 };

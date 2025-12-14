@@ -9,6 +9,9 @@ import { GetAllUniverstyComponent } from './components/get-all-universty/get-all
 import { UniversityPageComponent } from './pages/university-page/university-page';
 import { AddUniversityComponent } from './components/add-university-component/add-university-component.component';
 import { UniversityFacultyPageComponent } from './pages/university-faculty-page/university-faculty-page.component';
+import { EditUniversityComponent } from './components/edit-university-component/edit-university-component.component';
+import { GetAllFacultiesComponent } from './components/get-all-faculties/get-all-faculties.component';
+import { MangeFacultyComponent } from './components/mange-faculty/mange-faculty.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     AddUniversityComponent,
+    EditUniversityComponent,
   ],
   declarations: [
     // layouts
@@ -50,6 +54,8 @@ const routes: Routes = [
     SidebarComponent,
     HeaderComponent,
     GetAllUniverstyComponent,
+    GetAllFacultiesComponent,
+    MangeFacultyComponent,
   ],
 })
 export class SystemAdminModule {}
