@@ -24,14 +24,17 @@ export class RolesService{
     return this.apiCall.get<RoleDetailResponse>(`${API_ENDPOINTS_CONSTS.ROLES.GET}/${id}`);
   }
 
-  create(request : RoleRequest)
+  getById(id: string): Observable<RoleDetailResponse> {
+    return this.apiCall.get<RoleDetailResponse>(`${API_ENDPOINTS_CONSTS.ROLES.GET}/${id}`);
+  }
+
+  create(request : RoleRequest) : Observable<RoleResponse>
   {
     return this.apiCall.post<RoleResponse>(`${API_ENDPOINTS_CONSTS.ROLES.CREATE}`,request);
   }
 
-  update(request : RoleRequest)
-  {
-    return this.apiCall.put(API_ENDPOINTS_CONSTS.ROLES.UPDATE,request);
+  update(request: RoleRequest): Observable<any> {
+    return this.apiCall.put(`${API_ENDPOINTS_CONSTS.ROLES.UPDATE}`, request);
   }
 
   toggleStatus(id : number)

@@ -13,5 +13,7 @@ public static class ApplicationRegistrations
         services.AddSingleton<FacultyErrors>();
         services.AddSingleton<UniversityErrors>();
         services.AddSingleton<RoleErrors>();
+        services.AddSingleton<PermissionErrors>();
+
     }
 }

@@ -358,7 +358,63 @@ namespace App.Infrastructure.Migrations
                         {
                             Id = 4,
                             ClaimType = "permissions",
-                            ClaimValue = "roles:delete",
+                            ClaimValue = "roles:toggleStatus",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClaimType = "permissions",
+                            ClaimValue = "universities:read",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClaimType = "permissions",
+                            ClaimValue = "universities:create",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ClaimType = "permissions",
+                            ClaimValue = "universities:update",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ClaimType = "permissions",
+                            ClaimValue = "universities:toggleStatus",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ClaimType = "permissions",
+                            ClaimValue = "faculties:read",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ClaimType = "permissions",
+                            ClaimValue = "faculties:create",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ClaimType = "permissions",
+                            ClaimValue = "faculties:update",
+                            RoleId = 102
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ClaimType = "permissions",
+                            ClaimValue = "faculties:toggleStatus",
                             RoleId = 102
                         });
                 });

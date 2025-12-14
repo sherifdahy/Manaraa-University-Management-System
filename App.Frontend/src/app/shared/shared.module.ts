@@ -5,12 +5,17 @@ import { AccessDeniedComponent } from './components/access-denied/access-denied.
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatrialModule } from './modules/matrial.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatrialModule,
   ],
   declarations: [
     ErrorComponent,
