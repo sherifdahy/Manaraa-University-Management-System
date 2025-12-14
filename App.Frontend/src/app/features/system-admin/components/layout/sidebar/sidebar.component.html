@@ -1,37 +1,15 @@
 <div class="sidebar-section">
 
-  <div class="menu-item" routerLink="dashboard" routerLinkActive="active">
-    📊 لوحة المعلومات
+  <div class="menu-item" routerLink="dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    📊 {{ 'sidebar.links.dashboard' | translate}}
   </div>
 
   <div class="menu-item" routerLink="roles" routerLinkActive="active">
-    👥 الصلاحيات
+    👥 {{ 'sidebar.links.roles' | translate}}
   </div>
 
-  <div class="menu-item" routerLink="users" routerLinkActive="active">
-    👥 المستخدمين
-  </div>
-
-  <div class="menu-item" routerLink="products" routerLinkActive="active">
-    📦 المنتجات
-  </div>
-
-  <div class="menu-item" routerLink="reports" routerLinkActive="active">
-    📈 التقارير
-  </div>
-
-  <div class="menu-item" routerLink="settings" routerLinkActive="active">
-    ⚙️ الإعدادات
-  </div>
-
-  <h3 style="margin-top: 30px;">أدوات أخرى</h3>
-
-  <div class="menu-item" routerLink="messages" routerLinkActive="active">
-    💬 الرسائل
-  </div>
-
-  <div class="menu-item" routerLink="/notifications" routerLinkActive="active">
-    🔔 الإشعارات
+  <div class="menu-item" routerLink="universities" routerLinkActive="active">
+    🎓 {{ 'sidebar.links.universities' | translate}}
   </div>
 
 </div>
