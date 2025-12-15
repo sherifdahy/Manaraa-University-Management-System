@@ -3,7 +3,7 @@ using App.Application.Responses.Faculties;
 
 namespace App.Application.Handlers.Queries.Faculties;
 
-public class GetAllFucaltiesCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetAllFacultiesQuery, Result<List<FacultyResponse>>>
+public class GetAllFacultiesCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetAllFacultiesQuery, Result<List<FacultyResponse>>>
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
