@@ -17,9 +17,10 @@ import { FormUniversityPageComponent } from './pages/universities/university-for
 import { UniversitiesPageComponent } from './pages/universities/universities-page/universities-page.component';
 import { UniversityDialogComponent } from './components/universities/university-dialog-component/university-dialog.component';
 import { UniversitiesGridComponent } from './components/universities/universities-grid/universities-grid.component';
+import { UniversityEditComponent } from './components/universities/university-edit-component/university-edit-component.component';
 import { FacultiesGridComponent } from './components/faculties/faculties-grid/faculties-grid.component';
-import { FacultyFormComponent } from './components/faculties/faculty-form/faculty-form.component';
-import { EditUniversityComponent } from './components/universities/university-edit-component/edit-university-component.component';
+import { FacultyDialogFormComponent } from './components/faculties/faculty-form/faculty-dialog-form.component';
+import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 
 const routes: Routes = [
   {
@@ -81,9 +82,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-
     SharedModule,
-    EditUniversityComponent,
+    UniversityEditComponent,
   ],
   declarations: [
     // layouts
@@ -105,7 +105,7 @@ const routes: Routes = [
     RoleCardComponent,
     UniversitiesGridComponent,
     FacultiesGridComponent,
-    FacultyFormComponent,
+    FacultyDialogFormComponent,
   ],
 })
 export class SystemAdminModule {}
