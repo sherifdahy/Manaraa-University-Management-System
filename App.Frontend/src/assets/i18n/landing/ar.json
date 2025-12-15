@@ -6,6 +6,9 @@
         "services": "الخدمات",
         "partners": "الشركاء",
         "contacts": "اتصل بنا"
+      },
+       "login" : {
+        "Login" : "تسجيل دخول"
       }
     }
   },

@@ -6,6 +6,9 @@
         "services" : "Services",
         "partners" : "Partners",
         "contacts" : "Contancts"
+      },
+      "login" : {
+        "Login" : "Login"
       }
     }
   },

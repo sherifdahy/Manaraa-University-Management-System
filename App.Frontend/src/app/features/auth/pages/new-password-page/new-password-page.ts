@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppTranslateService } from '../../../../core/services/configuration/app-translate.service';
 
 @Component({
   selector: 'app-new-password-page',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   templateUrl: './new-password-page.html',
   styleUrl: './new-password-page.css',
 })
-export class NewPasswordPage {
+export class NewPasswordPage implements OnInit {
+  currentLanguage!: string;
+  ngOnInit(): void {
+    this.appTranslateService.language$.subscribe((response) => {
+      this.currentLanguage = response;
+    });
+  }
+  constructor(private appTranslateService: AppTranslateService) {}
 
+  changeLanguage(lang: string) {
+    this.appTranslateService.changeLanguage(lang);
+  }
 }
