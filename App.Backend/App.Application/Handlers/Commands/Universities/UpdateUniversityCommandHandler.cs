@@ -17,6 +17,9 @@ public class UpdateUniversityCommandHandler(IUnitOfWork unitOfWork,UniversityErr
             
         request.Adapt(university);
 
+        _unitOfWork.Universities.Update(university);
+        await _unitOfWork.SaveAsync(cancellationToken);
+
         return Result.Success();
     }
 }
