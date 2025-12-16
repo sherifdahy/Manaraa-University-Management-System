@@ -20,7 +20,7 @@ export class UnivsersityService {
 
   get(id: number): Observable<UniversityDetailResponse> {
     return this.apiCall.get<UniversityDetailResponse>(
-      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}/${id}`
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET}/${id}`
     );
   }
 

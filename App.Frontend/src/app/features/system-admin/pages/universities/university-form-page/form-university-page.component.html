@@ -10,22 +10,32 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="university" role="tabpanel" aria-labelledby="university-tab">
-
     <div class="content-section p-3 ">
-
       <app-edit-university-component [univsersityId]="univsersityId"></app-edit-university-component>
       </div>
   </div>
   <div class="tab-pane fade" id="faculty" role="tabpanel" aria-labelledby="faculty-tab">
-    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#facultyModal">
-      Add New faculty
-    </button>
-        <div class="content-section p-3">
-
-              <app-faculty-dialog-form [universityId]="univsersityId"></app-faculty-dialog-form>
-              <app-faculties-grid [universityId]="univsersityId"></app-faculties-grid>
+    <div class="content-section p-3">
+      <div class="main-section mb-3 d-flex" style="justify-content: space-between;align-items: center;">
+        <div class="informations">
+          <h1 class="fw-bold fs-6 mb-1">Faculities</h1>
+          <p class="small text-secondary fw-normal">Add, edit, delete and show all faculities to this university</p>
         </div>
+        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#facultyModal">
+          Faculty
+        </button>
+      </div>
 
+      <div class="filter-group mb-4"style="width: fit-content;">
+        <label class="form-label">Show Status</label>
+        <select class="form-select form-select-sm">
+          <option [ngValue]="false">Active Only</option>
+          <option [ngValue]="true">All Faculities</option>
+        </select>
+      </div>
+      <app-faculty-dialog-form (facultySaved)="onFacultySaved()" [editPressd$]="editPressd$" [universityId]="univsersityId"></app-faculty-dialog-form>
+      <app-faculties-grid (editPressd)="onEditPressd($event)" [facultySaved$]="facultySaved$" [universityId]="univsersityId"></app-faculties-grid>
+    </div>
   </div>
 </div>
 

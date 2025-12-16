@@ -36,12 +36,16 @@ export const API_ENDPOINTS_CONSTS = {
   },
   UNIVERSITYS: {
     GET_ALL: `${BASE_URL}/Universities`,
+    GET: `${BASE_URL}/Universities`,
     CREATE: `${BASE_URL}/Universities`,
     UPDATE: `${BASE_URL}/Universities`,
     TOGGLE_STATUS: `${BASE_URL}/Universities`,
   },
 
   FACULITIES: {
+    GET: `${BASE_URL}/Faculities`,
     CREATE: `${BASE_URL}/Faculities`,
+    UPDATE: `${BASE_URL}/Faculities`,
+    TOGGLE_STATUS: `${BASE_URL}/Faculities`,
   },
 };

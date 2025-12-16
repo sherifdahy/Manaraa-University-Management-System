@@ -11,10 +11,24 @@ import { Observable } from 'rxjs';
 export class FacultyService {
   constructor(private apiCall: ApiClientService) {}
 
+  get(id: number): Observable<FacultyResponse> {
+    return this.apiCall.get<FacultyResponse>(
+      `${API_ENDPOINTS_CONSTS.FACULITIES.GET}/${id}`
+    );
+  }
+
   create(request: FacultyRequest): Observable<FacultyResponse> {
     return this.apiCall.post<FacultyResponse>(
       API_ENDPOINTS_CONSTS.FACULITIES.CREATE,
       request
     );
+  }
+  update(request: FacultyRequest) {
+    return this.apiCall.put(API_ENDPOINTS_CONSTS.FACULITIES.UPDATE, request);
+  }
+
+  toggleStatus(id: number): Observable<void> {
+    return this.apiCall.delete<void>(`
+      ${API_ENDPOINTS_CONSTS.FACULITIES.TOGGLE_STATUS}/${id}/toggle-status`);
   }
 }
