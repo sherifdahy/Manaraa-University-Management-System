@@ -17,6 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UniversityEditComponent } from './components/universities/university-edit-component/university-edit-component.component';
 import { FacultyDialogFormComponent } from './components/faculties/faculty-form/faculty-dialog-form.component';
 import { FacultiesGridComponent } from './components/faculties/faculties-grid/faculties-grid.component';
+import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 
 const routes: Routes = [
   {
@@ -60,7 +61,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    SharedModule,
     AppTranslateModule.forChild('/system-admin/layout.json'),
   ],
   declarations: [
