@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth/auth.service';
-import { AppTranslateModule } from '../../../../shared/modules/app-translate.module';
 import { AppTranslateService } from '../../../../core/services/configuration/app-translate.service';
 import { ErrorHandlerService } from '../../../../core/services/configuration/error-handler.service';
 

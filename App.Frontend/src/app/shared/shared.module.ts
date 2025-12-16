@@ -4,7 +4,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService} from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatrialModule } from './modules/matrial.module';
 
@@ -13,8 +13,6 @@ import { MatrialModule } from './modules/matrial.module';
   imports: [
     CommonModule,
     TranslateModule,
-    ReactiveFormsModule,
-    FormsModule,
     MatrialModule,
   ],
   declarations: [
@@ -23,9 +21,12 @@ import { MatrialModule } from './modules/matrial.module';
     NotFoundComponent,
     ServerErrorComponent,
   ],
-  exports : [
+  exports: [
     ErrorComponent,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

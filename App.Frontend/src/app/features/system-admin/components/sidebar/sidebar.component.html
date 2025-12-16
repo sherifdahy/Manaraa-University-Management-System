@@ -1,23 +1,15 @@
-<div class="menu-item" routerLink="/system-admin/dashboard" routerLinkActive="active">
-  📊 لوحة المعلومات
-</div>
-<div class="menu-item" routerLink="/system-admin/university" routerLinkActive="active">
-  👥 universties
-</div>
-<div class="menu-item">
-  📦 المنتجات
-</div>
-<div class="menu-item">
-  📈 التقارير
-</div>
-<div class="menu-item">
-  ⚙️ الإعدادات
-</div>
+<div class="sidebar-section">
 
-<h3 style="margin-top: 30px;">أدوات أخرى</h3>
-<div class="menu-item">
-  💬 الرسائل
-</div>
-<div class="menu-item">
-  🔔 الإشعارات
+  <div class="menu-item" routerLink="dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    📊 {{ 'sidebar.links.dashboard' | translate}}
+  </div>
+
+  <div class="menu-item" routerLink="roles" routerLinkActive="active">
+    👥 {{ 'sidebar.links.roles' | translate}}
+  </div>
+
+  <div class="menu-item" routerLink="universities" routerLinkActive="active">
+    🎓 {{ 'sidebar.links.universities' | translate}}
+  </div>
+
 </div>

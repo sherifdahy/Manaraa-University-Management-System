@@ -10,6 +10,9 @@ import { TrustedPartnersComponent } from './components/trusted-partners/trusted-
 import { PricingComponent } from './components/pricing/pricing.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AppTranslateModule } from '../../shared/modules/app-translate.module';
+import { TranslateService } from '@ngx-translate/core';
+import { AppTranslateService } from '../../core/services/configuration/app-translate.service';
 
 const routes: Routes = [
   {
@@ -33,6 +36,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    AppTranslateModule.forChild('/landing.json'),
     SharedModule,
   ],
   declarations: [
@@ -51,4 +55,12 @@ const routes: Routes = [
     FooterComponent,
   ]
 })
-export class LandingModule { }
+export class LandingModule {
+  constructor(private translateService: TranslateService, private appTranslateService: AppTranslateService) {
+      this.appTranslateService.language$.subscribe(lang => {
+        this.translateService.getTranslation(lang).subscribe(file => {
+          this.translateService.setTranslation(lang, file, true);
+        });
+      })
+    }
+}

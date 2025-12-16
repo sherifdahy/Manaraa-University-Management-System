@@ -8,8 +8,9 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { LoaderInterceptor } from './core/interceptors/loader-interceptor';
 import { TokenInterceptor } from './core/interceptors/token-interceptor';
 import { ErrorInterceptor } from './core/interceptors/error-interceptor';
-import { AppTranslateModule } from './shared/modules/app-translate.module';
 import { ToastrModule } from 'ngx-toastr';
+import { AppTranslateModule } from './shared/modules/app-translate.module';
+
 
 @NgModule({
   declarations: [App],
@@ -20,7 +21,6 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     AppTranslateModule.forRoot(),
-    ToastrModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       timeOut: 3000,

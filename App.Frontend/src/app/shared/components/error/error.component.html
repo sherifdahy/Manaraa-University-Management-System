@@ -1,42 +1,40 @@
 <div *ngIf="control?.touched && control?.errors">
-  <div class="text-danger mt-1" [ngSwitch]="true">
 
-    <!-- REQUIRED -->
-    <small *ngSwitchCase="control?.errors?.['required']">
-      {{ 'requiredMessage' | translate }}
-    </small>
+  <!-- REQUIRED -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('required')">
+    {{ 'validation.requiredMessage' | translate }}
+  </small>
 
-    <!-- MIN LENGTH -->
-    <small *ngSwitchCase="control?.errors?.['minlength']">
-      {{ 'minLengthMessage'
+  <!-- MIN LENGTH -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('minlength')">
+    {{ 'validation.minLengthMessage'
       | translate:{ min: control?.errors?.['minlength']?.requiredLength } }}
-    </small>
+  </small>
 
-    <!-- MAX LENGTH -->
-    <small *ngSwitchCase="control?.errors?.['maxlength']">
-      {{ 'maxLengthMessage'
+  <!-- MAX LENGTH -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('maxlength')">
+    {{ 'validation.maxLengthMessage'
       | translate:{ max: control?.errors?.['maxlength']?.requiredLength } }}
-    </small>
+  </small>
 
-    <!-- PATTERN -->
-    <small *ngSwitchCase="control?.errors?.['pattern']">
-      {{ 'patternMessage' | translate }}
-    </small>
+  <!-- PATTERN -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('pattern')">
+    {{ 'validation.patternMessage' | translate }}
+  </small>
 
-    <!-- EMAIL -->
-    <small *ngSwitchCase="control?.errors?.['email']">
-      {{ 'emailMessage' | translate }}
-    </small>
+  <!-- EMAIL -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('email')">
+    {{ 'validation.emailMessage' | translate }}
+  </small>
 
-    <!-- CUSTOM (TEXT) -->
-    <small *ngSwitchCase="control?.errors?.['custom']">
-      {{ control?.errors?.['custom'] }}
-    </small>
+  <!-- CUSTOM -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('custom')">
+    {{ control?.errors?.['custom'] }}
+  </small>
 
-    <!-- UNMATCHED PASSWORD -->
-    <small *ngSwitchCase="control?.errors?.['UnmatchedPassword']">
-      كلمتا المرور غير متطابقتين
-    </small>
+  <!-- UNMATCHED PASSWORD -->
+  <small class="text-danger mt-1" *ngIf="control?.hasError('UnmatchedPassword')">
+    كلمتا المرور غير متطابقتين
+  </small>
 
-  </div>
 </div>

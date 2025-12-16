@@ -1,0 +1,30 @@
+<!-- Filters Section -->
+<div class="d-flex justify-content-between align-items-end gap-3 mb-3 flex-wrap">
+
+  <!-- Search Box -->
+  <div class="flex-fill">
+    <input type="search" class="form-control form-control-sm" [placeholder]="'grid.searchPlaceholder' | translate" />
+  </div>
+
+  <!-- Show Status Filter -->
+  <div class="filter-group">
+    <label class="form-label">
+      {{ 'grid.showStatus' | translate }}
+    </label>
+
+    <select class="form-select form-select-sm" [(ngModel)]="includeDisabled" (change)="handleChangeIncludeDisabled()">
+      <option [ngValue]="false">
+        {{ 'grid.activeOnly' | translate }}
+      </option>
+      <option [ngValue]="true">
+        {{ 'grid.allRoles' | translate }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<!-- Roles Grid -->
+<div class="role-grid">
+  <app-role-card *ngFor="let role of roles$ | async" [role]="role" (reloadGridListner)="loadRoles()">
+  </app-role-card>
+</div>

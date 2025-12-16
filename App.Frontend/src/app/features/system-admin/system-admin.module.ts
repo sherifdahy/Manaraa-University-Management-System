@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SystemAdminLayoutComponent } from './layouts/system-admin-layout/system-admin-layout.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
-import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
-import { HeaderComponent } from './components/layout/header/header.component';
-import { hasPermissionGuard } from '../../core/guards/has-permission-guard';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RolesGridComponent } from "./components/roles/roles-grid/roles-grid.component";
-import { RoleCardComponent } from './components/roles/role-card/role-card.component';
-import { Permissions } from '../../core/constants/permission-consts';
-import { RolesComponent } from './pages/roles/roles/roles.component';
-import { FormRoleComponent } from './pages/roles/create-role-page/form-role.component';
 import { SharedModule } from "../../shared/shared.module";
 import { UniversitiesPageComponent } from './pages/universities/universities-page/universities-page.component';
 import { UniversityDialogComponent } from './components/universities/university-dialog/university-dialog.component';
 import { UniversitiesGridComponent } from './components/universities/universities-grid/universities-grid.component';
 import { FormUniversityPageComponent } from './pages/universities/form-university-page/form-university-page.component';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AppTranslateModule } from '../../shared/modules/app-translate.module';
+import { AppTranslateService } from '../../core/services/configuration/app-translate.service';
+import { LayoutComponent } from './layouts/layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SystemAdminLayoutComponent,
+    component: LayoutComponent,
     children: [
       {
         path: '',
@@ -34,26 +33,7 @@ const routes: Routes = [
       },
       {
         path: 'roles',
-        children: [
-          {
-            path: '',
-            canActivate: [hasPermissionGuard],
-            data: { 'required-permission': Permissions.roles.readRoles },
-            component: RolesComponent
-          },
-          {
-            path: 'create',
-            canActivate: [hasPermissionGuard],
-            data: { 'required-permission': Permissions.roles.createRoles },
-            component: FormRoleComponent
-          },
-          {
-            path: 'edit/:id',
-            canActivate: [hasPermissionGuard],
-            data: { 'required-permission': Permissions.roles.updateRoles },
-            component: FormRoleComponent
-          },
-        ]
+        loadChildren: () => import('./modules/roles/roles.module').then(x => x.RolesModule)
       },
       {
         path: 'universities',
@@ -72,32 +52,40 @@ const routes: Routes = [
   }
 ];
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    AppTranslateModule.forChild('/system-admin/layout.json'),
   ],
   declarations: [
     // layouts
-    SystemAdminLayoutComponent,
+    LayoutComponent,
     UniversityDialogComponent,
 
     // pages
     DashboardPageComponent,
-    RolesComponent,
-    FormRoleComponent,
+
     UniversitiesPageComponent,
     FormUniversityPageComponent,
 
     // components
     SidebarComponent,
     HeaderComponent,
-    RolesGridComponent,
-    RoleCardComponent,
     UniversitiesGridComponent,
   ]
 })
-export class SystemAdminModule { }
+
+export class SystemAdminModule {
+  constructor(private translateService: TranslateService, private appTranslateService: AppTranslateService) {
+    this.appTranslateService.language$.subscribe(lang => {
+      this.translateService.getTranslation(lang).subscribe(file => {
+        this.translateService.setTranslation(lang, file, true);
+      });
+    })
+  }
+}

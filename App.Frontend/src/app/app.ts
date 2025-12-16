@@ -1,5 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
