@@ -1,10 +1,11 @@
 {
   "BackToHome": "Back to Home",
+  "BackToLogin": "Back to Login",
   "Auth-login": {
-    "Ministry ": "Ministry of Higher Education",
+    "Ministry": "Ministry of Higher Education",
     "Supreme": "Supreme Council of Universities",
     "Login": "Login to Manaraa",
-    "Unified ": "Unified National Education Platform",
+    "Unified": "Unified National Education Platform",
     "Email": "Email",
     "Enter-Email": "Enter your National ID",
     "Password": "Password",
@@ -30,7 +31,7 @@
     "Msg-Check": "Please check your email and click on the reset link. The link will expire in 24 hours. If you don't receive the email, check your spam folder or contact your institution."
   },
   "Auth-New": {
-    "Ministry ": "Ministry of Higher Education",
+    "Ministry": "Ministry of Higher Education",
     "Supreme": "Supreme Council of Universities",
     "Reset": "Reset your account password",
     "New": "New Password",

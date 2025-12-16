@@ -1,5 +1,6 @@
 {
   "BackToHome": "الرجوع للصفحه الرئيسيه",
+  "BackToLogin": "العودة إلى تسجيل الدخول",
 
   "Auth-login": {
     "Ministry": "وزارة التعليم العالي",
@@ -39,6 +40,6 @@
     "Enter-password": "أدخل كلمة المرور الجديدة",
     "new-Password": " تأكيد كلمة المرور",
     "confirm-password": " تأكيد كلمة المرور",
-    "Confirm":  "تأكيد"
+    "Confirm": "تأكيد"
   }
 }
