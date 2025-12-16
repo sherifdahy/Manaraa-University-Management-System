@@ -4,28 +4,39 @@ import { Observable } from 'rxjs';
 import { UniversityResponse } from '../../models/university/responses/university-response';
 import { API_ENDPOINTS_CONSTS } from '../../constants/end-point-consts';
 import { UniversityRequest } from '../../models/university/requests/university-request';
+import { UniversityDetailResponse } from '../../models/university/responses/university-detail-response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UnivsersityService {
-  constructor(private apiService: ApiClientService) {}
+  constructor(private apiCall: ApiClientService) {}
 
   getAll(): Observable<UniversityResponse[]> {
-    return this.apiService.get<UniversityResponse[]>(
+    return this.apiCall.get<UniversityResponse[]>(
       API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL
     );
   }
 
+  get(id: number): Observable<UniversityDetailResponse> {
+    return this.apiCall.get<UniversityDetailResponse>(
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}/${id}`
+    );
+  }
+
   create(request: UniversityRequest): Observable<UniversityResponse> {
-    return this.apiService.post<UniversityResponse>(
+    return this.apiCall.post<UniversityResponse>(
       API_ENDPOINTS_CONSTS.UNIVERSITYS.CREATE,
       request
     );
   }
 
+  update(request: UniversityRequest) {
+    return this.apiCall.put(API_ENDPOINTS_CONSTS.UNIVERSITYS.UPDATE, request);
+  }
+
   toggleStatus(id: number): Observable<void> {
-    return this.apiService.delete<void>(`
+    return this.apiCall.delete<void>(`
       ${API_ENDPOINTS_CONSTS.UNIVERSITYS.TOGGLE_STATUS}/${id}/toggle-status`);
   }
 }

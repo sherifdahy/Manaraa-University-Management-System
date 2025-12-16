@@ -10,12 +10,13 @@ import { UniversitiesPageComponent } from './pages/universities/universities-pag
 import { UniversityDialogComponent } from './components/universities/university-dialog/university-dialog.component';
 import { UniversitiesGridComponent } from './components/universities/universities-grid/universities-grid.component';
 import { FormUniversityPageComponent } from './pages/universities/form-university-page/form-university-page.component';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppTranslateModule } from '../../shared/modules/app-translate.module';
 import { AppTranslateService } from '../../core/services/configuration/app-translate.service';
 import { LayoutComponent } from './layouts/layout/layout.component';
+import { TranslateService } from '@ngx-translate/core';
+import { UniversityEditComponent } from './components/universities/university-edit-component/university-edit-component.component';
+import { FacultyDialogFormComponent } from './components/faculties/faculty-form/faculty-dialog-form.component';
+import { FacultiesGridComponent } from './components/faculties/faculties-grid/faculties-grid.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'dashboard',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'dashboard',
@@ -46,10 +47,10 @@ const routes: Routes = [
             path: 'edit/:universityId',
             component: FormUniversityPageComponent,
           },
-        ]
-      }
-    ]
-  }
+        ],
+      },
+    ],
+  },
 ];
 
 
@@ -69,15 +70,17 @@ const routes: Routes = [
 
     // pages
     DashboardPageComponent,
-
     UniversitiesPageComponent,
     FormUniversityPageComponent,
-
+    UniversityEditComponent,
+    FacultyDialogFormComponent,
+    FacultiesGridComponent,
     // components
     SidebarComponent,
     HeaderComponent,
+
     UniversitiesGridComponent,
-  ]
+  ],
 })
 
 export class SystemAdminModule {

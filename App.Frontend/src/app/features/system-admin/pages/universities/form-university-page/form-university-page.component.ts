@@ -10,15 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 export class FormUniversityPageComponent implements OnInit {
   univsersityId: number = 0;
   constructor(private activatedRoute: ActivatedRoute) {}
-  //This Will Contains 2 Components
-  //1.Edit University Component which want the Id
-  //2.Add Or Edit Faculty Which Want the Id
-  //3.Tables of All Faculties
+
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.univsersityId = Number(params.get('universityId'));
     });
   }
-
-  private setUniversityId() {}
 }

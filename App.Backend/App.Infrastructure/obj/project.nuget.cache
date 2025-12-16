@@ -107,6 +107,15 @@
   ],
   "logs": [
     {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file F:\\Manaraa-University-Management-System\\App.Backend\\App.Infrastructure\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Infrastructure\\App.Infrastructure.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Infrastructure\\App.Infrastructure.csproj",
+      "targetGraphs": []
+    },
+    {
       "code": "NU1904",
       "level": "Warning",
       "message": "Package 'System.Text.Encodings.Web' 4.5.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28",

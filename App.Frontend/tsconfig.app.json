@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/app/features/system-admin/components/faculties/faculties-grid/faculties-grid.component.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

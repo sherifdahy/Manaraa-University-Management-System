@@ -1,24 +1,21 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
 import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
 import { UniversityRequest } from '../../../../../core/models/university/requests/university-request';
+import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-university-dialog',
-  standalone : false,
+  standalone: false,
   templateUrl: './university-dialog.component.html',
   styleUrls: ['./university-dialog.component.css'],
 })
 export class UniversityDialogComponent implements OnInit {
   form!: FormGroup;
-  @ViewChild('closeModalBtn') closeModalBtn!: ElementRef;
+  @ViewChild('dialog') dialog!: DialogComponent;
   constructor(
     private formBuilder: FormBuilder,
     private universityService: UnivsersityService,
@@ -61,7 +58,7 @@ export class UniversityDialogComponent implements OnInit {
   }
 
   private submitSuccess(id: number) {
-    this.closeModalBtn.nativeElement.click(); //closes modal
+    this.dialog.close(); //closes modal
     this.toastrService.success('university add successfully');
     this.router.navigate(['system-admin/universities/edit', id]);
   }
