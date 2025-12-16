@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 const routes : Routes = [
   {
@@ -10,8 +9,8 @@ const routes : Routes = [
     component : AdminLayoutComponent,
     children : [
       {
-        path : 'dashboard',
-        component : DashboardPageComponent,
+        path : 'faculities',
+        loadChildren:()=> import('./modules/faculty/faculty.module').then(x=>x.FacultyModule)
       }
     ]
   }
@@ -27,7 +26,6 @@ const routes : Routes = [
     AdminLayoutComponent,
 
     // pages
-    DashboardPageComponent,
 
     // compoennts
 
