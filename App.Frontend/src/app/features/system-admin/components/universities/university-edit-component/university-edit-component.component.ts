@@ -7,52 +7,39 @@ import {
   Validators,
 } from '@angular/forms';
 import { UniversityRequest } from '../../../../../core/models/university/requests/university-request';
-import { UniversityResponse } from '../../../../../core/models/university/responses/university-response';
 import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
 import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
 import { SharedModule } from '../../../../../shared/shared.module';
+import { ToastrService } from 'ngx-toastr';
+import { UniversityDetailResponse } from '../../../../../core/models/university/responses/university-detail-response';
 
 @Component({
   selector: 'app-edit-university-component',
   templateUrl: './university-edit-component.component.html',
-  // styleUrls: ['./edit-university-component.component.css'],
   imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, SharedModule],
 })
-export class EditUniversityComponent implements OnInit {
+export class UniversityEditComponent implements OnInit {
   @Input() univsersityId: number = 0;
+
   form!: FormGroup;
   constructor(
     private universityService: UnivsersityService,
     private formBuilder: FormBuilder,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private toastrService: ToastrService
   ) {}
+
   ngOnInit() {
     this.buildForm();
     this.setUniversity();
   }
 
   Submit() {
-    let request = this.form.value as UniversityRequest;
-    console.log(request);
-
-    alert('Call Edit End Point');
-    // this.universityService.update(this.univsersityId, request).subscribe({
-    //   next: () => {
-    //     alert('success');
-    //   },
-    //   error: (errors) => {
-    //     alert('fail');
-    //     this.errorHandler.handleError(errors, '');
-    //   },
-    // });
-  }
-
-  private setUniversity() {
-    this.universityService.get(this.univsersityId).subscribe({
-      next: (response) => {
-        this.setForm(response);
-      },
-    });
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.callEndPoint();
   }
 
   private buildForm() {
@@ -67,9 +54,31 @@ export class EditUniversityComponent implements OnInit {
       website: ['', [Validators.required, Validators.maxLength(300)]],
     });
   }
-
-  private setForm(university: UniversityResponse) {
+  private setUniversity() {
+    this.universityService.get(this.univsersityId).subscribe({
+      next: (response) => {
+        this.setForm(response);
+      },
+    });
+  }
+  private setForm(university: UniversityDetailResponse) {
     this.form.patchValue(university);
+  }
+  private callEndPoint() {
+    let request = this.form.value as UniversityRequest;
+    request.id = this.univsersityId;
+    this.universityService.update(request).subscribe({
+      next: () => this.submitSuccess(),
+      error: (errors) => this.submitFail(errors),
+    });
+  }
+
+  private submitSuccess() {
+    this.toastrService.success('data updated successfully');
+  }
+
+  private submitFail(errors: any) {
+    this.errorHandler.handleError(errors, '');
   }
 
   get name(): any {

@@ -11,5 +11,5 @@
   "include": [
     "src/**/*.d.ts",
     "src/**/*.ts"
-, "src/app/features/system-admin/components/faculties/faculties-grid/faculties-grid.component.ts"  ]
+,"src/app/features/system-admin/components/faculties/faculties-grid/faculties-grid.component.ts"]
 }

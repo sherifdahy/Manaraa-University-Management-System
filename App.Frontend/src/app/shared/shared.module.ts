@@ -7,7 +7,7 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatrialModule } from './modules/matrial.module';
-
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -22,10 +22,8 @@ import { MatrialModule } from './modules/matrial.module';
     AccessDeniedComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    DialogComponent,
   ],
-  exports : [
-    ErrorComponent,
-    TranslateModule
-  ]
+  exports: [ErrorComponent, TranslateModule, DialogComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

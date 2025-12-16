@@ -1,4 +1,13 @@
-<form  [formGroup]="form" (ngSubmit)="Submit()">
+
+
+
+<h1 class="fw-bold fs-6 mb-1">Edit Universties</h1>
+<p class="small text-secondary mb-0 fw-normal mb-5">Edit the university main informations</p>
+
+<form [formGroup]="form" (ngSubmit)="Submit()" style="border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(113, 83, 83, 0.3);
+            padding: 10px;
+            background-color: white;">
 
   <div class="mb-3">
     <label for="name" class="form-label">name</label>
@@ -34,8 +43,6 @@
       placeholder="Enter your website">
     <app-error [control]="website"></app-error>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary btn-sm">Submit</button>
 
-  </div>
 </form>

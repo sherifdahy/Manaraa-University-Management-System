@@ -1,29 +1,33 @@
-<table class="table responsive">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">name</th>
-      <th scope="col">description</th>
-      <th scope="col">address</th>
-      <th scope="col">email</th>
-      <th scope="col">website</th>
-      <th scope="col">isDeleted</th>
-      <th scope="col">Delete</th>
-      <th scope="col">Edit</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr *ngFor="let value of values$ | async;let i =index;trackBy: trackById">
-  <td>{{ i+1 }}</td>
-  <td>{{ value.name }}</td>
-  <td>{{ value.description }}</td>
-  <td>{{ value.address }}</td>
-  <td>{{ value.email }}</td>
-  <td>{{ value.website }}</td>
-  <td>{{ value.isDeleted }}</td>
-  <td><a (click)="delete(value.id)">delete</a></td>
-  <td><a [routerLink]="['edit',value.id]">Edit</a></td>
-</tr>
-  </tbody>
-</table>
-
+<div style="border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(113, 83, 83, 0.3);
+            padding: 10px;
+            background-color: white;">
+  <table class="table table-hover mb-0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email</th>
+        <th scope="col">Website</th>
+        <th scope="col">IsDeleted</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let value of values$ | async;let i = index; trackBy: trackById">
+        <td>{{ i+1 }}</td>
+        <td>{{ value.name }}</td>
+        <td>{{ value.description }}</td>
+        <td>{{ value.address }}</td>
+        <td>{{ value.email }}</td>
+        <td>{{ value.website }}</td>
+        <td>{{ value.isDeleted }}</td>
+        <td><a (click)="delete(value.id)"><i class="fa-regular fa-trash-can text-danger"></i></a></td>
+        <td><a [routerLink]="['edit',value.id]"><i class="fa-solid fa-pen-to-square"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

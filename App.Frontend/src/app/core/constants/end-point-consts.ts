@@ -40,4 +40,8 @@ export const API_ENDPOINTS_CONSTS = {
     UPDATE: `${BASE_URL}/Universities`,
     TOGGLE_STATUS: `${BASE_URL}/Universities`,
   },
+
+  FACULITIES: {
+    CREATE: `${BASE_URL}/Faculities`,
+  },
 };

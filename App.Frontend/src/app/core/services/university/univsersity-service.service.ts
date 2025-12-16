@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UniversityResponse } from '../../models/university/responses/university-response';
 import { API_ENDPOINTS_CONSTS } from '../../constants/end-point-consts';
 import { UniversityRequest } from '../../models/university/requests/university-request';
+import { UniversityDetailResponse } from '../../models/university/responses/university-detail-response';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,8 @@ export class UnivsersityService {
     );
   }
 
-  get(id: number): Observable<UniversityResponse> {
-    return this.apiCall.get<UniversityResponse>(
+  get(id: number): Observable<UniversityDetailResponse> {
+    return this.apiCall.get<UniversityDetailResponse>(
       `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}/${id}`
     );
   }
@@ -30,11 +31,8 @@ export class UnivsersityService {
     );
   }
 
-  update(id: number, request: UniversityRequest) {
-    return this.apiCall.put(
-      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.UPDATE}/${id}`,
-      request
-    );
+  update(request: UniversityRequest) {
+    return this.apiCall.put(API_ENDPOINTS_CONSTS.UNIVERSITYS.UPDATE, request);
   }
 
   toggleStatus(id: number): Observable<void> {
