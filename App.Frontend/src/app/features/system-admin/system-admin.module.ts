@@ -60,6 +60,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild(routes),
     AppTranslateModule.forChild('/system-admin/layout.json'),
   ],
