@@ -15,8 +15,8 @@ import { UniversityDetailResponse } from '../../../../../core/models/university/
 
 @Component({
   selector: 'app-edit-university-component',
+  standalone :false,
   templateUrl: './university-edit-component.component.html',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, SharedModule],
 })
 export class UniversityEditComponent implements OnInit {
   @Input() univsersityId: number = 0;

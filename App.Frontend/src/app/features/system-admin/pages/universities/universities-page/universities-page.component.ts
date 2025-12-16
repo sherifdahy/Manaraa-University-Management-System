@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   templateUrl: './universities-page.component.html',
   styleUrl: './universities-page.component.css',
 })
-export class UniversitiesPageComponent {}
+export class UniversitiesPageComponent {
+
+  constructor() {
+
+  }
+}

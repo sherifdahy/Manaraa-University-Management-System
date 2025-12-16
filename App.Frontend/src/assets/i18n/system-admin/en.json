@@ -1,9 +1,0 @@
-{
-  "sidebar" : {
-    "links" : {
-      "dashboard" : "Dashboard",
-      "universities" : "Universities",
-      "roles" : "Roles"
-    }
-  }
-}

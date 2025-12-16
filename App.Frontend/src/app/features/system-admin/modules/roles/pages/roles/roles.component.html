@@ -1,0 +1,23 @@
+<!-- Header Section -->
+<div class="d-flex flex-wrap align-items-center justify-content-between mb-3 gap-3">
+
+  <!-- Title + Subtitle -->
+  <div class="flex-grow-1 min-w-200">
+    <h1 class="fw-bold fs-6 mb-1">
+      {{ 'index.title' | translate }}
+    </h1>
+    <p class="small text-secondary mb-0 fw-normal">
+      {{ 'index.subtitle' | translate }}
+    </p>
+  </div>
+
+  <!-- Responsive Button -->
+  <div class="btn-create">
+    <button class="btn btn-primary btn-sm w-100 w-md-auto" routerLink="create">
+      {{ 'index.createButton' | translate }}
+    </button>
+  </div>
+</div>
+
+<!-- Roles Grid Component -->
+<app-roles-grid></app-roles-grid>

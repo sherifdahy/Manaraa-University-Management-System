@@ -802,25 +802,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\omarz\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\shrif\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\work\\GraduationProject\\Manaraa-University-Management-System\\App.Backend\\App.Core\\App.Core.csproj",
+      "projectUniqueName": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Core\\App.Core.csproj",
       "projectName": "App.Core",
-      "projectPath": "D:\\work\\GraduationProject\\Manaraa-University-Management-System\\App.Backend\\App.Core\\App.Core.csproj",
-      "packagesPath": "C:\\Users\\omarz\\.nuget\\packages\\",
-      "outputPath": "D:\\work\\GraduationProject\\Manaraa-University-Management-System\\App.Backend\\App.Core\\obj\\",
+      "projectPath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Core\\App.Core.csproj",
+      "packagesPath": "C:\\Users\\shrif\\.nuget\\packages\\",
+      "outputPath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\omarz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shrif\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -875,8 +878,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file F:\\Manaraa-University-Management-System\\App.Backend\\App.Core\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }

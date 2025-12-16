@@ -12,6 +12,6 @@ public record UniversityDetailResponse
     string Description,
     string Address,
     string Email,
-    string Website
-    //List<FacultyDetailResponse> Faculties
+    string Website,
+    List<FacultyResponse> Faculties
 );

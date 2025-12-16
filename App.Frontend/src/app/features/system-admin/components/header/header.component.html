@@ -1,0 +1,30 @@
+<header class="header d-flex justify-content-between align-items-center text-white px-3 py-2">
+  <!-- Left section -->
+  <div class="left-section">
+    <h3 class="m-0 fw-bold">{{ 'header.title' | translate }}</h3>
+    <p class="m-0 text-uppercase small">{{ 'header.subtitle' | translate }}</p>
+  </div>
+
+  <!-- Right section -->
+  <div class="d-flex align-items-center gap-3">
+    <!-- Language select -->
+    <select [(ngModel)]="currentLanguage" (change)="changeLanguage($any($event.target).value)"
+      class="form-select form-select-sm w-auto">
+      <option value="en">EN</option>
+      <option value="ar">AR</option>
+    </select>
+
+    <!-- Avatar Dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-primary rounded-circle dropdown-toggle d-flex align-items-center justify-content-center"
+        type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; padding: 0;">
+        SH
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">{{ 'header.avatar.info' | translate }}</a></li>
+        <li><a class="dropdown-item text-danger" (click)="logout()">{{ 'header.avatar.logout' | translate }}</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

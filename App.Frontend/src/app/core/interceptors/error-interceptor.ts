@@ -22,7 +22,6 @@ export class ErrorInterceptor implements HttpInterceptor {
 
         switch (response.status) {
           case 401:
-            debugger;
             if (this.authService.isLoggedIn) {
               return this.authService.refreshToken().pipe(
                 switchMap((authResponse: AuthResponse) => {
