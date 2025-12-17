@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2wJZlJz3plo=",
+  "dgSpecHash": "WHMtpuiE3GA=",
   "success": true,
   "projectFilePath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Services\\App.Services.csproj",
   "expectedPackageFiles": [
@@ -23,15 +23,5 @@
     "C:\\Users\\shrif\\.nuget\\packages\\microsoft.extensions.options\\10.0.0\\microsoft.extensions.options.10.0.0.nupkg.sha512",
     "C:\\Users\\shrif\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.0\\microsoft.extensions.primitives.10.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "message": "Problem reading the cache file F:\\Manaraa-University-Management-System\\App.Backend\\App.Services\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
-      "projectPath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Services\\App.Services.csproj",
-      "warningLevel": 1,
-      "filePath": "F:\\Manaraa-University-Management-System\\App.Backend\\App.Services\\App.Services.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }

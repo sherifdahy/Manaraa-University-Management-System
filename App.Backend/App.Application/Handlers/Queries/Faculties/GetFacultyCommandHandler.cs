@@ -2,6 +2,7 @@
 using App.Application.Responses.Faculties;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace App.Application.Handlers.Queries.Faculties;
@@ -13,7 +14,7 @@ public class GetFacultyCommandHandler(IUnitOfWork unitOfWork,FacultyErrors error
 
     async Task<Result<FacultyDetailResponse>> IRequestHandler<GetFacultyQuery, Result<FacultyDetailResponse>>.Handle(GetFacultyQuery request, CancellationToken cancellationToken)
     {
-        var faculty = await _unitOfWork.Fauclties.FindAsync(x => x.Id == request.Id, new string[] {  }, cancellationToken);
+        var faculty = await _unitOfWork.Fauclties.FindAsync(x => x.Id == request.Id,null, cancellationToken);
 
         if (faculty == null)
             return Result.Failure<FacultyDetailResponse>(_errors.NotFound);

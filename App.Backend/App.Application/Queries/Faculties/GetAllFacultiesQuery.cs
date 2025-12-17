@@ -2,8 +2,14 @@
 
 namespace App.Application.Queries.Faculties;
 
-public record GetAllFacultiesQuery
-(
-    bool? IncludeDisabled
+public record GetAllFacultiesQuery : IRequest<Result<List<FacultyResponse>>>
+{
+    public bool? IncludeDisabled { get; set; }
+    public int UniversityId { get; set; }
 
-) : IRequest<Result<List<FacultyResponse>>>;
+    public GetAllFacultiesQuery(bool includeDisabled,int universityId)
+    {
+        IncludeDisabled = includeDisabled;
+        UniversityId = universityId;
+    }
+};

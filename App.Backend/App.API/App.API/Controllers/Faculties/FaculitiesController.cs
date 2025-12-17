@@ -15,11 +15,11 @@ public class FaculitiesController(IMediator mediator) : ControllerBase
 {
     private readonly IMediator _mediator = mediator;
 
-    [HttpGet]
+    [HttpGet("/api/universities/{universityId:int}/faculities")]
     [HasPermission(Permissions.GetFaculties)]
-    public async Task<IActionResult> GetAll(bool includeDisabled = false, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> GetAll([FromRoute] int universityId, [FromQuery] bool includeDisabled = false, CancellationToken cancellationToken = default)
     {
-        var query = new GetAllFacultiesQuery(includeDisabled);
+        var query = new GetAllFacultiesQuery(includeDisabled, universityId);
         var result = await _mediator.Send(query, cancellationToken);
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }

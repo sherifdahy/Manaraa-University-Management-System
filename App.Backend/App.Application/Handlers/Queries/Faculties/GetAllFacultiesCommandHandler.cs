@@ -9,7 +9,7 @@ public class GetAllFacultiesCommandHandler(IUnitOfWork unitOfWork) : IRequestHan
 
     async Task<Result<List<FacultyResponse>>> IRequestHandler<GetAllFacultiesQuery, Result<List<FacultyResponse>>>.Handle(GetAllFacultiesQuery request, CancellationToken cancellationToken)
     {
-        var faculties = await _unitOfWork.Fauclties.FindAllAsync(x=> !x.IsDeleted || (request.IncludeDisabled.HasValue && request.IncludeDisabled.Value),null,cancellationToken);
+        var faculties = await _unitOfWork.Fauclties.FindAllAsync(x=> x.UniversityId == request.UniversityId && (!x.IsDeleted || (request.IncludeDisabled.HasValue && request.IncludeDisabled.Value)), null,cancellationToken);
 
         var response = faculties.Adapt<List<FacultyResponse>>();
 

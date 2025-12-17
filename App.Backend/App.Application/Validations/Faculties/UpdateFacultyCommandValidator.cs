@@ -21,8 +21,6 @@ public class UpdateFacultyCommandValidator : AbstractValidator<UpdateFacultyComm
         RuleFor(f => f.Description)
             .MaximumLength(1000);
 
-        RuleFor(f => f.DeanName)
-            .MaximumLength(200);
 
         RuleFor(f => f.Address)
             .MaximumLength(200);

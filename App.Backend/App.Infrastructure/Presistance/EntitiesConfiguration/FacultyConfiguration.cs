@@ -16,8 +16,6 @@ public class FacultyConfiguration : IEntityTypeConfiguration<Faculty>
         builder.Property(f => f.Description)
             .HasMaxLength(1000);
 
-        builder.Property(f => f.DeanName)
-            .HasMaxLength(200);
 
         builder.Property(f => f.Address)
             .HasMaxLength(200);

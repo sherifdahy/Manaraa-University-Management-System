@@ -18,9 +18,6 @@ public class CreateFacultyCommandValidator : AbstractValidator<CreateFacultyComm
             .NotEmpty()
             .MaximumLength(1000);
 
-        RuleFor(f => f.DeanName)
-            .NotEmpty()
-            .MaximumLength(200);
 
         RuleFor(f => f.Address)
             .NotEmpty()

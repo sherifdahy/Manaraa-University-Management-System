@@ -35,7 +35,7 @@ public class Repository<T> : IRepository<T> where T : class
         return _context.Set<T>().Select(col).Distinct().ToList();
     }
 
-    public T? Find(Expression<Func<T, bool>> criteria, string[]? includes = null)
+    public T? Find(Expression<Func<T, bool>> criteria, Expression<Func<T, object>>[]? includes = null)
     {
         IQueryable<T> query = _context.Set<T>();
 
@@ -46,7 +46,7 @@ public class Repository<T> : IRepository<T> where T : class
         return query.SingleOrDefault(criteria);
     }
 
-    public async Task<T?> FindAsync(Expression<Func<T, bool>> criteria, string[]? includes = null, CancellationToken cancellationToken = default)
+    public async Task<T?> FindAsync(Expression<Func<T, bool>> criteria, Expression<Func<T, object>>[]? includes = null, CancellationToken cancellationToken = default)
     {
         IQueryable<T> query = _context.Set<T>();
 
@@ -57,7 +57,7 @@ public class Repository<T> : IRepository<T> where T : class
         return await query.SingleOrDefaultAsync(criteria, cancellationToken);
     }
 
-    public IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, string[]? includes = null)
+    public IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, Expression<Func<T, object>>[]? includes = null)
     {
         IQueryable<T> query = _context.Set<T>();
 
@@ -89,7 +89,7 @@ public class Repository<T> : IRepository<T> where T : class
         return query.ToList();
     }
 
-    public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, string[]? includes = null, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, Expression<Func<T, object>>[]? includes = null, CancellationToken cancellationToken = default)
     {
         IQueryable<T> query = _context.Set<T>();
 
