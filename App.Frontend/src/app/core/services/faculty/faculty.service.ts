@@ -11,6 +11,15 @@ import { Observable } from 'rxjs';
 export class FacultyService {
   constructor(private apiCall: ApiClientService) {}
 
+  getAll(
+    universityId: number,
+    includeDisabled: boolean
+  ): Observable<FacultyResponse[]> {
+    return this.apiCall.get<FacultyResponse[]>(
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}/${universityId}/faculities?includeDisabled=${includeDisabled}`
+    );
+  }
+
   get(id: number): Observable<FacultyResponse> {
     return this.apiCall.get<FacultyResponse>(
       `${API_ENDPOINTS_CONSTS.FACULITIES.GET}/${id}`
@@ -23,6 +32,7 @@ export class FacultyService {
       request
     );
   }
+
   update(request: FacultyRequest) {
     return this.apiCall.put(API_ENDPOINTS_CONSTS.FACULITIES.UPDATE, request);
   }

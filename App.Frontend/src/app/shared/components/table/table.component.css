@@ -1,0 +1,6 @@
+.table-container{
+  border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(113, 83, 83, 0.3);
+    padding: 10px;
+    background-color: white;
+}

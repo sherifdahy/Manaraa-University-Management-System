@@ -1,10 +1,16 @@
-<div style="border-radius: 10px;
-            box-shadow: 5px 5px 15px rgba(113, 83, 83, 0.3);
-            padding: 10px;
-            background-color: white;">
-  <table class="table table-hover mb-0">
-    <thead>
-      <tr>
+
+<!--Include Disable-->
+<div class="filter-group mb-4" style="width: fit-content;" >
+        <label class="form-label">Show Status</label>
+        <select class="form-select form-select-sm" [(ngModel)]="includeDisabled" (change)="handleChangeIncludeDisabled()">
+          <option [ngValue]="false">Active Only</option>
+          <option [ngValue]="true">All Faculities</option>
+        </select>
+</div>
+
+<!--Table-->
+<app-table>
+      <tr table-header>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
@@ -15,23 +21,19 @@
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let faculty of (universityDetail$ | async)?.faculties;let i = index; trackBy: trackById">
-        <td>{{ i+1 }}</td>
-        <td>{{ faculty.name }}</td>
-        <td>{{ faculty.description }}</td>
-        <td>{{ faculty.address }}</td>
-        <td>{{ faculty.email }}</td>
-        <td>{{ faculty.website }}</td>
-        <td>{{ faculty.isDeleted }}</td>
-        <td><a (click)="delete(faculty.id)"><i class="fa-regular fa-trash-can text-danger"></i></a></td>
-        <td><a (click)="edit(faculty.id)"><i class="fa-solid fa-pen-to-square text-primary"></i></a></td>
-      </tr>
-
-    </tbody>
-  </table>
-</div>
-
-
+            <tr table-body *ngFor="let faculty of (faculties$ | async);let i = index; trackBy: trackById">
+              <td>{{ i+1 }}</td>
+              <td>{{ faculty.name }}</td>
+              <td>{{ faculty.description }}</td>
+              <td>{{ faculty.address }}</td>
+              <td>{{ faculty.email }}</td>
+              <td>{{ faculty.website }}</td>
+              <td>{{ faculty.isDeleted }}</td>
+              <td>
+                <i *ngIf="faculty.isDeleted" (click)="restore(faculty.id)" class="fa-solid fa-retweet text-primary"></i>
+                <i *ngIf="!faculty.isDeleted" (click)="delete(faculty.id)" class="fa-regular fa-trash-can text-danger"></i>
+              </td>
+              <td><a (click)="edit(faculty.id)"><i class="fa-solid fa-pen-to-square text-primary"></i></a></td>
+            </tr>
+</app-table>
 

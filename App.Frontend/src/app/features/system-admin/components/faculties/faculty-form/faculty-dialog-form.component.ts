@@ -87,7 +87,6 @@ export class FacultyDialogFormComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(200)]],
       description: ['', [Validators.required, Validators.maxLength(1000)]],
-      deanName: ['', [Validators.required, Validators.maxLength(200)]],
       address: ['', [Validators.required, Validators.maxLength(200)]],
       email: [
         '',
@@ -134,9 +133,7 @@ export class FacultyDialogFormComponent implements OnInit, OnDestroy {
   get description(): any {
     return this.form.get('description');
   }
-  get deanName(): any {
-    return this.form.get('deanName');
-  }
+
   get address(): any {
     return this.form.get('address');
   }

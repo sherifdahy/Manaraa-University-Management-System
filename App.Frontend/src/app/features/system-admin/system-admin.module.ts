@@ -21,6 +21,7 @@ import { UniversityEditComponent } from './components/universities/university-ed
 import { FacultiesGridComponent } from './components/faculties/faculties-grid/faculties-grid.component';
 import { FacultyDialogFormComponent } from './components/faculties/faculty-form/faculty-dialog-form.component';
 import { DialogComponent } from '../../shared/components/dialog/dialog.component';
+import { TableComponent } from '../../shared/components/table/table.component';
 
 const routes: Routes = [
   {
@@ -84,6 +85,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     UniversityEditComponent,
+    TableComponent,
   ],
   declarations: [
     // layouts

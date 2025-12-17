@@ -12,8 +12,8 @@ import { SweetAlertService } from '../../../../../core/services/configuration/sw
   styleUrl: './universities-grid.component.css',
 })
 export class UniversitiesGridComponent implements OnInit {
-  values$!: Observable<UniversityResponse[]>;
-
+  universities$!: Observable<UniversityResponse[]>;
+  includeDisabled: boolean = false;
   constructor(
     private universityService: UnivsersityService,
     private errorHandler: ErrorHandlerService,
@@ -21,34 +21,50 @@ export class UniversitiesGridComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.assignValues();
+    this.loadUniversities();
   }
   trackById(index: number, item: any) {
     return item.id;
   }
 
   async delete(id: number) {
-    const confirmed = await this.sweetAlertService.warning(
+    const confirmed = await this.sweetAlertService.danger(
       'delete university',
       'are you sure'
     );
     if (confirmed) {
-      this.universityService.toggleStatus(id).subscribe({
-        next: () => {
-          this.deleteSuccess();
-        },
-        error: (errors) => this.deleteFail(errors),
-      });
+      this.toggleStatus(id);
     }
   }
+  async restore(id: number) {
+    const confirmed = await this.sweetAlertService.warn(
+      'restore university',
+      'are you sure'
+    );
+    if (confirmed) {
+      this.toggleStatus(id);
+    }
+  }
+  toggleStatus(id: number) {
+    this.universityService.toggleStatus(id).subscribe({
+      next: () => {
+        this.toggleStatusSuccess();
+      },
+      error: (errors) => this.toggleStatusFail(errors),
+    });
+  }
 
-  private assignValues() {
-    this.values$ = this.universityService.getAll();
+  handleChangeIncludeDisabled() {
+    this.loadUniversities();
   }
-  private deleteSuccess() {
-    this.assignValues();
+
+  private loadUniversities() {
+    this.universities$ = this.universityService.getAll(this.includeDisabled);
   }
-  private deleteFail(errors: any) {
+  private toggleStatusSuccess() {
+    this.loadUniversities();
+  }
+  private toggleStatusFail(errors: any) {
     this.errorHandler.handleError(errors, '');
   }
 }

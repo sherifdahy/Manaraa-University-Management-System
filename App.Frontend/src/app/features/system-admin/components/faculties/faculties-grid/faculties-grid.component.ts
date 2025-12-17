@@ -10,10 +10,10 @@ import {
 } from '@angular/core';
 import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { UniversityDetailResponse } from '../../../../../core/models/university/responses/university-detail-response';
 import { FacultyService } from '../../../../../core/services/faculty/faculty.service';
 import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
 import { SweetAlertService } from '../../../../../core/services/configuration/sweet-alert.service';
+import { FacultyResponse } from '../../../../../core/models/faculty/responses/faculty-response';
 
 @Component({
   selector: 'app-faculties-grid',
@@ -25,7 +25,8 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
   @Input() universityId: number = 0;
   @Input() facultySaved$!: Subject<void>;
   @Output() editPressd = new EventEmitter<number>();
-  universityDetail$!: Observable<UniversityDetailResponse>;
+  includeDisabled: boolean = false;
+  faculties$!: Observable<FacultyResponse[]>;
   private sub!: Subscription;
 
   constructor(
@@ -38,14 +39,14 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     if (this.facultySaved$) {
       this.sub = this.facultySaved$.subscribe(() => {
-        this.assignValues();
+        this.loadFaculties();
       });
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.universityId) return;
-    this.assignValues();
+    this.loadFaculties();
   }
 
   ngOnDestroy() {
@@ -57,33 +58,55 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   async delete(id: number) {
-    const confirmed = await this.sweetAlert.warning(
+    const confirmed = await this.sweetAlert.danger(
       'delete faculty',
       'are you sure to delete faculty'
     );
     if (confirmed) {
-      this.facultyService.toggleStatus(id).subscribe({
-        next: () => {
-          this.deleteSuccess();
-        },
-        error: (errros) => {
-          this.deleteFail(errros);
-        },
-      });
+      this.toggleStatus(id);
     }
+  }
+
+  async restore(id: number) {
+    const confirmed = await this.sweetAlert.warn(
+      'restore faculty',
+      'are you sure to restore faculty'
+    );
+    if (confirmed) {
+      this.toggleStatus(id);
+    }
+  }
+
+  toggleStatus(id: number) {
+    this.facultyService.toggleStatus(id).subscribe({
+      next: () => {
+        this.toggleStatusSuccess();
+      },
+      error: (errros) => {
+        this.toggleStatusFail(errros);
+      },
+    });
   }
 
   edit(id: number) {
     this.editPressd.emit(id);
   }
-  private deleteSuccess() {
-    this.assignValues();
-  }
-  private assignValues() {
-    this.universityDetail$ = this.universityService.get(this.universityId);
+
+  handleChangeIncludeDisabled() {
+    this.loadFaculties();
   }
 
-  private deleteFail(errors: any) {
+  private toggleStatusSuccess() {
+    this.loadFaculties();
+  }
+  private loadFaculties() {
+    this.faculties$ = this.facultyService.getAll(
+      this.universityId,
+      this.includeDisabled
+    );
+  }
+
+  private toggleStatusFail(errors: any) {
     this.errorHandler.handleError(errors, '');
   }
 }
