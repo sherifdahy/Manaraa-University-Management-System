@@ -1,3 +1,51 @@
-<p>
-  sidebar works!
-</p>
+<!-- sidebar.component.html -->
+<div class="sidebar">
+  <div class="sidebar-header p-3 d-flex justify-content-between align-items-center">
+    <div class="start-section d-flex align-items-center gap-2">
+      <span>
+        <i class="fa-solid fa-shield"></i>
+      </span>
+      <p class="m-0">Admin Portal</p>
+    </div>
+    <span>
+      <i class="fa-solid fa-bars"></i>
+    </span>
+  </div>
+
+  <hr class="m-0">
+
+  <div class="sidebar-links p-1">
+    <ul>
+      <span class="m-0 p-2">OVERVIEW</span>
+      <li>
+        <a routerLink="dashboard" routerLinkActive="active">
+          <i class="fa-solid fa-gauge-high fa-fw"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <span class="m-0 p-2">IAM PORTAL</span>
+
+      <li>
+        <a routerLink="/users" routerLinkActive="active">
+          <i class="fa-solid fa-users fa-fw"></i>
+          <span>User Management</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/roles" routerLinkActive="active">
+          <i class="fa-solid fa-user-shield fa-fw"></i>
+          <span>Roles & Permissions</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/permissions" routerLinkActive="active">
+          <i class="fa-solid fa-table-cells fa-fw"></i>
+          <span>Permission Matrix</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

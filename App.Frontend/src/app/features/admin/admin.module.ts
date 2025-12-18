@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {
-    path : '',
-    component : AdminLayoutComponent,
-    children : [
+    path: '',
+    component: LayoutComponent,
+    children: [
       {
-        path : 'faculities',
-        loadChildren:()=> import('./modules/faculty/faculty.module').then(x=>x.FacultyModule)
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(x => x.DashboardModule)
+      },
+      {
+        path: 'faculities',
+        loadChildren: () => import('./modules/faculty/faculty.module').then(x => x.FacultyModule)
       }
     ]
   }
@@ -23,12 +34,13 @@ const routes : Routes = [
   ],
   declarations: [
     // layouts
-    AdminLayoutComponent,
+    LayoutComponent,
 
     // pages
 
     // compoennts
-
+    HeaderComponent,
+    SidebarComponent,
   ]
 })
 export class AdminModule { }

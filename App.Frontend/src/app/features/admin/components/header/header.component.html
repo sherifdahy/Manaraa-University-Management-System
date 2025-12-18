@@ -1,3 +1,72 @@
-<p>
-  header works!
-</p>
+<div class="header px-4 py-2 d-flex justify-content-between align-items-center">
+  <div class="header-content">
+    <h5>Manara.org</h5>
+    <span>Administrative Control Panel</span>
+  </div>
+
+  <div class="icons d-flex align-items-center gap-3">
+
+    <!-- Language Switcher -->
+    <div class="language-switcher dropdown">
+      <button class="lang-btn active dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-globe"></i>
+        <span>{{ currentLang | uppercase}}</span>
+      </button>
+
+      <div class="lang-dropdown dropdown-menu dropdown-menu-end">
+        <!-- Optional Info -->
+        <div class="px-3 py-2">
+          <small>Select Language</small>
+        </div>
+
+        <button class="lang-option dropdown-item" [class.active]="currentLang == 'en'" (click)="changeLang('en')">
+          <span class="flag">🇺🇸</span> English
+        </button>
+        <button class="lang-option dropdown-item" [class.active]="currentLang == 'ar'" (click)="changeLang('ar')">
+          <span class="flag">🇪🇬</span> العربية
+        </button>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <span class="notification">
+      <i class="fa-regular fa-bell fa-fw"></i>
+    </span>
+
+    <!-- User Menu -->
+    <div class="user-menu dropdown">
+      <button class="avatar dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span>SH</span>
+      </button>
+
+      <div class="user-dropdown dropdown-menu dropdown-menu-end">
+
+        <!-- User Info -->
+        <div class="user-info px-3 py-2">
+          <div class="user-avatar-large">SH</div>
+          <div class="user-details">
+            <h6>Sameh Hassan</h6>
+            <span>admin@manara.org</span>
+          </div>
+        </div>
+
+        <button class="dropdown-item">
+          <i class="fa-solid fa-user"></i> My Profile
+        </button>
+        <button class="dropdown-item">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+        <button class="dropdown-item">
+          <i class="fa-solid fa-circle-question"></i> Help & Support
+        </button>
+
+        <hr class="dropdown-divider">
+
+        <button class="dropdown-item logout" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

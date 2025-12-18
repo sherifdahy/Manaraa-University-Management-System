@@ -27,6 +27,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     TranslateModule,
     ReactiveFormsModule,
     FormsModule,
+    DialogComponent
   ]
 })
 export class SharedModule {

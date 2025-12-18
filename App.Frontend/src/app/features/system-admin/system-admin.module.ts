@@ -76,6 +76,7 @@ const routes: Routes = [
     UniversityEditComponent,
     FacultyDialogFormComponent,
     FacultiesGridComponent,
+
     // components
     SidebarComponent,
     HeaderComponent,

@@ -10,8 +10,8 @@ public class GetUniversityQueryHandler(IUnitOfWork unitOfWork, UniversityErrors 
 
     public async Task<Result<UniversityDetailResponse>> Handle(GetUniversityQuery request, CancellationToken cancellationToken)
     {
-        var university = await _unitOfWork.Universities.FindAsync(x => x.Id == request.Id && x.Faculties.Any(f=>f.IsDeleted == false),
-                                                                  new Expression<Func<University, object>>[] { u => u.Faculties.Any(x => x.IsDeleted == true) },
+        var university = await _unitOfWork.Universities.FindAsync(x => x.Id == request.Id,
+                                                                  new Expression<Func<University, object>>[] { u => u.Faculties.Where(x => x.IsDeleted == false) },
                                                                   cancellationToken);
 
         if (university == null)
