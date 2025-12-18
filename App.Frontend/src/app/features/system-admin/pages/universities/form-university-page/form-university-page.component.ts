@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-form-university-page',
@@ -9,11 +10,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FormUniversityPageComponent implements OnInit {
   univsersityId: number = 0;
+  facultySaved$ = new Subject<void>();
+  editPressd$ = new Subject<number>();
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.univsersityId = Number(params.get('universityId'));
     });
+  }
+  onFacultySaved() {
+    this.facultySaved$.next();
+  }
+  onEditPressd(id: number) {
+    this.editPressd$.next(id);
   }
 }

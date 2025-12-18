@@ -1,11 +1,20 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { FacultyRequest } from '../../../../../core/models/faculty/requests/faculty-request';
 import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
 import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
 import { ToastrService } from 'ngx-toastr';
 import { FacultyService } from '../../../../../core/services/faculty/faculty.service';
+import { Subject, Subscription } from 'rxjs';
+import { FacultyResponse } from '../../../../../core/models/faculty/responses/faculty-response';
 
 @Component({
   selector: 'app-faculty-dialog-form',
@@ -13,12 +22,15 @@ import { FacultyService } from '../../../../../core/services/faculty/faculty.ser
   styleUrls: ['./faculty-dialog-form.component.css'],
   standalone: false,
 })
-export class FacultyDialogFormComponent implements OnInit {
+export class FacultyDialogFormComponent implements OnInit, OnDestroy {
   @Input() universityId: number = 0;
-  form!: FormGroup;
+  @Input() editPressd$ = new Subject<number>();
   @ViewChild('dialog') dialog!: DialogComponent;
+  @Output() facultySaved = new EventEmitter();
+  facultyId: number = 0;
+  form!: FormGroup;
+  private sub!: Subscription;
   constructor(
-    private activeRouter: ActivatedRoute,
     private formBuilder: FormBuilder,
     private errorHandler: ErrorHandlerService,
     private toastrService: ToastrService,
@@ -26,7 +38,11 @@ export class FacultyDialogFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.handelEdit();
     this.buildForm();
+  }
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
   }
 
   submit() {
@@ -36,29 +52,75 @@ export class FacultyDialogFormComponent implements OnInit {
     }
     let request = this.form.value as FacultyRequest;
     request.universityId = this.universityId;
-    this.callEndPoint(request);
+    if (this.facultyId != 0) {
+      request.id = this.facultyId;
+      this.callUpdateEndPoint(request);
+    } else {
+      this.callCreateEndPoint(request);
+    }
+    this.facultyId = 0;
+  }
+
+  private handelEdit() {
+    let sub = this.editPressd$.subscribe({
+      next: (id) => {
+        this.facultyId = id;
+        this.setFaculty(id);
+      },
+    });
+  }
+
+  private setFaculty(id: number) {
+    this.facultyService.get(id).subscribe({
+      next: (response) => {
+        this.setForm(response);
+      },
+    });
+  }
+
+  private setForm(faculty: FacultyResponse) {
+    this.dialog.open();
+    this.form.patchValue(faculty);
   }
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      deanName: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      website: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.maxLength(200)]],
+      description: ['', [Validators.required, Validators.maxLength(1000)]],
+      address: ['', [Validators.required, Validators.maxLength(200)]],
+      email: [
+        '',
+        [Validators.required, Validators.maxLength(200), Validators.email],
+      ],
+      website: ['', [Validators.required, Validators.maxLength(200)]],
     });
   }
-  private callEndPoint(request: FacultyRequest) {
-    this.facultyService.create(request).subscribe({
-      next: () => this.submitSuccess(),
+
+  private callUpdateEndPoint(request: FacultyRequest) {
+    this.facultyService.update(request).subscribe({
+      next: () => this.submitUpdateSuccess(),
       error: (errors) => this.submitFail(errors),
     });
   }
 
-  private submitSuccess() {
-    this.dialog.close(); //closes modal
-    this.toastrService.success('university add successfully');
+  private callCreateEndPoint(request: FacultyRequest) {
+    this.facultyService.create(request).subscribe({
+      next: () => this.submitCreateSuccess(),
+      error: (errors) => this.submitFail(errors),
+    });
+  }
+
+  private submitCreateSuccess() {
+    this.closeDialog();
+    this.toastrService.success('faculty added successfully');
+  }
+  private submitUpdateSuccess() {
+    this.closeDialog();
+    this.toastrService.success('faculty updated successfully');
+  }
+  private closeDialog() {
+    this.facultySaved.emit();
+    this.dialog.close();
   }
 
   private submitFail(errors: any) {
@@ -71,9 +133,7 @@ export class FacultyDialogFormComponent implements OnInit {
   get description(): any {
     return this.form.get('description');
   }
-  get deanName(): any {
-    return this.form.get('deanName');
-  }
+
   get address(): any {
     return this.form.get('address');
   }

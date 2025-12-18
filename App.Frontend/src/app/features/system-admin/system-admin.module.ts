@@ -18,6 +18,7 @@ import { UniversityEditComponent } from './components/universities/university-ed
 import { FacultyDialogFormComponent } from './components/faculties/faculty-form/faculty-dialog-form.component';
 import { FacultiesGridComponent } from './components/faculties/faculties-grid/faculties-grid.component';
 import { DialogComponent } from '../../shared/components/dialog/dialog.component';
+import { TableComponent } from '../../shared/components/table/table.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,7 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes),
     AppTranslateModule.forChild('/system-admin/layout.json'),
+    TableComponent,
   ],
   declarations: [
     // layouts

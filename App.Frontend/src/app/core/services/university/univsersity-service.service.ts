@@ -12,15 +12,15 @@ import { UniversityDetailResponse } from '../../models/university/responses/univ
 export class UnivsersityService {
   constructor(private apiCall: ApiClientService) {}
 
-  getAll(): Observable<UniversityResponse[]> {
+  getAll(includeDisabled: boolean): Observable<UniversityResponse[]> {
     return this.apiCall.get<UniversityResponse[]>(
-      API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}?includeDisabled=${includeDisabled}`
     );
   }
 
   get(id: number): Observable<UniversityDetailResponse> {
     return this.apiCall.get<UniversityDetailResponse>(
-      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET_ALL}/${id}`
+      `${API_ENDPOINTS_CONSTS.UNIVERSITYS.GET}/${id}`
     );
   }
 

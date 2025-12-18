@@ -1,6 +1,6 @@
 <app-dialog #dialog dialogId="facultyModal">
 
-  <span dialog-title>Create faculty</span>
+  <span dialog-title>faculty</span>
 
   <div dialog-body>
     <form [formGroup]="form" (ngSubmit)="submit()">
@@ -19,12 +19,6 @@
         <app-error [control]="description"></app-error>
       </div>
 
-            <div class="mb-3">
-              <label for="deanName" class="form-label">DeanName</label>
-              <input type="text" class="form-control" formControlName="deanName" id="deanName" aria-describedby="deanName"
-                placeholder="Enter your deanName">
-              <app-error [control]="deanName"></app-error>
-            </div>
 
       <div class="mb-3">
         <label for="address" class="form-label">address</label>
