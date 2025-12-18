@@ -1,6 +1,6 @@
 /* sidebar.component.css */
 .sidebar {
-  width: 300px;
+  width: 250px;
   background-color: var(--main-color);
   color: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
@@ -92,6 +92,10 @@
 @media (max-width: 767px) {
   .sidebar {
     width: 70px;
+  }
+
+  .sidebar .sidebar-header{
+    justify-content: center !important;
   }
 
   .sidebar .start-section,
