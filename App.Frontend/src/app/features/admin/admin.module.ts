@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { UniAdminComponent } from './components/pages/uni-admin/uni-admin.component';
 
 const routes: Routes = [
   {
@@ -13,34 +14,42 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'dashboard',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(x => x.DashboardModule)
+        loadChildren: () =>
+          import('./modules/dashboard/dashboard.module').then(
+            (x) => x.DashboardModule
+          ),
       },
       {
         path: 'faculities',
-        loadChildren: () => import('./modules/faculty/faculty.module').then(x => x.FacultyModule)
-      }
-    ]
-  }
+        loadChildren: () =>
+          import('./modules/faculty/faculty.module').then(
+            (x) => x.FacultyModule
+          ),
+      },
+      {
+        path: 'uni-admin',
+        component: UniAdminComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-  ],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   declarations: [
     // layouts
     LayoutComponent,
 
     // pages
+    UniAdminComponent,
 
     // compoennts
     HeaderComponent,
     SidebarComponent,
-  ]
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}
