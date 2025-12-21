@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { UniAdminComponent } from './components/pages/uni-admin/uni-admin.component';
+import { FacultyDialogComponent } from './components/faculty-dialog/faculty-dialog.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FacultyDialogComponent,
+  ],
   declarations: [
     // layouts
     LayoutComponent,
