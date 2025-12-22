@@ -1,21 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {
-  ɵInternalFormsSharedModule,
-  ReactiveFormsModule,
-  FormGroup,
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
-import { UniversityRequest } from '../../../../../core/models/university/requests/university-request';
-import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
-import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
-import { SharedModule } from '../../../../../shared/shared.module';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { UniversityDetailResponse } from '../../../../../core/models/university/responses/university-detail-response';
+import { UniversityRequest } from '../../../../../../core/models/university/requests/university-request';
+import { UniversityDetailResponse } from '../../../../../../core/models/university/responses/university-detail-response';
+import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
+import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
 
 @Component({
   selector: 'app-edit-university-component',
-  standalone :false,
+  standalone: false,
   templateUrl: './university-edit-component.component.html',
 })
 export class UniversityEditComponent implements OnInit {

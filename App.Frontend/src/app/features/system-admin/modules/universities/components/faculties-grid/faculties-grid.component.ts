@@ -1,19 +1,19 @@
 import {
   Component,
-  EventEmitter,
-  Input,
+  OnInit,
   OnChanges,
   OnDestroy,
-  OnInit,
+  Input,
   Output,
+  EventEmitter,
   SimpleChanges,
 } from '@angular/core';
-import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
-import { Observable, Subject, Subscription } from 'rxjs';
-import { FacultyService } from '../../../../../core/services/faculty/faculty.service';
-import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
-import { SweetAlertService } from '../../../../../core/services/configuration/sweet-alert.service';
-import { FacultyResponse } from '../../../../../core/models/faculty/responses/faculty-response';
+import { Subject, Observable, Subscription } from 'rxjs';
+import { FacultyResponse } from '../../../../../../core/models/faculty/responses/faculty-response';
+import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
+import { SweetAlertService } from '../../../../../../core/services/configuration/sweet-alert.service';
+import { FacultyService } from '../../../../../../core/services/faculty/faculty.service';
+import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
 
 @Component({
   selector: 'app-faculties-grid',

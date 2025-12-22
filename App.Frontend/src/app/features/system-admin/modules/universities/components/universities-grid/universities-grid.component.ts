@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UniversityResponse } from '../../../../../core/models/university/responses/university-response';
-import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
 import { Observable } from 'rxjs';
-import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
-import { SweetAlertService } from '../../../../../core/services/configuration/sweet-alert.service';
+import { UniversityResponse } from '../../../../../../core/models/university/responses/university-response';
+import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
+import { SweetAlertService } from '../../../../../../core/services/configuration/sweet-alert.service';
+import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
 
 @Component({
   selector: 'app-universities-grid',
