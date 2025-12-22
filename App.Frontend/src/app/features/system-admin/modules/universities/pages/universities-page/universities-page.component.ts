@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../../../../core/services/auth/auth.service';
+import { AuthenticatedUserResponse } from '../../../../../../core/models/auth/responses/authenticated-user-response';
+import { Permissions } from '../../../../../../core/constants/permission-consts';
 
 @Component({
   selector: 'app-universities-page',
@@ -7,8 +10,10 @@ import { Component } from '@angular/core';
   styleUrl: './universities-page.component.css',
 })
 export class UniversitiesPageComponent {
-
-  constructor() {
-
+  currentUser: AuthenticatedUserResponse | null = null;
+  permissions: any;
+  constructor(private authService: AuthService) {
+    this.currentUser = this.authService.currentUser;
+    this.permissions = Permissions;
   }
 }

@@ -14,6 +14,9 @@ import { ErrorHandlerService } from '../../../../../../core/services/configurati
 import { SweetAlertService } from '../../../../../../core/services/configuration/sweet-alert.service';
 import { FacultyService } from '../../../../../../core/services/faculty/faculty.service';
 import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
+import { AuthService } from '../../../../../../core/services/auth/auth.service';
+import { AuthenticatedUserResponse } from '../../../../../../core/models/auth/responses/authenticated-user-response';
+import { Permissions } from '../../../../../../core/constants/permission-consts';
 
 @Component({
   selector: 'app-faculties-grid',
@@ -27,14 +30,20 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
   @Output() editPressd = new EventEmitter<number>();
   includeDisabled: boolean = false;
   faculties$!: Observable<FacultyResponse[]>;
+  currentUser: AuthenticatedUserResponse | null;
+  permissions: any;
   private sub!: Subscription;
 
   constructor(
     private universityService: UnivsersityService,
     private facultyService: FacultyService,
     private errorHandler: ErrorHandlerService,
-    private sweetAlert: SweetAlertService
-  ) {}
+    private sweetAlert: SweetAlertService,
+    private authService: AuthService
+  ) {
+    this.currentUser = this.authService.currentUser;
+    this.permissions = Permissions;
+  }
 
   ngOnInit() {
     if (this.facultySaved$) {

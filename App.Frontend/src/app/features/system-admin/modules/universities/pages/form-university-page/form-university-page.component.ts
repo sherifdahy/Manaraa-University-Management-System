@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { AuthService } from '../../../../../../core/services/auth/auth.service';
+import { AuthenticatedUserResponse } from '../../../../../../core/models/auth/responses/authenticated-user-response';
+import { Permissions } from '../../../../../../core/constants/permission-consts';
 
 @Component({
   selector: 'app-form-university-page',
@@ -12,7 +15,15 @@ export class FormUniversityPageComponent implements OnInit {
   univsersityId: number = 0;
   facultySaved$ = new Subject<void>();
   editPressd$ = new Subject<number>();
-  constructor(private activatedRoute: ActivatedRoute) {}
+  currentUser: AuthenticatedUserResponse | null = null;
+  permissions: any;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
+  ) {
+    this.currentUser = this.authService.currentUser;
+    this.permissions = Permissions;
+  }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {

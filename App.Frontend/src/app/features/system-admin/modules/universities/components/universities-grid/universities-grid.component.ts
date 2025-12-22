@@ -4,6 +4,9 @@ import { UniversityResponse } from '../../../../../../core/models/university/res
 import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
 import { SweetAlertService } from '../../../../../../core/services/configuration/sweet-alert.service';
 import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
+import { AuthService } from '../../../../../../core/services/auth/auth.service';
+import { AuthenticatedUserResponse } from '../../../../../../core/models/auth/responses/authenticated-user-response';
+import { Permissions } from '../../../../../../core/constants/permission-consts';
 
 @Component({
   selector: 'app-universities-grid',
@@ -14,11 +17,17 @@ import { UnivsersityService } from '../../../../../../core/services/university/u
 export class UniversitiesGridComponent implements OnInit {
   universities$!: Observable<UniversityResponse[]>;
   includeDisabled: boolean = false;
+  currentUser: AuthenticatedUserResponse | null = null;
+  permissions: any = null;
   constructor(
     private universityService: UnivsersityService,
     private errorHandler: ErrorHandlerService,
-    private sweetAlertService: SweetAlertService
-  ) {}
+    private sweetAlertService: SweetAlertService,
+    private authService: AuthService
+  ) {
+    this.currentUser = this.authService.currentUser;
+    this.permissions = Permissions;
+  }
 
   ngOnInit(): void {
     this.loadUniversities();

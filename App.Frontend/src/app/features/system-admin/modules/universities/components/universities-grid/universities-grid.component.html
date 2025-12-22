@@ -1,7 +1,11 @@
 <!--Include Disable-->
-<div class="filter-group mb-4" style="width: fit-content;">
+<div class="filter-group mb-4" style="width: fit-content">
   <label class="form-label">Show Status</label>
-  <select class="form-select form-select-sm" [(ngModel)]="includeDisabled" (change)="handleChangeIncludeDisabled()">
+  <select
+    class="form-select form-select-sm"
+    [(ngModel)]="includeDisabled"
+    (change)="handleChangeIncludeDisabled()"
+  >
     <option [ngValue]="false">Active Only</option>
     <option [ngValue]="true">All University</option>
   </select>
@@ -9,7 +13,6 @@
 
 <!--Table-->
 <app-table>
-
   <tr table-header>
     <th scope="col">#</th>
     <th scope="col">Name</th>
@@ -22,9 +25,15 @@
     <th scope="col"></th>
   </tr>
 
-
-  <tr table-body *ngFor="let university of universities$ | async;let i = index; trackBy: trackById">
-    <td>{{ i+1 }}</td>
+  <tr
+    table-body
+    *ngFor="
+      let university of universities$ | async;
+      let i = index;
+      trackBy: trackById
+    "
+  >
+    <td>{{ i + 1 }}</td>
     <td>{{ university.name }}</td>
     <td>{{ university.description }}</td>
     <td>{{ university.address }}</td>
@@ -32,10 +41,37 @@
     <td>{{ university.website }}</td>
     <td>{{ university.isDeleted }}</td>
     <td>
-      <i *ngIf="university.isDeleted" (click)="restore(university.id)" class="fa-solid fa-retweet text-primary"></i>
-      <i *ngIf="!university.isDeleted" (click)="delete(university.id)" class="fa-regular fa-trash-can text-danger"></i>
+      <i
+        *ngIf="
+          university.isDeleted &&
+          currentUser?.permissions?.includes(
+            permissions.universities.toggleStatusUniversities
+          )
+        "
+        (click)="restore(university.id)"
+        class="fa-solid fa-retweet text-primary"
+      ></i>
+      <i
+        *ngIf="
+          !university.isDeleted &&
+          currentUser?.permissions?.includes(
+            permissions.universities.toggleStatusUniversities
+          )
+        "
+        (click)="delete(university.id)"
+        class="fa-regular fa-trash-can text-danger"
+      ></i>
     </td>
-    <td><a [routerLink]="['edit',university.id]"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    <td>
+      <a
+        [routerLink]="['edit', university.id]"
+        *ngIf="
+          currentUser?.permissions?.includes(
+            permissions.universities.updateUniversities
+          )
+        "
+        ><i class="fa-solid fa-pen-to-square"></i
+      ></a>
+    </td>
   </tr>
-
 </app-table>
