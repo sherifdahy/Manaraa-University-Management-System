@@ -5,20 +5,19 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from "../../shared/shared.module";
-import { UniversitiesPageComponent } from './pages/universities/universities-page/universities-page.component';
-import { UniversityDialogComponent } from './components/universities/university-dialog/university-dialog.component';
-import { UniversitiesGridComponent } from './components/universities/universities-grid/universities-grid.component';
-import { FormUniversityPageComponent } from './pages/universities/form-university-page/form-university-page.component';
+import { SharedModule } from '../../shared/shared.module';
+import { UniversitiesPageComponent } from './modules/universities/pages/universities-page/universities-page.component';
+import { UniversityDialogComponent } from './modules/universities/components/university-dialog/university-dialog.component';
+import { FormUniversityPageComponent } from './modules/universities/pages/form-university-page/form-university-page.component';
 import { AppTranslateModule } from '../../shared/modules/app-translate.module';
 import { AppTranslateService } from '../../core/services/configuration/app-translate.service';
 import { LayoutComponent } from './layouts/layout/layout.component';
 import { TranslateService } from '@ngx-translate/core';
-import { UniversityEditComponent } from './components/universities/university-edit-component/university-edit-component.component';
-import { FacultyDialogFormComponent } from './components/faculties/faculty-form/faculty-dialog-form.component';
-import { FacultiesGridComponent } from './components/faculties/faculties-grid/faculties-grid.component';
-import { DialogComponent } from '../../shared/components/dialog/dialog.component';
-import { TableComponent } from '../../shared/components/table/table.component';
+import { TableComponent } from './components/table/table.component';
+import { UniversitiesGridComponent } from './modules/universities/components/universities-grid/universities-grid.component';
+import { UniversityEditComponent } from './modules/universities/components/university-edit-component/university-edit-component.component';
+import { FacultiesGridComponent } from './modules/universities/components/faculties-grid/faculties-grid.component';
+import { FacultyDialogFormComponent } from './modules/universities/components/faculty-form/faculty-dialog-form.component';
 
 const routes: Routes = [
   {
@@ -36,25 +35,19 @@ const routes: Routes = [
       },
       {
         path: 'roles',
-        loadChildren: () => import('./modules/roles/roles.module').then(x => x.RolesModule)
+        loadChildren: () =>
+          import('./modules/roles/roles.module').then((x) => x.RolesModule),
       },
       {
         path: 'universities',
-        children: [
-          {
-            path: '',
-            component: UniversitiesPageComponent,
-          },
-          {
-            path: 'edit/:universityId',
-            component: FormUniversityPageComponent,
-          },
-        ],
+        loadChildren: () =>
+          import('./modules/universities/universities.module').then(
+            (x) => x.UniversitiesModule
+          ),
       },
     ],
   },
 ];
-
 
 @NgModule({
   imports: [
@@ -86,13 +79,15 @@ const routes: Routes = [
     UniversitiesGridComponent,
   ],
 })
-
 export class SystemAdminModule {
-  constructor(private translateService: TranslateService, private appTranslateService: AppTranslateService) {
-    this.appTranslateService.language$.subscribe(lang => {
-      this.translateService.getTranslation(lang).subscribe(file => {
+  constructor(
+    private translateService: TranslateService,
+    private appTranslateService: AppTranslateService
+  ) {
+    this.appTranslateService.language$.subscribe((lang) => {
+      this.translateService.getTranslation(lang).subscribe((file) => {
         this.translateService.setTranslation(lang, file, true);
       });
-    })
+    });
   }
 }

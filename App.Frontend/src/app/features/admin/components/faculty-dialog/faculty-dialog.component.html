@@ -1,0 +1,80 @@
+<app-dialog dialogId="addFaculty">
+  <span dialog-title>Add New Faculty</span>
+  <div dialog-body>
+    <div class="form-title">Create a new sub-unit within your university</div>
+    <form class="mt-3">
+      <div class="row">
+        <div class="col">
+          <label for="name" class="form-label" style="font-weight: 500"
+            >Name *</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            aria-describedby="emailHelp"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <div class="col">
+          <label for="address" class="form-label" style="font-weight: 500"
+            >Address *</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            aria-describedby="address"
+            placeholder="Enter your address"
+          />
+        </div>
+
+        <div class="w-100 mb-2"></div>
+
+        <div class="col">
+          <label for="description" class="form-label">Description *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            aria-describedby="description"
+            placeholder="Enter your description"
+          />
+        </div>
+
+        <div class="w-100 mb-2"></div>
+
+        <div class="col">
+          <label for="exampleInputEmail1" class="form-label">Email *</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter your Email"
+          />
+        </div>
+
+        <div class="col">
+          <label for="website" class="form-label">Website *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="website"
+            aria-describedby="website"
+            placeholder="Enter your website"
+          />
+        </div>
+        <div class="w-100 mb-5"></div>
+      </div>
+
+      <div class="form-btns d-flex">
+        <button class="btn btn-ligth btn-cancel" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button class="btn btn-create"><span>+</span> Create Faculty</button>
+      </div>
+    </form>
+  </div>
+</app-dialog>

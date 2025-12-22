@@ -1,20 +1,20 @@
 import {
   Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
   OnInit,
-  Output,
+  OnDestroy,
+  Input,
   ViewChild,
+  Output,
+  EventEmitter,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FacultyRequest } from '../../../../../core/models/faculty/requests/faculty-request';
-import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
-import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { FacultyService } from '../../../../../core/services/faculty/faculty.service';
 import { Subject, Subscription } from 'rxjs';
-import { FacultyResponse } from '../../../../../core/models/faculty/responses/faculty-response';
+import { FacultyRequest } from '../../../../../../core/models/faculty/requests/faculty-request';
+import { FacultyResponse } from '../../../../../../core/models/faculty/responses/faculty-response';
+import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
+import { FacultyService } from '../../../../../../core/services/faculty/faculty.service';
+import { DialogComponent } from '../../../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-faculty-dialog-form',

@@ -10,28 +10,24 @@ const routes: Routes = [
     path: '',
     canActivate: [hasPermissionGuard],
     data: { 'required-permission': Permissions.roles.readRoles },
-    component: RolesComponent
+    component: RolesComponent,
   },
   {
     path: 'create',
     canActivate: [hasPermissionGuard],
     data: { 'required-permission': Permissions.roles.createRoles },
-    component: FormRoleComponent
+    component: FormRoleComponent,
   },
   {
     path: 'edit/:id',
     canActivate: [hasPermissionGuard],
     data: { 'required-permission': Permissions.roles.updateRoles },
-    component: FormRoleComponent
+    component: FormRoleComponent,
   },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class RolesRoutingModule { }
+export class RolesRoutingModule {}

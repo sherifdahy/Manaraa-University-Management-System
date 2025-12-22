@@ -2,10 +2,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { UnivsersityService } from '../../../../../core/services/university/univsersity-service.service';
-import { ErrorHandlerService } from '../../../../../core/services/configuration/error-handler.service';
-import { UniversityRequest } from '../../../../../core/models/university/requests/university-request';
-import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
+import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
+import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
+import { UniversityRequest } from '../../../../../../core/models/university/requests/university-request';
+import { DialogComponent } from '../../../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-university-dialog',
