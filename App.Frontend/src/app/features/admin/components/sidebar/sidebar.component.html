@@ -1,7 +1,12 @@
 <!-- sidebar.component.html -->
-<div class="sidebar">
+
+<div class="sidebar" [class.collapsed]="isCollapsed">
   <div
-    class="sidebar-header p-3 d-flex justify-content-between align-items-center"
+    class="sidebar-header p-3 d-flex align-items-center"
+    [ngClass]="{
+      'justify-content-between': !isCollapsed,
+      'justify-content-center': isCollapsed
+    }"
   >
     <div class="start-section d-flex align-items-center gap-2">
       <span>
@@ -9,9 +14,9 @@
       </span>
       <p class="m-0">Admin Portal</p>
     </div>
-    <span>
-      <i class="fa-solid fa-bars"></i>
-    </span>
+    <button class="bg-transparent border-0" (click)="toggleSidebar()">
+      <i class="fa-solid fa-bars text-white"></i>
+    </button>
   </div>
 
   <hr class="m-0" />

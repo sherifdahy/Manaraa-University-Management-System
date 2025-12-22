@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
-  standalone : false,
+  standalone: false,
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  isCollapsed = false;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  toggleSidebar() {
+    this.isCollapsed = !this.isCollapsed;
   }
-
 }
