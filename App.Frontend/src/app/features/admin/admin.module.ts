@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { UniAdminComponent } from './components/pages/uni-admin/uni-admin.component';
+import { UniSettingComponent } from './components/pages/uni-setting/uni-setting.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'uni-admin',
         component: UniAdminComponent,
+      },
+      {
+        path: 'uni-setting',
+        component: UniSettingComponent,
       },
     ],
   },
