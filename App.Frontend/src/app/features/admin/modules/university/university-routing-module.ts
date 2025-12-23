@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UniversityPageComponent } from './pages/university-page/university-page.component';
 import { FacultyEditComponent } from './components/faculty-edit/faculty-edit.component';
+import { FacultyPageComponent } from './pages/faculty-page/faculty-page.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'faculty',
-    component: FacultyEditComponent,
+    component: FacultyPageComponent,
   },
 ];
 
