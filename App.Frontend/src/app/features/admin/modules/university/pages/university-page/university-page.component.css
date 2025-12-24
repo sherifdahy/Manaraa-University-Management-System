@@ -93,7 +93,7 @@ body{
 }
 
 
-.analysis-1-item, 
+.analysis-1-item,
 .analysis-2-item,
 .analysis-3-item {
     background-color: #F9FAFB;
@@ -290,7 +290,7 @@ body{
 
 /* Media Qeuries If Exists */
 @media (min-width: 576px) {
-    
+
 .shared-font{
     font-size: var(--fz-12);
 }
@@ -312,7 +312,7 @@ body{
 
 
 @media (min-width: 768px) {
-    
+
 }
 
 
@@ -332,11 +332,11 @@ body{
 
 
 @media (min-width: 1200px) {
-    
+
 }
 
 
 @media (min-width: 1400px) {
-  
-    
+
+
 }

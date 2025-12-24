@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { UniAdminComponent } from './components/pages/uni-admin/uni-admin.component';
-import { UniSettingComponent } from './components/pages/uni-setting/uni-setting.component';
-import { FacultyDialogComponent } from './components/faculty-dialog/faculty-dialog.component';
+import { UniversityPageComponent } from './modules/university/pages/university-page/university-page.component';
+import { FacultyDialogComponent } from './modules/university/components/faculty-dialog/faculty-dialog.component';
+import { FacultyEditComponent } from './modules/university/components/faculty-edit/faculty-edit.component';
 
 const routes: Routes = [
   {
@@ -26,19 +26,11 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'faculities',
+        path: 'university',
         loadChildren: () =>
-          import('./modules/faculty/faculty.module').then(
-            (x) => x.FacultyModule
+          import('./modules/university/university-module').then(
+            (x) => x.UniversityModule
           ),
-      },
-      {
-        path: 'uni-admin',
-        component: UniAdminComponent,
-      },
-      {
-        path: 'uni-setting',
-        component: UniSettingComponent,
       },
     ],
   },
@@ -49,13 +41,14 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FacultyDialogComponent,
+    FacultyEditComponent,
   ],
   declarations: [
     // layouts
     LayoutComponent,
 
     // pages
-    UniAdminComponent,
+    UniversityPageComponent,
 
     // compoennts
     HeaderComponent,
