@@ -7,6 +7,9 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { UniversityPageComponent } from './modules/university/pages/university-page/university-page.component';
 import { FacultyDialogComponent } from './modules/university/components/faculty-dialog/faculty-dialog.component';
 import { FacultyEditComponent } from './modules/university/components/faculty-edit/faculty-edit.component';
+import { AppTranslateModule } from '../../shared/modules/app-translate.module';
+import { TranslateService } from '@ngx-translate/core';
+import { AppTranslateService } from '../../core/services/configuration/app-translate.service';
 
 const routes: Routes = [
   {
@@ -28,7 +31,7 @@ const routes: Routes = [
       {
         path: 'university',
         loadChildren: () =>
-          import('./modules/university/university-module').then(
+          import('./modules/university/university.module').then(
             (x) => x.UniversityModule
           ),
       },
@@ -42,6 +45,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FacultyDialogComponent,
     FacultyEditComponent,
+    AppTranslateModule.forChild('/admin/layout.json'),
   ],
   declarations: [
     // layouts
@@ -55,4 +59,15 @@ const routes: Routes = [
     SidebarComponent,
   ],
 })
-export class AdminModule {}
+export class AdminModule {
+  constructor(
+    private translateService: TranslateService,
+    private appTranslateService: AppTranslateService
+  ) {
+    this.appTranslateService.language$.subscribe((lang) => {
+      this.translateService.getTranslation(lang).subscribe((file) => {
+        this.translateService.setTranslation(lang, file, true);
+      });
+    });
+  }
+}
