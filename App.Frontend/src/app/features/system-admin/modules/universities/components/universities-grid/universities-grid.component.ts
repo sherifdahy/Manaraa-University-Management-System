@@ -7,6 +7,7 @@ import { UnivsersityService } from '../../../../../../core/services/university/u
 import { AuthService } from '../../../../../../core/services/auth/auth.service';
 import { AuthenticatedUserResponse } from '../../../../../../core/models/auth/responses/authenticated-user-response';
 import { Permissions } from '../../../../../../core/constants/permission-consts';
+import { AppTranslateService } from '../../../../../../core/services/configuration/app-translate.service';
 
 @Component({
   selector: 'app-universities-grid',
@@ -23,7 +24,8 @@ export class UniversitiesGridComponent implements OnInit {
     private universityService: UnivsersityService,
     private errorHandler: ErrorHandlerService,
     private sweetAlertService: SweetAlertService,
-    private authService: AuthService
+    private authService: AuthService,
+    private appTranslateService: AppTranslateService
   ) {
     this.currentUser = this.authService.currentUser;
     this.permissions = Permissions;
@@ -38,8 +40,10 @@ export class UniversitiesGridComponent implements OnInit {
 
   async delete(id: number) {
     const confirmed = await this.sweetAlertService.danger(
-      'delete university',
-      'are you sure'
+      this.appTranslateService.getValueSync(
+        'universities.grid.deleteUniversity'
+      ),
+      this.appTranslateService.getValueSync('universities.grid.confirmDelete')
     );
     if (confirmed) {
       this.toggleStatus(id);
@@ -47,8 +51,10 @@ export class UniversitiesGridComponent implements OnInit {
   }
   async restore(id: number) {
     const confirmed = await this.sweetAlertService.warn(
-      'restore university',
-      'are you sure'
+      this.appTranslateService.getValueSync(
+        'universities.grid.restoreUniversity'
+      ),
+      this.appTranslateService.getValueSync('universities.grid.confirmRestore')
     );
     if (confirmed) {
       this.toggleStatus(id);

@@ -17,6 +17,7 @@ import { UnivsersityService } from '../../../../../../core/services/university/u
 import { AuthService } from '../../../../../../core/services/auth/auth.service';
 import { AuthenticatedUserResponse } from '../../../../../../core/models/auth/responses/authenticated-user-response';
 import { Permissions } from '../../../../../../core/constants/permission-consts';
+import { AppTranslateService } from '../../../../../../core/services/configuration/app-translate.service';
 
 @Component({
   selector: 'app-faculties-grid',
@@ -39,7 +40,8 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
     private facultyService: FacultyService,
     private errorHandler: ErrorHandlerService,
     private sweetAlert: SweetAlertService,
-    private authService: AuthService
+    private authService: AuthService,
+    private appTranslateService: AppTranslateService
   ) {
     this.currentUser = this.authService.currentUser;
     this.permissions = Permissions;
@@ -68,8 +70,8 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
 
   async delete(id: number) {
     const confirmed = await this.sweetAlert.danger(
-      'delete faculty',
-      'are you sure to delete faculty'
+      this.appTranslateService.getValueSync('faculties.grid.deleteFaculty'),
+      this.appTranslateService.getValueSync('faculties.grid.confirmDelete')
     );
     if (confirmed) {
       this.toggleStatus(id);
@@ -78,8 +80,8 @@ export class FacultiesGridComponent implements OnInit, OnChanges, OnDestroy {
 
   async restore(id: number) {
     const confirmed = await this.sweetAlert.warn(
-      'restore faculty',
-      'are you sure to restore faculty'
+      this.appTranslateService.getValueSync('faculties.grid.restoreFaculty'),
+      this.appTranslateService.getValueSync('faculties.grid.confirmRestore')
     );
     if (confirmed) {
       this.toggleStatus(id);

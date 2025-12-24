@@ -1,45 +1,94 @@
-<h1 class="fw-bold fs-6 mb-1">Edit Universties</h1>
-<p class="small text-secondary mb-0 fw-normal mb-5">Edit the university main informations</p>
+<h1 class="fw-bold fs-6 mb-1">{{ "universities.edit.title" | translate }}</h1>
+<p class="small text-secondary mb-0 fw-normal mb-5">
+  {{ "universities.edit.subtitle" | translate }}
+</p>
 
-<form [formGroup]="form" (ngSubmit)="Submit()" style="border-radius: 10px;
-            box-shadow: 5px 5px 15px rgba(113, 83, 83, 0.3);
-            padding: 10px;
-            background-color: white;">
-
+<form
+  [formGroup]="form"
+  (ngSubmit)="Submit()"
+  style="
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(113, 83, 83, 0.3);
+    padding: 10px;
+    background-color: white;
+  "
+>
   <div class="mb-3">
-    <label for="name" class="form-label">name</label>
-    <input type="text" class="form-control" formControlName="name" id="name" aria-describedby="emailHelp"
-      placeholder="Enter your name">
+    <label for="name" class="form-label">{{
+      "universities.edit.name" | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      id="name"
+      aria-describedby="emailHelp"
+      placeholder="{{ 'universities.edit.namePlaceholder' | translate }}"
+    />
     <app-error [control]="name"></app-error>
   </div>
 
   <div class="mb-3">
-    <label for="description" class="form-label">description</label>
-    <input type="text" class="form-control" formControlName="description" id="description"
-      aria-describedby="description" placeholder="Enter your description">
+    <label for="description" class="form-label">{{
+      "universities.edit.description" | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="description"
+      id="description"
+      aria-describedby="description"
+      placeholder="{{ 'universities.edit.descriptionPlaceholder' | translate }}"
+    />
     <app-error [control]="description"></app-error>
   </div>
 
   <div class="mb-3">
-    <label for="address" class="form-label">address</label>
-    <input type="text" class="form-control" formControlName="address" id="address" aria-describedby="address"
-      placeholder="Enter your address">
+    <label for="address" class="form-label">{{
+      "universities.edit.address" | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="address"
+      id="address"
+      aria-describedby="address"
+      placeholder="{{ 'universities.edit.addressPlaceholder' | translate }}"
+    />
     <app-error [control]="address"></app-error>
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1"
-      aria-describedby="emailHelp" placeholder="Enter your Email">
+    <label for="exampleInputEmail1" class="form-label">{{
+      "universities.edit.email" | translate
+    }}</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="{{ 'universities.edit.emailPlaceholder' | translate }}"
+    />
     <app-error [control]="email"></app-error>
   </div>
 
   <div class="mb-3">
-    <label for="website" class="form-label">website</label>
-    <input type="text" class="form-control" formControlName="website" id="website" aria-describedby="website"
-      placeholder="Enter your website">
+    <label for="website" class="form-label">{{
+      "universities.edit.website" | translate
+    }}</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="website"
+      id="website"
+      aria-describedby="website"
+      placeholder="{{ 'universities.edit.websitePlaceholder' | translate }}"
+    />
     <app-error [control]="website"></app-error>
   </div>
-  <button type="submit" class="btn btn-primary btn-sm">Submit</button>
 
+  <button type="submit" class="btn btn-primary btn-sm">
+    {{ "universities.edit.submit" | translate }}
+  </button>
 </form>

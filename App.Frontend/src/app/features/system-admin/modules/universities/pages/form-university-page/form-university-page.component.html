@@ -10,7 +10,7 @@
       aria-controls="university"
       aria-selected="true"
     >
-      University
+      {{ "faculties.form.tabs.university" | translate }}
     </button>
   </li>
   <li class="nav-item" role="presentation">
@@ -24,7 +24,7 @@
       aria-controls="faculty"
       aria-selected="false"
     >
-      Faculty
+      {{ "faculties.form.tabs.faculty" | translate }}
     </button>
   </li>
 </ul>
@@ -53,9 +53,11 @@
         style="justify-content: space-between; align-items: center"
       >
         <div class="informations">
-          <h1 class="fw-bold fs-6 mb-1">Faculities</h1>
+          <h1 class="fw-bold fs-6 mb-1">
+            {{ "faculties.form.title" | translate }}
+          </h1>
           <p class="small text-secondary fw-normal">
-            Add, edit, delete and show all faculities to this university
+            {{ "faculties.form.subtitle" | translate }}
           </p>
         </div>
         <button
@@ -69,7 +71,7 @@
             )
           "
         >
-          Faculty
+          {{ "faculties.form.addButton" | translate }}
         </button>
       </div>
       <app-faculty-dialog-form

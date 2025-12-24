@@ -6,6 +6,7 @@ import { UnivsersityService } from '../../../../../../core/services/university/u
 import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
 import { UniversityRequest } from '../../../../../../core/models/university/requests/university-request';
 import { DialogComponent } from '../../../../../../shared/components/dialog/dialog.component';
+import { AppTranslateService } from '../../../../../../core/services/configuration/app-translate.service';
 
 @Component({
   selector: 'app-university-dialog',
@@ -21,7 +22,8 @@ export class UniversityDialogComponent implements OnInit {
     private universityService: UnivsersityService,
     private errorHandler: ErrorHandlerService,
     private toastrService: ToastrService,
-    private router: Router
+    private router: Router,
+    private appTranslateService: AppTranslateService
   ) {}
 
   ngOnInit() {
@@ -59,7 +61,11 @@ export class UniversityDialogComponent implements OnInit {
 
   private submitSuccess(id: number) {
     this.dialog.close(); //closes modal
-    this.toastrService.success('university add successfully');
+    this.toastrService.success(
+      this.appTranslateService.getValueSync(
+        'universities.dialog.universityAdded'
+      )
+    );
     this.router.navigate(['system-admin/universities/edit', id]);
   }
 

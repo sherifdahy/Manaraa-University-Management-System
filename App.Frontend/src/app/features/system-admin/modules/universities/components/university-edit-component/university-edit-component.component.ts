@@ -5,6 +5,7 @@ import { UniversityRequest } from '../../../../../../core/models/university/requ
 import { UniversityDetailResponse } from '../../../../../../core/models/university/responses/university-detail-response';
 import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
 import { UnivsersityService } from '../../../../../../core/services/university/univsersity-service.service';
+import { AppTranslateService } from '../../../../../../core/services/configuration/app-translate.service';
 
 @Component({
   selector: 'app-edit-university-component',
@@ -19,7 +20,8 @@ export class UniversityEditComponent implements OnInit {
     private universityService: UnivsersityService,
     private formBuilder: FormBuilder,
     private errorHandler: ErrorHandlerService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private appTranslateService: AppTranslateService
   ) {}
 
   ngOnInit() {
@@ -67,7 +69,11 @@ export class UniversityEditComponent implements OnInit {
   }
 
   private submitSuccess() {
-    this.toastrService.success('data updated successfully');
+    this.toastrService.success(
+      this.appTranslateService.getValueSync(
+        'universities.dialog.universityUpdated'
+      )
+    );
   }
 
   private submitFail(errors: any) {

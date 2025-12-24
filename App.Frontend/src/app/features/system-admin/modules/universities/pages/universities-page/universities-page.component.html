@@ -3,7 +3,9 @@
     class="d-flex"
     style="justify-content: space-between; align-items: center"
   >
-    <h1 class="fw-bold fs-6 mb-1">Universties</h1>
+    <h1 class="fw-bold fs-6 mb-1">
+      {{ "universities.universites.title" | translate }}
+    </h1>
     <button
       type="button"
       class="btn btn-primary btn-sm w-md-auto"
@@ -15,11 +17,11 @@
         )
       "
     >
-      Create
+      {{ "universities.universites.createButton" | translate }}
     </button>
   </div>
   <p class="small text-secondary mb-0 fw-normal mb-3">
-    Mange all universties and all faculities
+    {{ "universities.universites.subtitle" | translate }}
   </p>
 
   <app-university-dialog></app-university-dialog>

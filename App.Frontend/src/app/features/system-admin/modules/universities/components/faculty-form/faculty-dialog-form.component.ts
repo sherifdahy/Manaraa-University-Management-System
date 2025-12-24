@@ -15,6 +15,7 @@ import { FacultyResponse } from '../../../../../../core/models/faculty/responses
 import { ErrorHandlerService } from '../../../../../../core/services/configuration/error-handler.service';
 import { FacultyService } from '../../../../../../core/services/faculty/faculty.service';
 import { DialogComponent } from '../../../../../../shared/components/dialog/dialog.component';
+import { AppTranslateService } from '../../../../../../core/services/configuration/app-translate.service';
 
 @Component({
   selector: 'app-faculty-dialog-form',
@@ -34,7 +35,8 @@ export class FacultyDialogFormComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private errorHandler: ErrorHandlerService,
     private toastrService: ToastrService,
-    private facultyService: FacultyService
+    private facultyService: FacultyService,
+    private appTranslateService: AppTranslateService
   ) {}
 
   ngOnInit() {
@@ -112,11 +114,15 @@ export class FacultyDialogFormComponent implements OnInit, OnDestroy {
 
   private submitCreateSuccess() {
     this.closeDialog();
-    this.toastrService.success('faculty added successfully');
+    this.toastrService.success(
+      this.appTranslateService.getValueSync('faculties.dialog.facultyAdded')
+    );
   }
   private submitUpdateSuccess() {
     this.closeDialog();
-    this.toastrService.success('faculty updated successfully');
+    this.toastrService.success(
+      this.appTranslateService.getValueSync('faculties.dialog.facultyUpdated')
+    );
   }
   private closeDialog() {
     this.facultySaved.emit();

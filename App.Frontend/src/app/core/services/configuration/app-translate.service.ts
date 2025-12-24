@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { STORAGE_KEY_CONSTS } from '../../constants/storage-key-consts';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppTranslateService {
-
   private languageSubject = new BehaviorSubject<string>(
     this.getInitialLanguage()
   );
@@ -25,12 +24,15 @@ export class AppTranslateService {
     this.translate.use(lang);
     this.languageSubject.next(lang);
 
-    localStorage.setItem(
-      STORAGE_KEY_CONSTS.APP_LANGUAGE,
-      lang
-    );
+    localStorage.setItem(STORAGE_KEY_CONSTS.APP_LANGUAGE, lang);
   }
 
+  async getValue(key: string): Promise<string> {
+    return firstValueFrom(this.translate.get(key));
+  }
+  getValueSync(key: string): string {
+    return this.translate.instant(key);
+  }
   get currentLanguage(): string {
     return this.languageSubject.value;
   }
@@ -45,9 +47,7 @@ export class AppTranslateService {
   }
 
   private getInitialLanguage(): string {
-    return (
-      localStorage.getItem(STORAGE_KEY_CONSTS.APP_LANGUAGE) || 'en'
-    );
+    return localStorage.getItem(STORAGE_KEY_CONSTS.APP_LANGUAGE) || 'en';
   }
 
   private setDirection(lang: string): void {

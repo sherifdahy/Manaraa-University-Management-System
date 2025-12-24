@@ -1,13 +1,19 @@
 <!--Include Disable-->
 <div class="filter-group mb-4" style="width: fit-content">
-  <label class="form-label">Show Status</label>
+  <label class="form-label">{{
+    "faculties.grid.showStatus" | translate
+  }}</label>
   <select
     class="form-select form-select-sm"
     [(ngModel)]="includeDisabled"
     (change)="handleChangeIncludeDisabled()"
   >
-    <option [ngValue]="false">Active Only</option>
-    <option [ngValue]="true">All Faculities</option>
+    <option [ngValue]="false">
+      {{ "faculties.grid.activeOnly" | translate }}
+    </option>
+    <option [ngValue]="true">
+      {{ "faculties.grid.allFaculities" | translate }}
+    </option>
   </select>
 </div>
 
@@ -15,15 +21,16 @@
 <app-table>
   <tr table-header>
     <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Description</th>
-    <th scope="col">Address</th>
-    <th scope="col">Email</th>
-    <th scope="col">Website</th>
-    <th scope="col">IsDeleted</th>
+    <th scope="col">{{ "faculties.grid.name" | translate }}</th>
+    <th scope="col">{{ "faculties.grid.description" | translate }}</th>
+    <th scope="col">{{ "faculties.grid.address" | translate }}</th>
+    <th scope="col">{{ "faculties.grid.email" | translate }}</th>
+    <th scope="col">{{ "faculties.grid.website" | translate }}</th>
+    <th scope="col">{{ "faculties.grid.isDeleted" | translate }}</th>
     <th scope="col"></th>
     <th scope="col"></th>
   </tr>
+
   <tr
     table-body
     *ngFor="
@@ -50,6 +57,7 @@
         (click)="restore(faculty.id)"
         class="fa-solid fa-retweet text-primary"
       ></i>
+
       <i
         *ngIf="
           !faculty.isDeleted &&
@@ -69,8 +77,9 @@
             permissions.faculties.updateFaculties
           )
         "
-        ><i class="fa-solid fa-pen-to-square text-primary"></i
-      ></a>
+      >
+        <i class="fa-solid fa-pen-to-square text-primary"></i>
+      </a>
     </td>
   </tr>
 </app-table>
