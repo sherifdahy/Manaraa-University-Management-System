@@ -1,79 +1,89 @@
 <app-dialog dialogId="addFaculty">
-  <span dialog-title>Add New Faculty</span>
+  <span dialog-title>{{ "facultyDialog.title" | translate }}</span>
+
   <div dialog-body>
-    <div class="form-title">Create a new sub-unit within your university</div>
+    <div class="form-title">
+      {{ "facultyDialog.formTitle" | translate }}
+    </div>
+
     <form class="mt-3">
       <div class="row">
         <div class="col">
-          <label for="name" class="form-label" style="font-weight: 500"
-            >Name *</label
-          >
+          <label for="name" class="form-label" style="font-weight: 500">
+            {{ "facultyDialog.labels.name" | translate }}
+          </label>
           <input
             type="text"
             class="form-control"
             id="name"
-            aria-describedby="emailHelp"
-            placeholder="Enter your name"
+            placeholder="{{ 'facultyDialog.placeholders.name' | translate }}"
           />
         </div>
 
         <div class="col">
-          <label for="address" class="form-label" style="font-weight: 500"
-            >Address *</label
-          >
+          <label for="address" class="form-label" style="font-weight: 500">
+            {{ "facultyDialog.labels.address" | translate }}
+          </label>
           <input
             type="text"
             class="form-control"
             id="address"
-            aria-describedby="address"
-            placeholder="Enter your address"
+            placeholder="{{ 'facultyDialog.placeholders.address' | translate }}"
           />
         </div>
 
         <div class="w-100 mb-2"></div>
 
         <div class="col">
-          <label for="description" class="form-label">Description *</label>
+          <label for="description" class="form-label">
+            {{ "facultyDialog.labels.description" | translate }}
+          </label>
           <input
             type="text"
             class="form-control"
             id="description"
-            aria-describedby="description"
-            placeholder="Enter your description"
+            placeholder="{{
+              'facultyDialog.placeholders.description' | translate
+            }}"
           />
         </div>
 
         <div class="w-100 mb-2"></div>
 
         <div class="col">
-          <label for="exampleInputEmail1" class="form-label">Email *</label>
+          <label for="exampleInputEmail1" class="form-label">
+            {{ "facultyDialog.labels.email" | translate }}
+          </label>
           <input
             type="email"
             class="form-control"
             id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your Email"
+            placeholder="{{ 'facultyDialog.placeholders.email' | translate }}"
           />
         </div>
 
         <div class="col">
-          <label for="website" class="form-label">Website *</label>
+          <label for="website" class="form-label">
+            {{ "facultyDialog.labels.website" | translate }}
+          </label>
           <input
             type="text"
             class="form-control"
             id="website"
-            aria-describedby="website"
-            placeholder="Enter your website"
+            placeholder="{{ 'facultyDialog.placeholders.website' | translate }}"
           />
         </div>
+
         <div class="w-100 mb-5"></div>
       </div>
 
       <div class="form-btns d-flex">
         <button class="btn btn-ligth btn-cancel" data-bs-dismiss="modal">
-          Cancel
+          {{ "facultyDialog.buttons.cancel" | translate }}
         </button>
-        <button class="btn btn-create"><span>+</span> Create Faculty</button>
+        <button class="btn btn-create">
+          <span>+</span> {{ "facultyDialog.buttons.create" | translate }}
+        </button>
       </div>
     </form>
   </div>

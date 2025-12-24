@@ -127,5 +127,93 @@
     },
     "dashboard": "لوحة التحكم",
     "edit": "تعديل"
-  }
+  },
+  "facultyDialog": {
+    "title": "إضافة كلية جديدة",
+    "formTitle": "إنشاء وحدة فرعية جديدة داخل جامعتك",
+    "labels": {
+      "name": "الاسم *",
+      "address": "العنوان *",
+      "description": "الوصف *",
+      "email": "البريد الإلكتروني *",
+      "website": "الموقع الإلكتروني *"
+    },
+    "placeholders": {
+      "name": "ادخل اسم الكلية",
+      "address": "ادخل عنوان الكلية",
+      "description": "ادخل وصف الكلية",
+      "email": "ادخل البريد الإلكتروني للكلية",
+      "website": "ادخل الموقع الإلكتروني للكلية"
+    },
+    "buttons": {
+      "cancel": "إلغاء",
+      "create": "إنشاء الكلية"
+    }
+  },
+  "subUnitSettings": {
+    "header": {
+      "title": "إعدادات الوحدة الفرعية",
+      "description": "ضبط الإعدادات وحوكمة هذه الوحدة الفرعية"
+    },
+    "basicInfo": {
+      "title": "المعلومات الأساسية",
+      "labels": {
+        "unitName": "اسم الوحدة",
+        "unitHead": "رئيس الوحدة",
+        "established": "تاريخ التأسيس",
+        "status": "الحالة"
+      },
+      "placeholders": {
+        "unitName": "اسم الوحدة",
+        "unitHead": "رئيس الوحدة",
+        "established": "مثال: 1920",
+        "status": "الحالة"
+      }
+    },
+    "accessControl": {
+      "title": "الصلاحيات والأدوار",
+      "roles": {
+        "departmentHeads": {
+          "name": "رؤساء الأقسام",
+          "description": "صلاحية كاملة على بيانات القسم"
+        },
+        "facultyMembers": {
+          "name": "أعضاء هيئة التدريس",
+          "description": "صلاحية قياسية للوصول لموارد التعليم"
+        },
+        "administrativeStaff": {
+          "name": "الموظفون الإداريون",
+          "description": "صلاحية محدودة للوصول للبيانات التشغيلية"
+        }
+      },
+      "button": "إدارة"
+    },
+    "governance": {
+      "title": "إعدادات الحوكمة",
+      "settings": {
+        "approvalWorkflows": {
+          "name": "سير عمل الموافقات",
+          "description": "يتطلب الموافقة لتغيير الدرجات"
+        },
+        "auditLogging": {
+          "name": "تسجيل التدقيق",
+          "description": "تتبع جميع التغييرات والأنشطة"
+        },
+        "dataRetention": {
+          "name": "الاحتفاظ بالبيانات",
+          "description": "الاحتفاظ بالسجلات لمدة 7 سنوات"
+        }
+      }
+    },
+    "buttons": {
+      "cancel": "إلغاء",
+      "save": "حفظ التغييرات"
+    }
+}
+
+
+
+
+
+
 }

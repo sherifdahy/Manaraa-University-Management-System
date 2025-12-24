@@ -1,5 +1,3 @@
-<!-- sidebar.component.html -->
-
 <div class="sidebar" [class.collapsed]="isCollapsed">
   <div
     class="sidebar-header p-3 d-flex align-items-center"
@@ -12,8 +10,11 @@
       <span>
         <i class="fa-solid fa-shield"></i>
       </span>
-      <p class="m-0">Admin Portal</p>
+      <p class="m-0">
+        {{ "sidebar.header.portalTitle" | translate }}
+      </p>
     </div>
+
     <button class="bg-transparent border-0" (click)="toggleSidebar()">
       <i class="fa-solid fa-bars text-white"></i>
     </button>
@@ -24,16 +25,18 @@
   <div class="sidebar-links p-1">
     <ul>
       <span class="m-0 p-2">OVERVIEW</span>
+
       <li>
         <a routerLink="dashboard" routerLinkActive="active">
           <i class="fa-solid fa-gauge-high fa-fw"></i>
-          <span>Dashboard</span>
+          <span>{{ "sidebar.links.dashboard" | translate }}</span>
         </a>
       </li>
+
       <li>
         <a routerLink="university" routerLinkActive="active">
           <i class="fa-solid fa-building-columns"></i>
-          <span>University</span>
+          <span>{{ "sidebar.links.university" | translate }}</span>
         </a>
       </li>
 
@@ -42,21 +45,21 @@
       <li>
         <a routerLink="/users" routerLinkActive="active">
           <i class="fa-solid fa-users fa-fw"></i>
-          <span>User Management</span>
+          <span>{{ "sidebar.links.userManagement" | translate }}</span>
         </a>
       </li>
 
       <li>
         <a routerLink="/roles" routerLinkActive="active">
           <i class="fa-solid fa-user-shield fa-fw"></i>
-          <span>Roles & Permissions</span>
+          <span>{{ "sidebar.links.rolesAndPermissions" | translate }}</span>
         </a>
       </li>
 
       <li>
         <a routerLink="/permissions" routerLinkActive="active">
           <i class="fa-solid fa-table-cells fa-fw"></i>
-          <span>Permission Matrix</span>
+          <span>{{ "sidebar.links.permissionMatrix" | translate }}</span>
         </a>
       </li>
     </ul>
