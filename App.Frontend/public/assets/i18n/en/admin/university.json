@@ -1,0 +1,132 @@
+{
+  "section": {
+    "name": "Cairo University",
+    "established": "Established 1908",
+    "research": "National Research University",
+    "setting": "Setting",
+    "editProfile": "Edit Profile"
+  },
+
+  "analysis": {
+    "title": "Real-time Statistics",
+    "students": {
+      "total": "Total Students",
+      "active": "Active Students"
+    },
+    "staff": {
+      "total": "Total Staff",
+      "active": "Active Members"
+    },
+    "faculties": {
+      "total": "Faculties",
+      "departments": "Academic Departments"
+    },
+    "programs": {
+      "total": "Programs",
+      "description": "Across all faculties"
+    }
+  },
+  "performance": {
+    "title": "Performance Indicators",
+    "overall": {
+      "title": "Overall Score",
+      "value": "92.5%"
+    },
+    "academic": {
+      "title": "Academic",
+      "value": "94.2%"
+    },
+    "research": {
+      "title": "Research",
+      "value": "88.7%"
+    },
+    "employment": {
+      "title": "Employment",
+      "value": "95.1%"
+    }
+  },
+  "strategic": {
+    "title": "Smart Strategic Indicators",
+    "studentStaffRatio": "Student/Staff Ratio",
+    "fundingPerStudent": "Funding per Student",
+    "graduationRate": "Graduation Rate",
+    "employmentRate": "Employment Rate",
+    "researchOutput": "Research Output",
+    "internationalPresence": "International Presence"
+  },
+  "org": {
+    "title": "Organizational Structure",
+    "subtitle": "Manage and customize your organizational sub-units",
+    "addNewUnit": "Add New Unit"
+  },
+  "faculty": {
+    "label": "Faculty",
+    "name": "Faculty of Engineering",
+    "description": "Leading engineering education and research in Egypt",
+    "head": {
+      "label": "Head",
+      "name": "Prof. Ahmed Hassan"
+    },
+    "staff": {
+      "label": "Staff",
+      "count": "456"
+    },
+    "students": {
+      "label": "Students",
+      "count": "12,450"
+    },
+    "performance": {
+      "label": "Performance",
+      "value": "94.5%"
+    },
+    "dashboard": "Dashboard",
+    "edit": "Edit"
+  },
+  "faculty_med": {
+    "label": "Faculty",
+    "name": "Faculty of Medicine",
+    "description": "Premier medical education and healthcare services",
+    "head": {
+      "label": "Head",
+      "name": "Prof. Fatima Khalil"
+    },
+    "staff": {
+      "label": "Staff",
+      "count": "892"
+    },
+    "students": {
+      "label": "Students",
+      "count": "8,920"
+    },
+    "performance": {
+      "label": "Performance",
+      "value": "96.2%"
+    },
+    "dashboard": "Dashboard",
+    "edit": "Edit"
+  },
+  "faculty_sci": {
+    "label": "Faculty",
+    "name": "Faculty of Science",
+    "description": "Excellence in scientific research and education",
+    "head": {
+      "label": "Head",
+      "name": "Dr. Omar Ibrahim"
+    },
+    "staff": {
+      "label": "Staff",
+      "count": "398"
+    },
+    "students": {
+      "label": "Students",
+      "count": "15,670"
+    },
+    "performance": {
+      "label": "Performance",
+      "value": "91.8%"
+    },
+    "dashboard": "Dashboard",
+    "edit": "Edit"
+  }
+
+}

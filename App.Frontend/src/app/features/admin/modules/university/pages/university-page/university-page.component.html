@@ -3,37 +3,45 @@
   <div class="container-fluid px-0">
     <div class="rounded-4 border-3 border border-gray">
       <div
-        class="d-flex flex-column flex-md-row p-3 align-items-md-center align-items-start"
+        class="d-flex flex-column flex-md-row p-3 align-items-md-center align-items-start justify-content-md-between justify-content-start"
       >
-        <i
-          class="fa-solid fa-building-columns mb-2 mb-md-0 rounded-3 d-flex justify-content-center me-2 bg-light"
-        ></i>
-        <div class="d-flex flex-column justify-content-between">
-          <h2 class="mb-md-0 uni-title fw-normal">Cairo University</h2>
-          <div class="d-flex">
-            <span class="fw-normal shared-font me-3 mb-2 mb-md-0">
-              <i class="fa-regular fa-calendar"></i>
-              Established 1908
-            </span>
-            <span class="fw-normal shared-font mb-2 mb-md-0">
-              <i class="fa-solid fa-award"></i>
-              National Research University
-            </span>
+        <div class="d-flex">
+          <i
+            class="fa-solid fa-building-columns mb-2 mb-md-0 rounded-3 d-flex justify-content-center me-2 bg-light"
+          ></i>
+          <div class="d-flex flex-column justify-content-between">
+            <h2 class="mb-md-0 uni-title fw-normal">
+              {{ "section.name" | translate }}
+            </h2>
+            <div class="d-flex">
+              <span class="fw-normal shared-font me-3 mb-2 mb-md-0">
+                <i class="fa-regular fa-calendar"></i>
+                {{ "section.established" | translate }}
+              </span>
+              <span class="fw-normal shared-font mb-2 mb-md-0">
+                <i class="fa-solid fa-award"></i>
+                {{ "section.research" | translate }}
+              </span>
+            </div>
           </div>
         </div>
-        <div class="ms-md-auto ms-0 d-flex">
+        <div class="d-flex">
           <button class="setting bg-white fw-normal rounded-2 px-3 py-2 me-3">
             <i class="fa-solid fa-gear me-2"></i>
-            Setting
+            {{ "section.setting" | translate }}
           </button>
           <button class="edit-profile text-white fw-normal rounded-2 px-3 py-2">
             <i class="fa-solid fa-edit me-2"></i>
-            Edit Profile
+            {{ "section.editProfile" | translate }}
           </button>
         </div>
       </div>
+
       <div class="mt-3 analysis-1 p-3">
-        <h3 class="fw-normal">Real-time Statistics</h3>
+        <h3 class="fw-normal">
+          {{ "analysis.title" | translate }}
+        </h3>
+
         <div class="row gy-4">
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
@@ -41,44 +49,67 @@
             >
               <i class="fa-solid fa-graduation-cap mb-2"></i>
               <h4 class="analysis-1-number fw-normal mb-0">155,420</h4>
-              <p class="analysis-1-des fw-normal mb-0">Total Students</p>
-              <p class="analysis-1-ldes fw-normal mb-0">142,850 active</p>
+              <p class="analysis-1-des fw-normal mb-0">
+                {{ "analysis.students.total" | translate }}
+              </p>
+              <p class="analysis-1-ldes fw-normal mb-0">
+                {{ "analysis.students.active" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
               class="analysis-1-item p-3 d-flex flex-column justify-content-center align-items-start border border-gray border-1 rounded-4"
             >
               <i class="fa-regular fa-user mb-2"></i>
               <h4 class="analysis-1-number fw-normal mb-0">8,945</h4>
-              <p class="analysis-1-des fw-normal mb-0">Total Staff</p>
-              <p class="analysis-1-ldes fw-normal mb-0">8,720 active</p>
+              <p class="analysis-1-des fw-normal mb-0">
+                {{ "analysis.staff.total" | translate }}
+              </p>
+              <p class="analysis-1-ldes fw-normal mb-0">
+                {{ "analysis.staff.active" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
               class="analysis-1-item p-3 d-flex flex-column justify-content-center align-items-start border border-gray border-1 rounded-4"
             >
               <i class="fa-solid fa-building-columns p-0 border-0 mb-2"></i>
               <h4 class="analysis-1-number fw-normal mb-0">22</h4>
-              <p class="analysis-1-des fw-normal mb-0">Faculties</p>
-              <p class="analysis-1-ldes fw-normal mb-0">156 departments</p>
+              <p class="analysis-1-des fw-normal mb-0">
+                {{ "analysis.faculties.total" | translate }}
+              </p>
+              <p class="analysis-1-ldes fw-normal mb-0">
+                {{ "analysis.faculties.departments" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
               class="analysis-1-item p-3 d-flex flex-column justify-content-center align-items-start border border-gray border-1 rounded-4"
             >
               <i class="fa-solid fa-layer-group mb-2"></i>
               <h4 class="analysis-1-number fw-normal mb-0">487</h4>
-              <p class="analysis-1-des fw-normal mb-0">Programs</p>
-              <p class="analysis-1-ldes fw-normal mb-0">Across all faculties</p>
+              <p class="analysis-1-des fw-normal mb-0">
+                {{ "analysis.programs.total" | translate }}
+              </p>
+              <p class="analysis-1-ldes fw-normal mb-0">
+                {{ "analysis.programs.description" | translate }}
+              </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="mt-3 analysis-2 p-3">
-        <h3 class="fw-normal">Performance Indicators</h3>
+        <h3 class="fw-normal">
+          {{ "performance.title" | translate }}
+        </h3>
+
         <div class="row gy-4">
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
@@ -89,8 +120,12 @@
                   class="d-flex justify-content-center align-items-center fa-solid text-white fa-star me-2 rounded-circle p-3"
                 ></i>
                 <div class="d-flex flex-column mb-2">
-                  <h4 class="mb-0 fw-normal">Overall Score</h4>
-                  <p class="fw-normal mb-0">92.5%</p>
+                  <h4 class="mb-0 fw-normal">
+                    {{ "performance.overall.title" | translate }}
+                  </h4>
+                  <p class="fw-normal mb-0">
+                    {{ "performance.overall.value" | translate }}
+                  </p>
                 </div>
               </div>
               <div class="analysis-2-item-per-con d-inline-flex rounded-4">
@@ -98,6 +133,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
               class="analysis-2-item p-3 d-flex flex-column justify-content-start align-items-start border border-gray border-1 rounded-4"
@@ -107,8 +143,12 @@
                   class="d-flex justify-content-center align-items-center fa-solid text-white fa-graduation-cap me-2 rounded-circle p-3"
                 ></i>
                 <div class="d-flex flex-column mb-2">
-                  <h4 class="mb-0 fw-normal">Academic</h4>
-                  <p class="fw-normal mb-0">94.2%</p>
+                  <h4 class="mb-0 fw-normal">
+                    {{ "performance.academic.title" | translate }}
+                  </h4>
+                  <p class="fw-normal mb-0">
+                    {{ "performance.academic.value" | translate }}
+                  </p>
                 </div>
               </div>
               <div class="analysis-2-item-per-con d-inline-flex rounded-4">
@@ -116,6 +156,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
               class="analysis-2-item p-3 d-flex flex-column justify-content-start align-items-start border border-gray border-1 rounded-4"
@@ -125,8 +166,12 @@
                   class="d-flex justify-content-center align-items-center fa-solid text-white fa-lightbulb me-2 rounded-circle p-3"
                 ></i>
                 <div class="d-flex flex-column mb-2">
-                  <h4 class="mb-0 fw-normal">Research</h4>
-                  <p class="fw-normal mb-0">88.7%</p>
+                  <h4 class="mb-0 fw-normal">
+                    {{ "performance.research.title" | translate }}
+                  </h4>
+                  <p class="fw-normal mb-0">
+                    {{ "performance.research.value" | translate }}
+                  </p>
                 </div>
               </div>
               <div class="analysis-2-item-per-con d-inline-flex rounded-4">
@@ -134,6 +179,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div
               class="analysis-2-item p-3 d-flex flex-column justify-content-start align-items-start border border-gray border-1 rounded-4"
@@ -143,8 +189,12 @@
                   class="d-flex justify-content-center align-items-center fa-solid text-white fa-arrow-trend-up me-2 rounded-circle p-3"
                 ></i>
                 <div class="d-flex flex-column mb-2">
-                  <h4 class="mb-0 fw-normal">Employment</h4>
-                  <p class="fw-normal mb-0">95.1%</p>
+                  <h4 class="mb-0 fw-normal">
+                    {{ "performance.employment.title" | translate }}
+                  </h4>
+                  <p class="fw-normal mb-0">
+                    {{ "performance.employment.value" | translate }}
+                  </p>
                 </div>
               </div>
               <div class="analysis-2-item-per-con d-inline-flex rounded-4">
@@ -154,8 +204,12 @@
           </div>
         </div>
       </div>
+
       <div class="mt-3 analysis-3 p-3">
-        <h3 class="fw-normal">Smart Strategic Indicators</h3>
+        <h3 class="fw-normal">
+          {{ "strategic.title" | translate }}
+        </h3>
+
         <div class="row gy-4">
           <div class="col-sm-6 col-md-4 col-xl-2">
             <div
@@ -165,9 +219,12 @@
                 class="d-flex justify-content-center align-items-center fa-solid fa-users rounded-circle p-3"
               ></i>
               <h4 class="mb-0 fw-normal">17.4</h4>
-              <p class="fw-normal mb-0">Student/Staff Ratio</p>
+              <p class="fw-normal mb-0">
+                {{ "strategic.studentStaffRatio" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-xl-2">
             <div
               class="analysis-3-item p-3 d-flex flex-column justify-content-center align-items-center border border-gray border-1 rounded-4"
@@ -176,9 +233,12 @@
                 class="d-flex justify-content-center align-items-center fa-solid fa-dollar-sign rounded-circle p-3"
               ></i>
               <h4 class="mb-0 fw-normal">17.4</h4>
-              <p class="fw-normal mb-0">Student/Staff Ratio</p>
+              <p class="fw-normal mb-0">
+                {{ "strategic.fundingPerStudent" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-xl-2">
             <div
               class="analysis-3-item p-3 d-flex flex-column justify-content-center align-items-center border border-gray border-1 rounded-4"
@@ -187,9 +247,12 @@
                 class="d-flex justify-content-center align-items-center fa-solid fa-award rounded-circle p-3"
               ></i>
               <h4 class="mb-0 fw-normal">87.3%</h4>
-              <p class="fw-normal mb-0">Graduation Rate</p>
+              <p class="fw-normal mb-0">
+                {{ "strategic.graduationRate" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-xl-2">
             <div
               class="analysis-3-item p-3 d-flex flex-column justify-content-center align-items-center border border-gray border-1 rounded-4"
@@ -198,9 +261,12 @@
                 class="d-flex justify-content-center align-items-center fa-solid fa-user-check rounded-circle p-3"
               ></i>
               <h4 class="mb-0 fw-normal">82.5%</h4>
-              <p class="fw-normal mb-0">Employment Rate</p>
+              <p class="fw-normal mb-0">
+                {{ "strategic.employmentRate" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-xl-2">
             <div
               class="analysis-3-item p-3 d-flex flex-column justify-content-center align-items-center border border-gray border-1 rounded-4"
@@ -209,9 +275,12 @@
                 class="d-flex justify-content-center align-items-center fa-solid fa-lightbulb rounded-circle p-3"
               ></i>
               <h4 class="mb-0 fw-normal">1247</h4>
-              <p class="fw-normal mb-0">Research Output</p>
+              <p class="fw-normal mb-0">
+                {{ "strategic.researchOutput" | translate }}
+              </p>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4 col-xl-2">
             <div
               class="analysis-3-item p-3 d-flex flex-column justify-content-center align-items-center border border-gray border-1 rounded-4"
@@ -220,7 +289,9 @@
                 class="d-flex justify-content-center align-items-center fa-solid fa-globe rounded-circle p-3"
               ></i>
               <h4 class="mb-0 fw-normal">4.2%</h4>
-              <p class="fw-normal mb-0">International</p>
+              <p class="fw-normal mb-0">
+                {{ "strategic.internationalPresence" | translate }}
+              </p>
             </div>
           </div>
         </div>
@@ -236,20 +307,24 @@
       class="sec-2-header py-3 d-flex flex-column flex-md-row align-items-md-center justify-content-md-between justify-content-start"
     >
       <div class="d-flex flex-column">
-        <h2 class="fw-normal mb-md-0 mb-1">Organizational Structure</h2>
+        <h2 class="fw-normal mb-md-0 mb-1">
+          {{ "org.title" | translate }}
+        </h2>
         <p class="fw-normal mb-md-0 mb-1">
-          Manage and customize your organizational sub-units
+          {{ "org.subtitle" | translate }}
         </p>
       </div>
+
       <button
         class="new-unit me-auto me-md-0 text-white fw-normal rounded-2 px-3 py-2"
         data-bs-toggle="modal"
         data-bs-target="#addFaculty"
       >
         <i class="fa-solid fa-plus me-2"></i>
-        Add New Unit
+        {{ "org.addNewUnit" | translate }}
       </button>
     </div>
+
     <div class="row gy-4 faculties my-3">
       <div class="col-lg-4 col-md-6">
         <div
@@ -261,46 +336,63 @@
             ></i>
             <span
               class="rounded-2 border border-1 border-gray name align-self-start px-3"
-              >Faculty</span
             >
+              {{ "faculty.label" | translate }}
+            </span>
           </div>
+
           <div class="faculty-des my-3">
-            <h3 class="fw-normal faculty-des-name">Faculty of Engineering</h3>
+            <h3 class="fw-normal faculty-des-name">
+              {{ "faculty.name" | translate }}
+            </h3>
             <p class="fw-normal faculty-des-description">
-              Leading engineering education and research in Egypt
+              {{ "faculty.description" | translate }}
             </p>
           </div>
+
           <div class="d-flex flex-column my-3">
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Head</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty.head.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
-                Prof. Ahmed Hassan
+                {{ "faculty.head.name" | translate }}
               </span>
             </div>
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Staff</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty.staff.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
                 <i class="far fa-user me-1"></i>
-                456
+                {{ "faculty.staff.count" | translate }}
               </span>
             </div>
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Students</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty.students.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
                 <i class="fas fa-graduation-cap me-1"></i>
-                12,450
+                {{ "faculty.students.count" | translate }}
               </span>
             </div>
           </div>
+
           <div class="faculty-item-analysis py-2">
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Performance</span>
-              <span class="ms-auto detail-2 fw-normal"> 94.5% </span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty.performance.label" | translate }}
+              </span>
+              <span class="ms-auto detail-2 fw-normal">
+                {{ "faculty.performance.value" | translate }}
+              </span>
             </div>
             <div class="percentage w-100 rounded-5">
               <div class="eng rounded-5 h-100"></div>
             </div>
           </div>
+
           <div class="d-flex justify-content-between buttons my-3">
             <button
               type="button"
@@ -308,11 +400,11 @@
               routerLink="faculty"
             >
               <i class="fa-solid fa-eye"></i>
-              Dashboard
+              {{ "faculty.dashboard" | translate }}
             </button>
             <button type="button" class="edit fw-normal rounded-3 px-4">
               <i class="fa-solid fa-edit"></i>
-              Edit
+              {{ "faculty.edit" | translate }}
             </button>
           </div>
         </div>
@@ -327,58 +419,76 @@
             ></i>
             <span
               class="rounded-2 border border-1 border-gray name align-self-start px-3"
-              >Faculty</span
             >
+              {{ "faculty_med.label" | translate }}
+            </span>
           </div>
+
           <div class="faculty-des my-3">
-            <h3 class="fw-normal faculty-des-name">Faculty of Medicine</h3>
+            <h3 class="fw-normal faculty-des-name">
+              {{ "faculty_med.name" | translate }}
+            </h3>
             <p class="fw-normal faculty-des-description">
-              Premier medical education and healthcare services
+              {{ "faculty_med.description" | translate }}
             </p>
           </div>
+
           <div class="d-flex flex-column my-3">
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Head</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_med.head.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
-                Prof. Fatima Khalil
+                {{ "faculty_med.head.name" | translate }}
               </span>
             </div>
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Staff</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_med.staff.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
                 <i class="far fa-user me-1"></i>
-                892
+                {{ "faculty_med.staff.count" | translate }}
               </span>
             </div>
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Students</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_med.students.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
                 <i class="fas fa-graduation-cap me-1"></i>
-                8,920
+                {{ "faculty_med.students.count" | translate }}
               </span>
             </div>
           </div>
+
           <div class="faculty-item-analysis py-2">
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Performance</span>
-              <span class="ms-auto detail-2 fw-normal"> 96.2% </span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_med.performance.label" | translate }}
+              </span>
+              <span class="ms-auto detail-2 fw-normal">
+                {{ "faculty_med.performance.value" | translate }}
+              </span>
             </div>
             <div class="percentage w-100 rounded-5">
               <div class="med rounded-5 h-100"></div>
             </div>
           </div>
+
           <div class="d-flex justify-content-between buttons my-3">
             <button type="button" class="dashboard fw-normal rounded-3 px-4">
               <i class="fa-solid fa-eye"></i>
-              Dashboard
+              {{ "faculty_med.dashboard" | translate }}
             </button>
             <button type="button" class="edit fw-normal rounded-3 px-4">
               <i class="fa-solid fa-edit"></i>
-              Edit
+              {{ "faculty_med.edit" | translate }}
             </button>
           </div>
         </div>
       </div>
+
       <div class="col-lg-4 col-md-6">
         <div
           class="faculty-item px-3 py-3 rounded-4 border-1 border border-gray"
@@ -389,52 +499,71 @@
             ></i>
             <span
               class="rounded-2 border border-1 border-gray name align-self-start px-3"
-              >Faculty</span
             >
+              {{ "faculty_sci.label" | translate }}
+            </span>
           </div>
+
           <div class="faculty-des my-3">
-            <h3 class="fw-normal faculty-des-name">Faculty of Science</h3>
+            <h3 class="fw-normal faculty-des-name">
+              {{ "faculty_sci.name" | translate }}
+            </h3>
             <p class="fw-normal faculty-des-description">
-              Excellence in scientific research and education
+              {{ "faculty_sci.description" | translate }}
             </p>
           </div>
+
           <div class="d-flex flex-column my-3">
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Head</span>
-              <span class="ms-auto detail-2 fw-normal"> Dr. Omar Ibrahim </span>
-            </div>
-            <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Staff</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_sci.head.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
-                <i class="far fa-user me-1"></i>
-                398
+                {{ "faculty_sci.head.name" | translate }}
               </span>
             </div>
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Students</span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_sci.staff.label" | translate }}
+              </span>
+              <span class="ms-auto detail-2 fw-normal">
+                <i class="far fa-user me-1"></i>
+                {{ "faculty_sci.staff.count" | translate }}
+              </span>
+            </div>
+            <div class="mb-2 d-flex">
+              <span class="detail-1 fw-normal">
+                {{ "faculty_sci.students.label" | translate }}
+              </span>
               <span class="ms-auto detail-2 fw-normal">
                 <i class="fas fa-graduation-cap me-1"></i>
-                15,670
+                {{ "faculty_sci.students.count" | translate }}
               </span>
             </div>
           </div>
+
           <div class="faculty-item-analysis py-2">
             <div class="mb-2 d-flex">
-              <span class="detail-1 fw-normal">Performance</span>
-              <span class="ms-auto detail-2 fw-normal"> 91.8% </span>
+              <span class="detail-1 fw-normal">
+                {{ "faculty_sci.performance.label" | translate }}
+              </span>
+              <span class="ms-auto detail-2 fw-normal">
+                {{ "faculty_sci.performance.value" | translate }}
+              </span>
             </div>
             <div class="percentage w-100 rounded-5">
               <div class="sc rounded-5 h-100"></div>
             </div>
           </div>
+
           <div class="d-flex justify-content-between buttons my-3">
             <button type="button" class="dashboard fw-normal rounded-3 px-4">
               <i class="fa-solid fa-eye"></i>
-              Dashboard
+              {{ "faculty_sci.dashboard" | translate }}
             </button>
             <button type="button" class="edit fw-normal rounded-3 px-4">
               <i class="fa-solid fa-edit"></i>
-              Edit
+              {{ "faculty_sci.edit" | translate }}
             </button>
           </div>
         </div>
