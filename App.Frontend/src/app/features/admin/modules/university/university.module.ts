@@ -11,7 +11,7 @@ import { UniversityRoutingModule } from './university-routing.module';
   imports: [
     CommonModule,
     UniversityRoutingModule,
-    AppTranslateModule.forChild('admin/university.json'),
+    AppTranslateModule.forChild('/admin/university.json'),
   ],
 })
 export class UniversityModule {
