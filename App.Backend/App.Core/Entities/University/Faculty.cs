@@ -13,4 +13,5 @@ public class Faculty
     public int UniversityId { get; set; }
     public University University { get; set; } = default!;
     public ICollection<ApplicationUser> Users { get; set; } = new HashSet<ApplicationUser>();
+    public ICollection<Department> Departments { get; set; } = new HashSet<Department>();
 }
