@@ -8,5 +8,6 @@ public record FacultyResponse
     string Address,
     string Email,
     string Website,
-    bool IsDeleted
+    bool IsDeleted,
+    int NumberOfStudents
 );

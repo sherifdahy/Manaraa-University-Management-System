@@ -1,4 +1,6 @@
-﻿namespace App.Core.Entities.University;
+﻿using App.Core.Entities.Identity;
+
+namespace App.Core.Entities.University;
 public class University
 {
     public int Id { get; set; }
@@ -9,4 +11,5 @@ public class University
     public string Website { get; set; } = string.Empty;
     public bool IsDeleted { get; set; }
     public ICollection<Faculty> Faculties { get; set; } = new HashSet<Faculty>();
+    public ICollection<ApplicationUser> Users { get; set; } = new HashSet<ApplicationUser>();
 }

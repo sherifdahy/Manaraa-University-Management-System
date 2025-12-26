@@ -1,5 +1,6 @@
 ﻿using App.Core.Entities;
 using App.Core.Entities.Identity;
+using App.Core.Entities.Personnel;
 using App.Core.Entities.University;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,Applicatio
     // bussiness logic
     public DbSet<University> Universities { get; set; }
     public DbSet<Faculty> Faculties{ get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<Program> Programs { get; set; }
+    public DbSet<Subject> Subjects { get; set; }
+    public DbSet<Student> Students { get; set; }
 
     #endregion
 
