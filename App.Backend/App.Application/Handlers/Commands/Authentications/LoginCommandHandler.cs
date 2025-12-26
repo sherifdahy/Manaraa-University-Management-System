@@ -37,7 +37,7 @@ public class LoginCommandHandler(UserManager<ApplicationUser> userManager
             await _userManager.UpdateAsync(user);
 
             var response = new AuthenticationResponse(user.Id, user.Email, user.FirstName, user.LastName
-                , token, expiresIn, refreshToken, refreshTokenExpiration);
+                , token, expiresIn, refreshToken, refreshTokenExpiration,user.UniversityId,user.FacultyId);
 
             return Result.Success<AuthenticationResponse>(response);
         }
